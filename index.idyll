@@ -94,53 +94,140 @@ Overview of steps
 10. Calculate land use metrics
 
 
-[var name:"selectedSteps" value:"static/images/Steps/Step1.png" /]
+[var name:"selectedSteps" value: 1 /]
 Explore: [Select value:selectedSteps
   options:`[
-    {value:"static/images/Steps/Step1.png", label: "Step 1"},
-    {value:"static/images/Steps/Step2.png", label: "Step 2"},
-    {value:"static/images/Steps/Step3.png", label: "Step 3"},
-    {value:"static/images/Steps/Step4.png", label: "Step 4"},
-    {value:"static/images/Steps/Step6.png", label: "Step 5"},
-    {value:"static/images/Steps/Step7.png", label: "Step 6"},
-    {value:"static/images/Steps/Step8.png", label: "Step 7"},
-    {value:"static/images/Steps/Step8.png", label: "Step 8"},
-    {value:"static/images/Steps/Step9.png", label: "Step 9"},
-    {value:"static/images/Steps/Step10.png", label: "Step 10"}
+    {value: 1,  label: "Step 1"},
+    {value: 2,  label: "Step 2"},
+    {value: 3,  label: "Step 3"},
+    {value: 4,  label: "Step 4"},
+    {value: 5,  label: "Step 5"},
+    {value: 6,  label: "Step 6"},
+    {value: 7,  label: "Step 7"},
+    {value: 8,  label: "Step 8"},
+    {value: 9,  label: "Step 9"},
+    {value: 10, label: "Step 10"}
   ]`
 /]
 
-[img src: selectedSteps /]
+[img src:` "static/images/Steps/Step" + selectedSteps + ".png" `/]
 
-[Conditional if:`selectedSteps === "static/images/Steps/Step1.png"`]
-  First we audit existing urban land features (e.g. residential and commercial/industrial buildings) and non-urban land features (e.g. green space and habitats). We plot these features on a grid cell instead of administrative boundaries that can vary in shape and size.
+[Conditional if:`selectedSteps === 1`]
+
+  First we audit existing urban land features (e.g. residential and
+  commercial/industrial buildings) and non-urban land features (e.g. green
+  space and habitats). We plot these features on a grid cell instead of
+  administrative boundaries that can vary in shape and size.
+
 [/Conditional]
-[Conditional if:`selectedSteps === "static/images/Steps/Step2.png"`]
-  Based on the urban land features associated with building types, we calculate the density per grid cell. Areas with more dwellings will have a higher density. This is represented by the blue cells, where the darker blue represents a higher density; the lighter blue the lower density.
+[Conditional if:`selectedSteps === 2`]
+
+  Based on the urban land features associated with building types, we calculate
+  the density per grid cell. Areas with more dwellings will have a higher
+  density. This is represented by the blue cells, where the darker blue
+  represents a higher density; the lighter blue the lower density.
+
 [/Conditional]
-[Conditional if:`selectedSteps === "static/images/Steps/Step3.png"`]
-  Based on the non-urban land features associated with nature and habitats, we calculate the value of each respective natural capital based on the ecosystem services needed to help maintain that natural capital. For example, a verge by the side of the road has value for ecosystem services like flood protection, air quality, and recreation or exercise. This is represented by the green cells, where the darker green represents more ecosystem services; the lighter green the less ecosystem services.
+[Conditional if:`selectedSteps === 3`]
+
+  Based on the non-urban land features associated with nature and habitats, we
+  calculate the value of each respective natural capital based on the ecosystem
+  services needed to help maintain that natural capital. For example, a verge
+  by the side of the road has value for ecosystem services like flood
+  protection, air quality, and recreation or exercise. This is represented by
+  the green cells, where the darker green represents more ecosystem services;
+  the lighter green the less ecosystem services.
+
 [/Conditional]
-[Conditional if:`selectedSteps === "static/images/Steps/Step4.png"`]
-  Once we have an ideaa of the current built and natural environment, we can start to identify constaints. Constraints are the limiting factors to urban development such as historical sites or the desire to preserve green space. While it's great to have aspirations for growth, people also value the protection of nature and wildlife and other considerations for development. Therefore in this step we identify those constraints and then 'block off' cells in the grid where we don't want to build. This is represented by the grey cells, where we mark an 'x' on the areas where we want to protext existing land use.
+[Conditional if:`selectedSteps === 4`]
+
+  Once we have an ideaa of the current built and natural environment, we can
+  start to identify constaints. Constraints are the limiting factors to urban
+  development such as historical sites or the desire to preserve green space.
+  While it's great to have aspirations for growth, people also value the
+  protection of nature and wildlife and other considerations for development.
+  Therefore in this step we identify those constraints and then 'block off'
+  cells in the grid where we don't want to build. This is represented by the
+  grey cells, where we mark an 'x' on the areas where we want to protext
+  existing land use.
+
 [/Conditional]
-[Conditional if:`selectedSteps === "static/images/Steps/Step5.png"`]
-  The rest of the steps shift focus to future land use projections based on policy plans. We layer on plans for new developments where there is a location in place so that we can can test our assumptions. This includes things like new rail stations, road nodes, settlement centres, etc. But we don't include individual homes just yet because we only know the total number of dwellings for each scenario but not where they will be distributed. The location of the new rail and roads are now added to the grid cell.
+[Conditional if:`selectedSteps === 5`]
+
+  The rest of the steps shift focus to future land use projections based on
+  policy plans. We layer on plans for new developments where there is a
+  location in place so that we can can test our assumptions. This includes
+  things like new rail stations, road nodes, settlement centres, etc. But we
+  don't include individual homes just yet because we only know the total number
+  of dwellings for each scenario but not where they will be distributed. The
+  location of the new rail and roads are now added to the grid cell.
+
 [/Conditional]
-[Conditional if:`selectedSteps === "static/images/Steps/Step6.png"`]
-  Before we can simulate where in the Arc people will migrate to, we need to find out the areas best suitable for living. In this step we answer the question, what will attract people to the Arc, and for each attracting factor, what 'weight' or level of attraction would we assign it? Examples of attractors include proximity to employment or proximity to green space. Attractors can vary based what people value. Therefore this process requires talking to stakeholders to understand want we might want to evaluate (e.g. how far is each location from jobs in the area?). Each cell now gets assigned a value of attractiveness. For example promixity to railway stations may result in a high attractiveness score for the cells in the area. This is represented by the yellow cells, where the darker yellow represents high levels of attraction; the lighter yellow the less attraction.
+[Conditional if:`selectedSteps === 6`]
+
+  Before we can simulate where in the Arc people will migrate to, we need to
+  find out the areas best suitable for living. In this step we answer the
+  question, what will attract people to the Arc, and for each attracting
+  factor, what 'weight' or level of attraction would we assign it? Examples of
+  attractors include proximity to employment or proximity to green space.
+  Attractors can vary based what people value. Therefore this process requires
+  talking to stakeholders to understand want we might want to evaluate (e.g.
+  how far is each location from jobs in the area?). Each cell now gets assigned
+  a value of attractiveness. For example promixity to railway stations may
+  result in a high attractiveness score for the cells in the area. This is
+  represented by the yellow cells, where the darker yellow represents high
+  levels of attraction; the lighter yellow the less attraction.
+
 [/Conditional]
-[Conditional if:`selectedSteps === "static/images/Steps/Step7.png"`]
-  This step combines the previous two steps of attractors and constraints to assess whether we should or should not build on a specific cell, and which to prioritize? This measure of suitability considers the weight of each attractor in step 5, and blocks off cells with constraints in step 6. The outcome is a score for each grid cell. If a cell is constrained in any way it is considered land unsuitable for development and gets a value of 0 (left empty). The rest of the cells follow the same pattern as step 5 represented by the yellow cells, where the darker yellow represents high levels of attraction; the lighter yellow the less attraction.
+[Conditional if:`selectedSteps === 7`]
+
+  This step combines the previous two steps of attractors and constraints to
+  assess whether we should or should not build on a specific cell, and which to
+  prioritize? This measure of suitability considers the weight of each
+  attractor in step 5, and blocks off cells with constraints in step 6. The
+  outcome is a score for each grid cell. If a cell is constrained in any way it
+  is considered land unsuitable for development and gets a value of 0 (left
+  empty). The rest of the cells follow the same pattern as step 5 represented
+  by the yellow cells, where the darker yellow represents high levels of
+  attraction; the lighter yellow the less attraction.
+
 [/Conditional]
-[Conditional if:`selectedSteps === "static/images/Steps/Step8.png"`]
-  Now that we know which cells to prioritize for development, we can figure out how much we can actually build. In this step we assign different options based on how many people can "fit" into undeveloped land, based on proximity to urban centers or public transport. This is about making zoning decisions for where people will live. In reality this tends to result in hotspots around town centers and business districts with high density. the further from the hotspot, the less density and less dwellings we can anticipate. This is represented by the red cells, where the darker the red the more dwellings we can perceivably build; the lighter red the less we build.
+[Conditional if:`selectedSteps === 8`]
+
+  Now that we know which cells to prioritize for development, we can figure out
+  how much we can actually build. In this step we assign different options
+  based on how many people can "fit" into undeveloped land, based on proximity
+  to urban centers or public transport. This is about making zoning decisions
+  for where people will live. In reality this tends to result in hotspots
+  around town centers and business districts with high density. the further
+  from the hotspot, the less density and less dwellings we can anticipate. This
+  is represented by the red cells, where the darker the red the more dwellings
+  we can perceivably build; the lighter red the less we build.
+
 [/Conditional]
-[Conditional if:`selectedSteps === "static/images/Steps/Step9.png"`]
-  We run the UDM model to allocate future development at the identified densities to the most suitable areas first. Given all the assumptions made (how many people we want to move, where they might live, how many people can actually fit in each grid cell of land), the result is a prediction for where development will actually take place. This produces a map where each cell grid of land represents future development with current development overlayed. We predict where new homes will be built as they correspond will the hotspots of density in the previous grid.
+[Conditional if:`selectedSteps === 9`]
+
+  We run the UDM model to allocate future development at the identified
+  densities to the most suitable areas first. Given all the assumptions made
+  (how many people we want to move, where they might live, how many people can
+  actually fit in each grid cell of land), the result is a prediction for where
+  development will actually take place. This produces a map where each cell
+  grid of land represents future development with current development
+  overlayed. We predict where new homes will be built as they correspond will
+  the hotspots of density in the previous grid.
+
 [/Conditional]
-[Conditional if:`selectedSteps === "static/images/Steps/Step10.png"`]
-  The final step is more about the translation of results into summary metrics (e.g. how much land is used, ecosystems services lost, access to employment gained, etc) in a way that helps government authorities and planners make decisions. We've assumed that we will develop x amount of land in y places of the cell grid, so what are the impacts of the development? What trade-off conversations do we now need to have? Have we ended up building on most of the plains? Is there a spawling effect? This is represented by replaced the cell grids with administrative boundaries that map to different policy areas.
+[Conditional if:`selectedSteps === 10`]
+
+  The final step is more about the translation of results into summary metrics
+  (e.g. how much land is used, ecosystems services lost, access to employment
+  gained, etc) in a way that helps government authorities and planners make
+  decisions. We've assumed that we will develop x amount of land in y places of
+  the cell grid, so what are the impacts of the development? What trade-off
+  conversations do we now need to have? Have we ended up building on most of
+  the plains? Is there a spawling effect? This is represented by replaced the
+  cell grids with administrative boundaries that map to different policy areas.
+
 [/Conditional]
 
 ## Applying Urban Modelling to the Arc Scenarios
