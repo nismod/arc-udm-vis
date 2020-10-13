@@ -14,7 +14,15 @@
 [/div]
 
 ## What is the Oxford Cambridge Arc?
-The Oxford Cambridge Arc in a region in south central England that runs between Oxford and Cambridge via Milton Keynes and four major settlements including Cambridgeshire, Bedfordshire, Buckinghamshire and Oxfordshire. The Arc area contains some of the fastest growing and most productive towns and cities in the UK. It is home to 3.7 million people, generating over 2 million jobs and contributing over £110 billion of annual Gross Value Added (GVA) to the UK economy per year. Explore the map below to see some of the boundaries and transportataion across the Arc area.
+
+The Oxford Cambridge Arc in a region in south central England that runs between
+Oxford and Cambridge via Milton Keynes and four major settlements including
+Cambridgeshire, Bedfordshire, Buckinghamshire and Oxfordshire. The Arc area
+contains some of the fastest growing and most productive towns and cities in
+the UK. It is home to 3.7 million people, generating over 2 million jobs and
+contributing over £110 billion of annual Gross Value Added (GVA) to the UK
+economy per year. Explore the map below to see some of the boundaries and
+transportataion across the Arc area.
 
 [var name:"selectedBoundaries" value:"county" /]
 Boundary: [Select value:selectedBoundaries
@@ -51,7 +59,17 @@ Density: [Select value:selectedDensity
 [/div]
 
 ## Future Development Scenarios
-A report published in 2018 by the National Infrastructure Commission outlined substantial plans to increase access and connectivity to the Arc area by 2050. The Arc vision includes one million new homes across the Arc, an east-west Expressway road, and improvements to rail routes connecting Oxford, Milton Keynes Bedford and Cambridge. Yet there are many options and trade-offs that need to be considered. In order to assess possible futures, four scenarios for the Arc were identified: Baseline, Unplanned, Expansion, and New Settlements. These scenarios represent future changes to the population, homes built, location of homes, preservation of nature, density of land, and additional factors.
+
+A report published in 2018 by the National Infrastructure Commission outlined
+substantial plans to increase access and connectivity to the Arc area by 2050.
+The Arc vision includes one million new homes across the Arc, an east-west
+Expressway road, and improvements to rail routes connecting Oxford, Milton
+Keynes Bedford and Cambridge. Yet there are many options and trade-offs that
+need to be considered. In order to assess possible futures, four scenarios for
+the Arc were identified: Baseline, Unplanned, Expansion, and New Settlements.
+These scenarios represent future changes to the population, homes built,
+location of homes, preservation of nature, density of land, and additional
+factors.
 
 [var name:"selectedScenario" value:"static/images/Scenarios/Baseline.png" /]
 Scenario: [Select value: selectedScenario
@@ -66,20 +84,58 @@ Scenario: [Select value: selectedScenario
 [img src: selectedScenario /]
 
 [Conditional if:`selectedScenario === "static/images/Scenarios/Baseline.png"`]
-  In the **baseline scenario** development will be similar to what it is today. Population will be based on recent growth rates and housing on recent average dwelling completion rates. For transport there will be no new expressway or East West Rail.
+
+  In the **baseline scenario** development will be similar to what it is today.
+  Population will be based on recent growth rates and housing on recent average
+  dwelling completion rates. For transport there will be no new expressway or
+  East West Rail.
+
 [/Conditional]
 [Conditional if:`selectedScenario === "static/images/Scenarios/Unplanned.png"`]
-  In the **unplanneed scenario** there is no overall spatial vision. Population will increase marginally due to migration from increased employment near new transport links. However housing will develop in an ad-hoc manner — larger homes, more land take, dispersed. Both the Express Way and the East West rail link will be developed resulting in an increase in emissions due to private transport use and congestion.
+
+  In the **unplanneed scenario** there is no overall spatial vision. Population
+  will increase marginally due to migration from increased employment near new
+  transport links. However housing will develop in an ad-hoc manner — larger
+  homes, more land take, dispersed. Both the Express Way and the East West rail
+  link will be developed resulting in an increase in emissions due to private
+  transport use and congestion.
+
 [/Conditional]
 [Conditional if:`selectedScenario === "static/images/Scenarios/NewSettlements.png"`]
-  In the **new settlments scenario** new cities will emerge. As a result, population will increase due to inward migration. Housing will be concentrated around existing cities with major growth in five new urban conurbations (clusters of smaller cities). Smaller, more efficient homes, optimal density. Both the Express Way and the East West rail link will be developed but compared to the unplanned scenario there will be lower air pollution due to decrease in private transport use, less congestion, and increase in active transport.
+
+  In the **new settlments scenario** new cities will emerge. As a result,
+  population will increase due to inward migration. Housing will be
+  concentrated around existing cities with major growth in five new urban
+  conurbations (clusters of smaller cities). Smaller, more efficient homes,
+  optimal density. Both the Express Way and the East West rail link will be
+  developed but compared to the unplanned scenario there will be lower air
+  pollution due to decrease in private transport use, less congestion, and
+  increase in active transport.
+
 [/Conditional]
 [Conditional if:`selectedScenario === "static/images/Scenarios/Expansion.png"`]
-  In the **expansion scenario** existing cities will expand with high levels of population growth expected due to inward migration. Major growth will happen around existing urban centres with new dwellings divided among the major conurbations. Extensive new developments will occur on brown and greenbelt land, along with ongoing renovation/redevelopment of existing building stock. Good intra-city transport systems will be built with both the Express Way and the East West rail link developed. Despite development, there will be lower air pollution compared to the unplanned scenario due to adoption of EVs, public transport and decrease in private transport use, but high congestion.
+
+  In the **expansion scenario** existing cities will expand with high levels of
+  population growth expected due to inward migration. Major growth will happen
+  around existing urban centres with new dwellings divided among the major
+  conurbations. Extensive new developments will occur on brown and greenbelt
+  land, along with ongoing renovation/redevelopment of existing building stock.
+  Good intra-city transport systems will be built with both the Express Way and
+  the East West rail link developed. Despite development, there will be lower
+  air pollution compared to the unplanned scenario due to adoption of EVs,
+  public transport and decrease in private transport use, but high congestion.
+
 [/Conditional]
 
 ## The Urban Modelling Process
-Using the future scenarios as a starting point, we can start to test out the theories and assumptions made through computer-based simulations. While we can't fully capture every nuance about the future built environment, analyzing and visualising the trade-offs can help planners and policy-makers make informed decisions. One of the modals used to assess the Arc is called the Urban Development Model (UDM). We will take a brief moment to explain the general process of the UDM before showing the results applied to the Arc.
+
+Using the future scenarios as a starting point, we can start to test out the
+theories and assumptions made through computer-based simulations. While we
+can't fully capture every nuance about the future built environment, analyzing
+and visualising the trade-offs can help planners and policy-makers make
+informed decisions. One of the modals used to assess the Arc is called the
+Urban Development Model (UDM). We will take a brief moment to explain the
+general process of the UDM before showing the results applied to the Arc.
 
 Overview of steps
 1. Identify elements of the built and natural environment
@@ -231,7 +287,11 @@ Explore: [Select value:selectedSteps
 [/Conditional]
 
 ## Applying Urban Modelling to the Arc Scenarios
-Now that we have an understanding of the urban modelling process, let's look at how it was applied to the Arc. We will go through the process one step at a time. For each step we will compare results at three different scales (Arc, city,  neighbourhood) in order to compare both the bigger picture and details.
+
+Now that we have an understanding of the urban modelling process, let's look at
+how it was applied to the Arc. We will go through the process one step at a
+time. For each step we will compare results at three different scales (Arc,
+city, neighbourhood) in order to compare both the bigger picture and details.
 
 ###Step 1: Elements of the built environment
 
@@ -262,7 +322,9 @@ Scale: [Select value:selectedZoom2
 
 [img src: selectedZoom2 /]
 
-Areas with more dwellings will have a higher density. This is represented by the blue cells, where the darker blue represents a higher density; the lighter blue the lower density.
+Areas with more dwellings will have a higher density. This is represented by
+the blue cells, where the darker blue represents a higher density; the lighter
+blue the lower density.
 
 
 ###Step 3: Ecosystem services in the Arc
@@ -287,7 +349,10 @@ Scale: [Select value: selectedZoom3
 
 [img src: `"./static/images/Step3/" + selectedZoom3 + "_" + selectedService + ".png"` /]
 
-Aspects of natural capital in the Arc include parks, grasslands, woodlands, verges, and any other aspect of green space, land uses, and habitats. The darker green represents more ecosystem services; the lighter green the less ecosystem services.
+Aspects of natural capital in the Arc include parks, grasslands, woodlands,
+verges, and any other aspect of green space, land uses, and habitats. The
+darker green represents more ecosystem services; the lighter green the less
+ecosystem services.
 
 ###Step 4: Identify constraints
 
@@ -315,7 +380,9 @@ Scale: [Select value: selectedZoom4
 
 [img src: `"./static/images/Step4/" + selectedZoom4 + "_" + selectedConstraints + ".png"` /]
 
-While it’s great to have aspirations for growth, it's important to set constraints to protect nature, wildlife historical landmarks, etc. We "block off" these areas from development.
+While it’s great to have aspirations for growth, it's important to set
+constraints to protect nature, wildlife historical landmarks, etc. We "block
+off" these areas from development.
 
 ###Step 5: Identifying future built environment features
 
@@ -331,7 +398,12 @@ Transport: [Select value:selectedFutureTransport
 
 [ArcFuture selectedFutureTransport:selectedFutureTransport /]
 
-Improvements to the transport links between Oxford and Cambridge are a key aspect of the future vision for the Arc. Future plans include a new expressway and East West Rail (EWR) will link Oxford and Cambridge. While the baseline scenario would not see any changes, the other scenarios would have rail stations and road nodes. New settlements would also include new settlement centres.
+Improvements to the transport links between Oxford and Cambridge are a key
+aspect of the future vision for the Arc. Future plans include a new expressway
+and East West Rail (EWR) will link Oxford and Cambridge. While the baseline
+scenario would not see any changes, the other scenarios would have rail
+stations and road nodes. New settlements would also include new settlement
+centres.
 
 ###Step 6. Calculate attractiveness scores
 
@@ -357,7 +429,9 @@ Scale: [Select value: selectedZoom6
 
 [img src: `"./static/images/Step6/" + selectedZoom6 + "_" + selectedAttractors + ".png"` /]
 
-Attractors are things that will drive more people in to the Arc. Such attractors could include information on the performance of local schools, local accessibility (distance) to shops, services or transport hubs.
+Attractors are things that will drive more people in to the Arc. Such
+attractors could include information on the performance of local schools, local
+accessibility (distance) to shops, services or transport hubs.
 
 ###Step 7. Suitability of land for development
 
@@ -372,7 +446,11 @@ Scale: [Select value:selectedZoom7
 
 [img src: selectedZoom7 /]
 
-Based on the weighing of both the attractors and contraints, the output of the UDM is a combined set of development suitability scores based on selected spatial scenarios and the combination of attractors and constraints defined. Each set of scores can then be represented as colours and displayed on a map to show the changing patterns of land from a birds-eye-view lens.
+Based on the weighing of both the attractors and contraints, the output of the
+UDM is a combined set of development suitability scores based on selected
+spatial scenarios and the combination of attractors and constraints defined.
+Each set of scores can then be represented as colours and displayed on a map to
+show the changing patterns of land from a birds-eye-view lens.
 
 ###Step 8. Future dwelling density
 
@@ -387,7 +465,12 @@ Scale: [Select value:selectedZoom8
 
 [img src: selectedZoom8 /]
 
-What's the required population density for new development? (in people per hectare) This assessment determines the levels of population migration to and within the Arc, given the relative attractiveness of different locations. We will focus on one planning scenario. Then step 9, we just look at the small bit of suitable area. Follow same pattern as attractors and constraints. Might just be two scenarios. Maybe a different colour.
+What's the required population density for new development? (in people per
+hectare) This assessment determines the levels of population migration to and
+within the Arc, given the relative attractiveness of different locations. We
+will focus on one planning scenario. Then step 9, we just look at the small bit
+of suitable area. Follow same pattern as attractors and constraints. Might just
+be two scenarios. Maybe a different colour.
 
 ###Step 9. Future development
 
@@ -402,7 +485,10 @@ Scale: [Select value:selectedZoom9
 
 [img src: selectedZoom9 /]
 
-What's the required population density for new development? (in people per hectare) This assessment determines the levels of population migration to and within the Arc, given the relative attractiveness of different locations. We will focus on one planning scenario.
+What's the required population density for new development? (in people per
+hectare) This assessment determines the levels of population migration to and
+within the Arc, given the relative attractiveness of different locations. We
+will focus on one planning scenario.
 
 ###Step 10. Land use metrics
 
@@ -417,8 +503,14 @@ Scale: [Select value:selectedZoom10
 
 [img src: selectedZoom10 /]
 
-The final map shows the summary level selects (as opposed to grid level). Data based on the boundaries people care about like LAD. Here you can get some numbers about 9. Compare contrast between scenarios.
+The final map shows the summary level selects (as opposed to grid level). Data
+based on the boundaries people care about like LAD. Here you can get some
+numbers about 9. Compare contrast between scenarios.
 
 
 ## Conclusion
-This is small part of a larger initiative of the UK Infrastructure Transitions Research Consortium (ITRC) and (ATI) to inform the analysis, planning and design of resilient national, regional and local infrastructures (NI) across the world.
+
+This work has been carried out by researchers at the University of Oxford and
+Newcastle University in the UK, funded by the Alan Turing Institute (ATI), to
+inform the analysis, planning and design of resilient national, regional and
+local infrastructure across the world.
