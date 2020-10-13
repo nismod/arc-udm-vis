@@ -9,15 +9,21 @@
     "authorView": false
   },
   "dependencies": {
-    "d3": "^5.0.0",
-    "d3-selection": "^1.4.0",
-    "idyll": "^4.0.0",
+    "@babel/core": "^7.11.6",
+    "@babel/runtime": "^7.11.2",
+    "@babel/runtime-corejs3": "^7.11.2",
+    "core-js": "^3.6.5",
+    "d3": "^6.2.0",
+    "idyll": "^4.12.1",
     "idyll-d3-component": "^2.1.0",
-    "vega-lite": "^4.14.1",
-    "vega": "^5.13.0",
-    "topojson-client": "^3.1.0"
+    "idyll-vega-lite": "^2.0.3",
+    "react": "^16.13.1",
+    "react-dom": "^16.13.1",
+    "react-vega-lite": "^6.1.0",
+    "regenerator-runtime": "^0.13.7",
+    "vega-lite": "^3.4.0"
   },
   "devDependencies": {
-    "gh-pages": "^2.2.0"
+    "@babel/plugin-transform-runtime": "^7.11.5"
   }
 }
