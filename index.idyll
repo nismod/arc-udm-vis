@@ -71,19 +71,19 @@ These scenarios represent future changes to the population, homes built,
 location of homes, preservation of nature, density of land, and additional
 factors.
 
-[var name:"selectedScenario" value:"static/images/Scenarios/Baseline.png" /]
+[var name:"selectedScenario" value:"Baseline" /]
 Scenario: [Select value: selectedScenario
   options:`[
-    {value:"static/images/Scenarios/Baseline.png" , label: 'Baseline'},
-    {value:"static/images/Scenarios/Unplanned.png", label: 'Unplanned'},
-    {value:"static/images/Scenarios/NewSettlements.png", label: 'New Settlements'},
-    {value:"static/images/Scenarios/Expansion.png", label: 'Expansion'},
+    {value:"Baseline" , label: 'Baseline'},
+    {value:"Unplanned", label: 'Unplanned'},
+    {value:"NewSettlements", label: 'New Settlements'},
+    {value:"Expansion", label: 'Expansion'},
   ]`
 /]
 
-[img src: selectedScenario /]
+[img src: ` "static/images/Scenarios/" + selectedScenario + ".png" ` /]
 
-[Conditional if:`selectedScenario === "static/images/Scenarios/Baseline.png"`]
+[Conditional if:`selectedScenario === "Baseline"`]
 
   In the **baseline scenario** development will be similar to what it is today.
   Population will be based on recent growth rates and housing on recent average
@@ -91,7 +91,7 @@ Scenario: [Select value: selectedScenario
   East West Rail.
 
 [/Conditional]
-[Conditional if:`selectedScenario === "static/images/Scenarios/Unplanned.png"`]
+[Conditional if:`selectedScenario === "Unplanned"`]
 
   In the **unplanneed scenario** there is no overall spatial vision. Population
   will increase marginally due to migration from increased employment near new
@@ -101,7 +101,7 @@ Scenario: [Select value: selectedScenario
   transport use and congestion.
 
 [/Conditional]
-[Conditional if:`selectedScenario === "static/images/Scenarios/NewSettlements.png"`]
+[Conditional if:`selectedScenario === "NewSettlements"`]
 
   In the **new settlments scenario** new cities will emerge. As a result,
   population will increase due to inward migration. Housing will be
@@ -113,7 +113,7 @@ Scenario: [Select value: selectedScenario
   increase in active transport.
 
 [/Conditional]
-[Conditional if:`selectedScenario === "static/images/Scenarios/Expansion.png"`]
+[Conditional if:`selectedScenario === "Expansion"`]
 
   In the **expansion scenario** existing cities will expand with high levels of
   population growth expected due to inward migration. Major growth will happen
