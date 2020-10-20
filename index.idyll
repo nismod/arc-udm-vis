@@ -293,98 +293,71 @@ how it was applied to the Arc. We will go through the process one step at a
 time. For each step we will compare results at three different scales (Arc,
 city, neighbourhood) in order to compare both the bigger picture and details.
 
-###Step 1: Elements of the built environment
 
-[var name:"selectedZoom1" value:"./static/images/Ngb.png" /]
-Scale: [Select value:selectedZoom1
-  options:`[
-    {value: "./static/images/Ngb.png", label: "Neighbourhood"},
-    {value: "./static/images/Cty.png", label: "City"},
-    {value: "./static/images/Arc.png", label: "Arc"}
-  ]`
-/]
+[var name:"selectedZoom" value: "arc" /]
+[var name:"polScenario" value: "green" /]
+[var name:"dwlScenario" value: "set" /]
+[var name:"bldScenario" value: "23" /]
 
-[img src: selectedZoom1 /]
+
+### Step 1: Current built and natural environment
 
 Existing urban land features (in blue) and non-urban land features (in green).
 
 
-###Step 2: Dwelling densities
-
-[var name:"selectedZoom2" value:"./static/images/Ngb.png" /]
-Scale: [Select value:selectedZoom2
-  options:`[
-    {value: "./static/images/Ngb.png", label: "Neighbourhood"},
-    {value: "./static/images/Cty.png", label: "City"},
-    {value: "./static/images/Arc.png", label: "Arc"}
-  ]`
-/]
-
-[img src: selectedZoom2 /]
+### Step 2: Current dwelling densities
 
 Areas with more dwellings will have a higher density. This is represented by
 the blue cells, where the darker blue represents a higher density; the lighter
 blue the lower density.
 
 
-###Step 3: Ecosystem services in the Arc
+### Step 3: Ecosystem services in the Arc
 
-[var name:"selectedService" value:"airquality" /]
-Service: [Select value: selectedService
+Scale: [Select value: selectedZoom
   options:`[
-    {value: "airquality", label: "Air Quality"},
-    {value: "pestcontrol", label: "Pest Control"},
-    {value: "biodiversity", label: "Biodiversity"}
-  ]`
-/]
-
-[var name:"selectedZoom3" value:"neighbourhood" /]
-Scale: [Select value: selectedZoom3
-  options:`[
-    {value: "neighbourhood", label: "Neighbourhood"},
-    {value: "city", label: "City"},
+    {value: "ngb", label: "Neighbourhood"},
+    {value: "cty", label: "City"},
     {value: "arc", label: "Arc"}
   ]`
 /]
 
-[img src: `"./static/images/Step3/" + selectedZoom3 + "_" + selectedService + ".png"` /]
+[img src: `"./static/images/natcap_" + selectedZoom + ".png"` /]
 
 Aspects of natural capital in the Arc include parks, grasslands, woodlands,
 verges, and any other aspect of green space, land uses, and habitats. The
-darker green represents more ecosystem services; the lighter green the less
-ecosystem services.
+darker green represents higher quality ecosystem services.
 
-###Step 4: Identify constraints
+### Step 4: Identify constraints
 
 [var name:"selectedConstraints" value:"battlefields" /]
 Constraint: [Select value: selectedConstraints
   options:`[
-    {value: "battlefields", label: "Battlefields"},
-    {value: "monuments", label: "Scheduled Ancient Monuments"},
-    {label: "SSSI", value: "scientificinterest"},
+    {value: "naturereserves", label: "Nature Recovery Networks"},
     {value: "naturereserves", label: "National Nature Reserves"},
+    {value: "scientificinterest", label: "SSSI"},
     {value: "heritagesites", label: "World Heritage Sites"},
-    {value: "developedareas", label: "Currently developed areas",},
+    {value: "developedareas", label: "Currently developed areas"},
     {value: "waterbodies", label: "Water bodies	"}
-    ]`
+  ]`
 /]
 
-[var name:"selectedZoom4" value:"neighbourhood" /]
-Scale: [Select value: selectedZoom4
+Scale: [Select value: selectedZoom
   options:`[
-    {value: "neighbourhood", label: "Neighbourhood"},
-    {value: "city", label: "City"},
+    {value: "ngb", label: "Neighbourhood"},
+    {value: "cty", label: "City"},
     {value: "arc", label: "Arc"}
   ]`
 /]
 
-[img src: `"./static/images/Step4/" + selectedZoom4 + "_" + selectedConstraints + ".png"` /]
+[img src: `"./static/images/Step4/constraint_" + selectedZoom + "_" + selectedConstraints + ".png"` /]
 
-While it’s great to have aspirations for growth, it's important to set
-constraints to protect nature, wildlife historical landmarks, etc. We "block
-off" these areas from development.
+We introduce constraints to protect nature, wildlife, historical landmarks, and
+areas which are not feasible to develop. We "block off" these areas from
+development.
 
-###Step 5: Identifying future built environment features
+
+### Step 5: Identifying future built environment features
 
 [var name:"selectedFutureTransport" value:"allFutureTransport" /]
 Transport: [Select value:selectedFutureTransport
@@ -405,7 +378,8 @@ scenario would not see any changes, the other scenarios would have rail
 stations and road nodes. New settlements would also include new settlement
 centres.
 
-###Step 6. Calculate attractiveness scores
+
+### Step 6. Calculate attractiveness scores
 
 [var name:"selectedAttractors" value:"transportnodes" /]
 Attractor: [Select value:selectedAttractors
@@ -415,36 +389,48 @@ Attractor: [Select value:selectedAttractors
     {value: "currentdevelopment", label: "Proximity to current development"},
     {value: "employment", label: "Accessibility to employment"},
     {value: "developedland", label: "Previously developed land"}
-    ]`
+  ]`
 /]
 
-[var name:"selectedZoom6" value:"neighbourhood" /]
-Scale: [Select value: selectedZoom6
+Scale: [Select value: selectedZoom
   options:`[
-    {value: "neighbourhood", label: "Neighbourhood"},
-    {value: "city", label: "City"},
+    {value: "ngb", label: "Neighbourhood"},
+    {value: "cty", label: "City"},
     {value: "arc", label: "Arc"}
   ]`
 /]
 
-[img src: `"./static/images/Step6/" + selectedZoom6 + "_" + selectedAttractors + ".png"` /]
+[img src: `"./static/images/Step6/attractiveness_" + selectedZoom + "_" + selectedAttractors + ".png"` /]
 
 Attractors are things that will drive more people in to the Arc. Such
 attractors could include information on the performance of local schools, local
 accessibility (distance) to shops, services or transport hubs.
 
-###Step 7. Suitability of land for development
+### Step 7. Suitability of land for development
 
-[var name:"selectedZoom7" value:"./static/images/Ngb.png" /]
-Scale: [Select value:selectedZoom7
+Policy Scenario: [Select value:polScenario
   options:`[
-    {value: "./static/images/Ngb.png", label: "Neighbourhood"},
-    {value: "./static/images/Cty.png", label: "City"},
-    {value: "./static/images/Arc.png", label: "Arc"}
+    {value: "grey", label: "Grey"},
+    {value: "green", label: "Green"}
   ]`
 /]
 
-[img src: selectedZoom7 /]
+Dwellings Scenario: [Select value:dwlScenario
+  options:`[
+    {value: "exp", label: "Existing Expansion"},
+    {value: "set", label: "New Settlements"}
+  ]`
+/]
+
+Scale: [Select value:selectedZoom
+  options:`[
+    {value: "ngb", label: "Neighbourhood"},
+    {value: "cty", label: "City"},
+    {value: "arc", label: "Arc"}
+  ]`
+/]
+
+[img src: `"./static/images/suitability_" + polScenario + "_" + dwlScenario + "_" + selectedZoom + ".png"`  /]
 
 Based on the weighing of both the attractors and contraints, the output of the
 UDM is a combined set of development suitability scores based on selected
@@ -452,18 +438,31 @@ spatial scenarios and the combination of attractors and constraints defined.
 Each set of scores can then be represented as colours and displayed on a map to
 show the changing patterns of land from a birds-eye-view lens.
 
-###Step 8. Future dwelling density
+### Step 8. Future dwelling density
 
-[var name:"selectedZoom8" value:"./static/images/Ngb.png" /]
-Scale: [Select value:selectedZoom8
+Policy Scenario: [Select value:polScenario
   options:`[
-    {value: "./static/images/Ngb.png", label: "Neighbourhood"},
-    {value: "./static/images/Cty.png", label: "City"},
-    {value: "./static/images/Arc.png", label: "Arc"}
+    {value: "grey", label: "Grey"},
+    {value: "green", label: "Green"}
   ]`
 /]
 
-[img src: selectedZoom8 /]
+Dwellings Scenario: [Select value:dwlScenario
+  options:`[
+    {value: "exp", label: "Existing Expansion"},
+    {value: "set", label: "New Settlements"}
+  ]`
+/]
+
+Scale: [Select value:selectedZoom
+  options:`[
+    {value: "ngb", label: "Neighbourhood"},
+    {value: "cty", label: "City"},
+    {value: "arc", label: "Arc"}
+  ]`
+/]
+
+[img src: `"./static/images/density_" + polScenario + "_" + dwlScenario + "_" + selectedZoom + ".png"`  /]
 
 What's the required population density for new development? (in people per
 hectare) This assessment determines the levels of population migration to and
@@ -472,40 +471,52 @@ will focus on one planning scenario. Then step 9, we just look at the small bit
 of suitable area. Follow same pattern as attractors and constraints. Might just
 be two scenarios. Maybe a different colour.
 
-###Step 9. Future development
+### Step 9. Future development
 
-[var name:"selectedZoom9" value:"./static/images/Ngb.png" /]
-Scale: [Select value:selectedZoom9
+Policy Scenario: [Select value:polScenario
   options:`[
-    {value: "./static/images/Ngb.png", label: "Neighbourhood"},
-    {value: "./static/images/Cty.png", label: "City"},
-    {value: "./static/images/Arc.png", label: "Arc"}
+    {value: "grey", label: "Grey"},
+    {value: "green", label: "Green"}
   ]`
 /]
 
-[img src: selectedZoom9 /]
+Dwellings Scenario: [Select value:dwlScenario
+  options:`[
+    {value: "exp", label: "Existing Expansion"},
+    {value: "set", label: "New Settlements"}
+  ]`
+/]
+
+Building Rate Scenario: [Select value:bldScenario
+  options:`[
+    {value: "23", label: "23,000 per year"},
+    {value: "30", label: "30,000 per year"}
+  ]`
+/]
+
+Scale: [Select value:selectedZoom
+  options:`[
+    {value: "ngb", label: "Neighbourhood"},
+    {value: "cty", label: "City"},
+    {value: "arc", label: "Arc"}
+  ]`
+/]
+
+[img src: `"./static/images/dwellings_" + polScenario + "_" + dwlScenario + "_" + selectedZoom + ".png"`  /]
+
 
 What's the required population density for new development? (in people per
 hectare) This assessment determines the levels of population migration to and
 within the Arc, given the relative attractiveness of different locations. We
 will focus on one planning scenario.
 
-###Step 10. Land use metrics
-
-[var name:"selectedZoom10" value:"./static/images/Ngb.png" /]
-Scale: [Select value:selectedZoom10
-  options:`[
-    {value: "./static/images/Ngb.png", label: "Neighbourhood"},
-    {value: "./static/images/Cty.png", label: "City"},
-    {value: "./static/images/Arc.png", label: "Arc"}
-  ]`
-/]
-
-[img src: selectedZoom10 /]
+### Step 10. Land use metrics
 
 The final map shows the summary level selects (as opposed to grid level). Data
 based on the boundaries people care about like LAD. Here you can get some
-numbers about 9. Compare contrast between scenarios.
+numbers about 9.
+
+Include bar charts to compare/contrast between scenarios.
 
 
 ## Conclusion
