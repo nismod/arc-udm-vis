@@ -297,7 +297,7 @@ city, neighbourhood) in order to compare both the bigger picture and details.
 [var name:"selectedZoom" value: "arc" /]
 [var name:"polScenario" value: "green" /]
 [var name:"dwlScenario" value: "set" /]
-[var name:"bldScenario" value: "23" /]
+[var name:"bldScenario" value: "23k" /]
 
 
 ### Step 1: Current built and natural environment
@@ -489,8 +489,8 @@ Dwellings Scenario: [Select value:dwlScenario
 
 Building Rate Scenario: [Select value:bldScenario
   options:`[
-    {value: "23", label: "23,000 per year"},
-    {value: "30", label: "30,000 per year"}
+    {value: "23k", label: "23,000 per year"},
+    {value: "30k", label: "30,000 per year"}
   ]`
 /]
 
@@ -502,13 +502,15 @@ Scale: [Select value:selectedZoom
   ]`
 /]
 
-[img src: `"./static/images/dwellings_" + polScenario + "_" + dwlScenario + "_" + selectedZoom + ".png"`  /]
+[img src: `"./static/images/development_" + polScenario + "_" + dwlScenario + "_" + bldScenario + "_" + selectedZoom + ".png"`  /]
+
+
+[img src: `"./static/images/dwellings_" + polScenario + "_" + dwlScenario + "_" + bldScenario + "_" + selectedZoom + ".png"`  /]
 
 
 What's the required population density for new development? (in people per
 hectare) This assessment determines the levels of population migration to and
-within the Arc, given the relative attractiveness of different locations. We
-will focus on one planning scenario.
+within the Arc, given the relative attractiveness of different locations.
 
 ### Step 10. Land use metrics
 
