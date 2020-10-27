@@ -8,3 +8,51 @@
     max-height: 200px;
   }
 }
+
+body {
+  background-color: white;
+}
+
+.stepHeader {
+  margin-bottom: 16px;
+}
+
+.customSelect {
+  padding: 4px;
+  background-color: #f0f9fa;
+  outline-color: #006f74;
+  color: #006f74;
+}
+
+.selectLabel {
+  margin: 0px;
+}
+
+.labeledSelect {
+  margin-bottom: 16px;
+}
+
+.imageCaption  {
+  background: #f0f9fa;
+  outline: #006f74;
+  margin-top: 0px;
+  padding: 16px;
+  font-family: et-book, Palatino, "Palatino Linotype", "Palatino LT STD", "Book Antiqua", Georgia, serif;
+  font-size: 1.4rem;
+}
+
+.idyll-stepper {
+  margin-top: 0px;
+  margin-bottom: 0px;
+}
+
+.idyll-step-graphic {
+  background: white;
+  margin: 0px;
+}
+
+.idyll-step-content{
+  background: none;
+  /*rgba(0,0,0,0.02);*/
+  color: black;
+}

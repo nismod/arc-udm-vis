@@ -49,7 +49,6 @@ let employment = {
       "key": "msoa",
       "fields": ["EmpDensityPerkm2"]
     }
-    //"calculate":""
   }],
   "mark": {
     "type": "geoshape"

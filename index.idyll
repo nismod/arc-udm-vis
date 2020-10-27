@@ -3,7 +3,7 @@
 [Header
   fullWidth:true
   title:"Future of the Oxford Cambridge Arc"
-  subtitle:"A visual article"
+  subtitle:"An interactive article about urban development modelling"
   author:""
   date:`(new Date()).toDateString()`
   background:"none"
@@ -15,40 +15,47 @@
 
 ## What is the Oxford Cambridge Arc?
 
-The Oxford Cambridge Arc in a region in south central England that runs between
-Oxford and Cambridge via Milton Keynes and four major settlements including
-Cambridgeshire, Bedfordshire, Buckinghamshire and Oxfordshire. The Arc area
-contains some of the fastest growing and most productive towns and cities in
-the UK. It is home to 3.7 million people, generating over 2 million jobs and
-contributing over £110 billion of annual Gross Value Added (GVA) to the UK
-economy per year. Explore the map below to see some of the boundaries and
-transportataion across the Arc area.
+The Oxford Cambridge Arc in a region in south central England that runs between Oxford and Cambridge via Milton Keynes and four major settlements including Cambridgeshire, Bedfordshire, Buckinghamshire and Oxfordshire. It is home to 3.7 million people, generating over 2 million jobs and contributing over £110 billion of annual Gross Value Added (GVA) to the UK economy per year. The area also contains some of the fastest growing and most productive towns and cities in the UK.
+
+Select different options on the map below to compare the boundaries, transportation, and density in the Arc area.
 
 [var name:"selectedBoundaries" value:"county" /]
-Boundary: [Select value:selectedBoundaries
+[div className: "labeledSelect"]
+[h4 className:"selectLabel"]Select Boundary[/h4]
+[Select value:selectedBoundaries
   options:`[
     {value: "county", label: "County Councils and Unitary Authorities"},
     {value: "lad", label: "Local Authority Districts (LAD)"},
     {value: "msoa", label: "Middle Layer Super Output Area (MSOA)"}
   ]`
+  className: "customSelect"
 /]
+[/div]
 
 [var name:"selectedTransport" value:"rail" /]
-Transport: [Select value:selectedTransport
+[div className: "labeledSelect"]
+[h4 className:"selectLabel"]Select Transport[/h4]
+[Select value:selectedTransport
   options:`[
     {value: "rail", label:"Rails and Stations"},
     {value: "roads", label:"Roads"},
     {value: "all", label:"All"}
   ]`
+  className: "customSelect"
 /]
+[/div]
 
 [var name:"selectedDensity" value:"population" /]
-Density: [Select value:selectedDensity
+[div className: "labeledSelect"]
+[h4 className:"selectLabel"]Select Density[/h4]
+[Select value:selectedDensity
   options:`[
     {value: "population", label:"Population"},
     {value: "employment", label:"Employment"}
   ]`
+  className: "customSelect"
 /]
+[/div]
 
 [div]
   [ArcToday
@@ -58,87 +65,69 @@ Density: [Select value:selectedDensity
   /]
 [/div]
 
+
 ## Future Development Scenarios
 
-A report published in 2018 by the National Infrastructure Commission outlined
-substantial plans to increase access and connectivity to the Arc area by 2050.
-The Arc vision includes one million new homes across the Arc, an east-west
-Expressway road, and improvements to rail routes connecting Oxford, Milton
-Keynes Bedford and Cambridge. Yet there are many options and trade-offs that
-need to be considered. In order to assess possible futures, four scenarios for
-the Arc were identified: Baseline, Unplanned, Expansion, and New Settlements.
-These scenarios represent future changes to the population, homes built,
-location of homes, preservation of nature, density of land, and additional
-factors.
+A report published in 2018 by the National Infrastructure Commission outlined substantial plans to increase access and connectivity to the Arc area by 2050. This vision includes one million new homes across the Arc, an east-west Expressway road, and major improvements to rail routes. However, in order to learn more about how this vision would actually impact urban development, the [link text:"Infrastructure Transitions Research Consortium (ITRC)" url:"https://www.itrc.org.uk/" /] team simulated possible futures of the Arc through computer modelling. This article will outline the steps of the analysis in more detail. To get started, the team first defined four high-level future scenarios based on the vision by making assumptions about the number of new homes and transport that will need to be build, where they will be built, and constraints on how much development can take place. The four scenarios are compared to a baseline representing the preesent day.
 
-[var name:"selectedScenario" value:"Baseline" /]
-Scenario: [Select value: selectedScenario
+### Overview of Scenarios
+1. Existing Expansion (Grey Policy)
+2. Existing Expansion (Green Policy)
+3. New Settlements (Grey Policy)
+4. New Settlements (Green Policy)
+
+
+Select one of the scenarios to learn more.
+
+[var name:"dwlPolScenario" value:"baseline" /]
+
+[h4 className:"selectLabel"]Select Scenario[/h4]
+[div className: "labeledSelect"]
+[Select value: dwlPolScenario
   options:`[
-    {value:"Baseline" , label: 'Baseline'},
-    {value:"Unplanned", label: 'Unplanned'},
-    {value:"NewSettlements", label: 'New Settlements'},
-    {value:"Expansion", label: 'Expansion'},
+    {value: "baseline", label: "Baseline"},
+    {value: "grey_exp", label: "Existing Expansion (Grey Policy)"},
+    {value: "grey_exp", label: "Existing Expansion (Green Policy)"},
+    {value: "grey_set", label: "New Settlements (Grey Policy)"},
+    {value: "green_exp", label: "New Settlements (Green Policy)"}
   ]`
+  className: "customSelect"
 /]
+[/div]
 
-[img src: ` "static/images/Scenarios/" + selectedScenario + ".png" ` /]
+[img src: `"static/images/" + "scenario" + "_" + dwlPolScenario + ".png"`/]
 
-[Conditional if:`selectedScenario === "Baseline"`]
+[h3 className:"imageCaption"]
+  [Conditional if:`dwlPolScenario === "baseline"`]
+    The baseline assumes that population will be based on recent growth rates and housing on recent average dwelling completion rates. There will be no new expressway or East West Rail.
+  [/Conditional]
 
-  In the **baseline scenario** development will be similar to what it is today.
-  Population will be based on recent growth rates and housing on recent average
-  dwelling completion rates. For transport there will be no new expressway or
-  East West Rail.
+  [Conditional if:`dwlPolScenario === "grey_exp"`]
+    The expansion grey scenario envisions that existing cities will expand due to inward migration. Good intra-city transport systems will be built with both the Express Way and the East West rail link developed.
+  [/Conditional]
 
-[/Conditional]
-[Conditional if:`selectedScenario === "Unplanned"`]
+  [Conditional if:`dwlPolScenario === "grey_set"`]
+    The new settlments scenario envisions new cities emerging. However, housing will be concentrated around existing cities with major growth in five new urban conurbations (clusters of smaller cities). Both the Express Way and the East West rail link will be developed.
+  [/Conditional]
 
-  In the **unplanneed scenario** there is no overall spatial vision. Population
-  will increase marginally due to migration from increased employment near new
-  transport links. However housing will develop in an ad-hoc manner — larger
-  homes, more land take, dispersed. Both the Express Way and the East West rail
-  link will be developed resulting in an increase in emissions due to private
-  transport use and congestion.
+  [Conditional if:`dwlPolScenario === "green_exp"`]
+    In the expansion scenario, existing cities will expand with high levels of population growth expected due to inward migration. Major growth will happen around existing urban centres with new dwellings divided among the major conurbations. Extensive new developments will occur on brown and greenbelt land, along with ongoing renovation/redevelopment of existing building stock. Good intra-city transport systems will be built with both the Express Way and the East West rail link developed. Despite development, there will be lower air pollution compared to the unplanned scenario due to adoption of EVs, public transport and decrease in private transport use, but high congestion.
+  [/Conditional]
 
-[/Conditional]
-[Conditional if:`selectedScenario === "NewSettlements"`]
+  [Conditional if:`dwlPolScenario === "green_set"`]
+    In the new settlments scenario, new cities will emerge. As a result, population will increase due to inward migration. Housing will be concentrated around existing cities with major growth in five new urban conurbations (clusters of smaller cities). Smaller, more efficient homes, optimal density. Both the Express Way and the East West rail link will be developed but compared to the unplanned scenario there will be lower air pollution due to decrease in private transport use, less congestion, and increase in active transport.
+  [/Conditional]
 
-  In the **new settlments scenario** new cities will emerge. As a result,
-  population will increase due to inward migration. Housing will be
-  concentrated around existing cities with major growth in five new urban
-  conurbations (clusters of smaller cities). Smaller, more efficient homes,
-  optimal density. Both the Express Way and the East West rail link will be
-  developed but compared to the unplanned scenario there will be lower air
-  pollution due to decrease in private transport use, less congestion, and
-  increase in active transport.
+[/h3]
 
-[/Conditional]
-[Conditional if:`selectedScenario === "Expansion"`]
-
-  In the **expansion scenario** existing cities will expand with high levels of
-  population growth expected due to inward migration. Major growth will happen
-  around existing urban centres with new dwellings divided among the major
-  conurbations. Extensive new developments will occur on brown and greenbelt
-  land, along with ongoing renovation/redevelopment of existing building stock.
-  Good intra-city transport systems will be built with both the Express Way and
-  the East West rail link developed. Despite development, there will be lower
-  air pollution compared to the unplanned scenario due to adoption of EVs,
-  public transport and decrease in private transport use, but high congestion.
-
-[/Conditional]
 
 ## The Urban Modelling Process
 
-Using the future scenarios as a starting point, we can start to test out the
-theories and assumptions made through computer-based simulations. While we
-can't fully capture every nuance about the future built environment, analyzing
-and visualising the trade-offs can help planners and policy-makers make
-informed decisions. One of the modals used to assess the Arc is called the
-Urban Development Model (UDM). We will take a brief moment to explain the
-general process of the UDM before showing the results applied to the Arc.
+Using the future scenarios as a starting point, we can start to test out the theories and assumptions made through computer-based simulations. While we can't fully capture every nuance about the future built environment, analyzing and visualising the trade-offs can help planners and policy-makers make informed decisions. One of the modals used to assess the Arc is called the Urban Development Model (UDM). We will take a brief moment to explain the general process of the UDM before showing the results applied to the Arc.
 
-Overview of steps
-1. Identify elements of the built and natural environment
+### Overview of UDM Process Steps
+
+1. Identify elements of the environment
 2. Calculate current dwelling densities
 3. Calculate ecosystem services
 4. Identify constraints
@@ -150,149 +139,76 @@ Overview of steps
 10. Calculate land use metrics
 
 
-[var name:"selectedSteps" value: 1 /]
-Explore: [Select value:selectedSteps
-  options:`[
-    {value: 1,  label: "Step 1"},
-    {value: 2,  label: "Step 2"},
-    {value: 3,  label: "Step 3"},
-    {value: 4,  label: "Step 4"},
-    {value: 5,  label: "Step 5"},
-    {value: 6,  label: "Step 6"},
-    {value: 7,  label: "Step 7"},
-    {value: 8,  label: "Step 8"},
-    {value: 9,  label: "Step 9"},
-    {value: 10, label: "Step 10"}
-  ]`
-/]
+Scroll through each step to learn more about the UDM.
 
-[img src:` "static/images/Steps/Step" + selectedSteps + ".png" `/]
+[var name:"processStep" value:0 /]
+[Stepper currentStep:processStep]
+  [Graphic]
+    [img src:`"static/images/Stepper/" + processStep + ".png"` /]
+  [/Graphic]
 
-[Conditional if:`selectedSteps == 1`]
+  [Step]Step 1. Identify elements of the environment[/Step]
+  [Step]Step 2. Calculate current dwelling densities[/Step]
+  [Step]Step 3. Calculate ecosystem services[/Step]
+  [Step]Step 4. Identify constraints[/Step]
+  [Step]Step 5. Introduce future built environment features[/Step]
+  [Step]Step 6. Calculate attractiveness scores[/Step]
+  [Step]Step 7. Identify development suitability[/Step]
+  [Step]Step 8. Identify future dwelling density[/Step]
+  [Step]Step 9. Allocate future development[/Step]
+  [Step]Step 10. Calculate land use metrics[/Step]
 
-First we audit existing urban land features (e.g. residential and
-commercial/industrial buildings) and non-urban land features (e.g. green space
-and habitats). We plot these features on a grid cell instead of administrative
-boundaries that can vary in shape and size.
+  [StepperControl /]
+[/Stepper]
 
-[/Conditional]
-[Conditional if:`selectedSteps == 2`]
+[h3 className:"imageCaption"]
 
-Based on the urban land features associated with building types, we calculate
-the density per grid cell. Areas with more dwellings will have a higher
-density. This is represented by the blue cells, where the darker blue
-represents a higher density; the lighter blue the lower density.
+  [Conditional if:`processStep === 0`]
+    Define existing urban land features (e.g. residential buildings) and non-urban land features (e.g. green space).
+  [/Conditional]
 
-[/Conditional]
-[Conditional if:`selectedSteps == 3`]
+  [Conditional if:`processStep === 1`]
+    Calculate the urban land features based on density per grid cell. Areas with more dwellings will have a higher density.
+  [/Conditional]
 
-Based on the non-urban land features associated with nature and habitats, we
-calculate the value of each respective natural capital based on the ecosystem
-services needed to help maintain that natural capital. For example, a verge by
-the side of the road has value for ecosystem services like flood protection,
-air quality, and recreation or exercise. This is represented by the green
-cells, where the darker green represents more ecosystem services; the lighter
-green the less ecosystem services.
+  [Conditional if:`processStep === 2`]
+    Calculate the value of non-urban land features based on the ecosystem services needed to help maintain it. A verge by a road has value for flood protection, air quality, and recreation.
+  [/Conditional]
 
-[/Conditional]
-[Conditional if:`selectedSteps == 4`]
+  [Conditional if:`processStep === 3`]
+    Define areas where development should be restricted, such as historical sites or the protection of nature and wildlife.
+  [/Conditional]
 
-Once we have an ideaa of the current built and natural environment, we can
-start to identify constaints. Constraints are the limiting factors to urban
-development such as historical sites or the desire to preserve green space.
-While it's great to have aspirations for growth, people also value the
-protection of nature and wildlife and other considerations for development.
-Therefore in this step we identify those constraints and then 'block off' cells
-in the grid where we don't want to build. This is represented by the grey
-cells, where we mark an 'x' on the areas where we want to protext existing land
-use.
+  [Conditional if:`processStep === 4`]
+    Layer on plans for new development where there is a location in place to test assumptions (i.e., new rail stations, road nodes, settlement centres). Exclude individual homes because we do not yet know where they will be distributed.
+  [/Conditional]
 
-[/Conditional]
-[Conditional if:`selectedSteps == 5`]
+  [Conditional if:`processStep === 5`]
+    Identify the areas best suitable for living by defining factors that will attract people to move to the Arc (i.e. proximity to employment or green space) and assigning each a 'weight'.
+  [/Conditional]
 
-The rest of the steps shift focus to future land use projections based on
-policy plans. We layer on plans for new developments where there is a location
-in place so that we can can test our assumptions. This includes things like new
-rail stations, road nodes, settlement centres, etc. But we don't include
-individual homes just yet because we only know the total number of dwellings
-for each scenario but not where they will be distributed. The location of the
-new rail and roads are now added to the grid cell.
+  [Conditional if:`processStep === 6`]
+    Combine the attractors and constraints to assess whether a an area of land is suitable for development, and which to prioritize. This measure of suitability considers the weight of each attractor in step 6, and blocks off cells with constraints in step 4.
+  [/Conditional]
 
-[/Conditional]
-[Conditional if:`selectedSteps == 6`]
+  [Conditional if:`processStep === 7`]
+    Figure out how much development can actually take place by assigning options based on how many people can "fit" into undeveloped land based on proximity to urban centers or public transport. This often results in hotspots around town centers and business districts with high density.
+  [/Conditional]
 
-Before we can simulate where in the Arc people will migrate to, we need to find
-out the areas best suitable for living. In this step we answer the question,
-what will attract people to the Arc, and for each attracting factor, what
-'weight' or level of attraction would we assign it? Examples of attractors
-include proximity to employment or proximity to green space. Attractors can
-vary based what people value. Therefore this process requires talking to
-stakeholders to understand want we might want to evaluate (e.g. how far is each
-location from jobs in the area?). Each cell now gets assigned a value of
-attractiveness. For example promixity to railway stations may result in a high
-attractiveness score for the cells in the area. This is represented by the
-yellow cells, where the darker yellow represents high levels of attraction; the
-lighter yellow the less attraction.
+  [Conditional if:`processStep === 8`]
+    Apply the urban development model to allocate future development at the identified densities (the most suitable areas first) to get a prediction of where development will actually take place.
+  [/Conditional]
 
-[/Conditional]
-[Conditional if:`selectedSteps == 7`]
+  [Conditional if:`processStep === 9`]
+    Summarize results in a way that helps government authorities and planners make decisions by replacing the cell grids with administrative boundaries that map to different policy areas.
+  [/Conditional]
 
-This step combines the previous two steps of attractors and constraints to
-assess whether we should or should not build on a specific cell, and which to
-prioritize? This measure of suitability considers the weight of each attractor
-in step 5, and blocks off cells with constraints in step 6. The outcome is a
-score for each grid cell. If a cell is constrained in any way it is considered
-land unsuitable for development and gets a value of 0 (left empty). The rest of
-the cells follow the same pattern as step 5 represented by the yellow cells,
-where the darker yellow represents high levels of attraction; the lighter
-yellow the less attraction.
-
-[/Conditional]
-[Conditional if:`selectedSteps == 8`]
-
-Now that we know which cells to prioritize for development, we can figure out
-how much we can actually build. In this step we assign different options based
-on how many people can "fit" into undeveloped land, based on proximity to urban
-centers or public transport. This is about making zoning decisions for where
-people will live. In reality this tends to result in hotspots around town
-centers and business districts with high density. the further from the hotspot,
-the less density and less dwellings we can anticipate. This is represented by
-the red cells, where the darker the red the more dwellings we can perceivably
-build; the lighter red the less we build.
-
-[/Conditional]
-[Conditional if:`selectedSteps == 9`]
-
-We run the UDM model to allocate future development at the identified densities
-to the most suitable areas first. Given all the assumptions made (how many
-people we want to move, where they might live, how many people can actually fit
-in each grid cell of land), the result is a prediction for where development
-will actually take place. This produces a map where each cell grid of land
-represents future development with current development overlayed. We predict
-where new homes will be built as they correspond will the hotspots of density
-in the previous grid.
-
-[/Conditional]
-[Conditional if:`selectedSteps == 10`]
-
-The final step is more about the translation of results into summary metrics
-(e.g. how much land is used, ecosystems services lost, access to employment
-gained, etc) in a way that helps government authorities and planners make
-decisions. We've assumed that we will develop x amount of land in y places of
-the cell grid, so what are the impacts of the development? What trade-off
-conversations do we now need to have? Have we ended up building on most of the
-plains? Is there a spawling effect? This is represented by replaced the cell
-grids with administrative boundaries that map to different policy areas.
-
-[/Conditional]
+[/h3]
 
 ## Applying Urban Modelling to the Arc Scenarios
 
-Now that we have an understanding of the urban modelling process, let's look at
-how it was applied to the Arc. We will go through the process one step at a
-time. For each step we will compare results at three different scales (Arc,
-city, neighbourhood) in order to compare both the bigger picture and details.
-
+Now that we have an understanding of the urban modelling process, let's look at how it was applied to the Arc. We will go through the process one step at a
+time. For each step we will compare results at three different scales (Arc, city, neighbourhood) in order to compare both the bigger picture and details.
 
 [var name:"selectedZoom" value: "arc" /]
 [var name:"polScenario" value: "green" /]
@@ -307,31 +223,37 @@ Existing urban land features (in blue) and non-urban land features (in green).
 
 ### Step 2: Current dwelling densities
 
-Areas with more dwellings will have a higher density. This is represented by
-the blue cells, where the darker blue represents a higher density; the lighter
-blue the lower density.
+Areas with more dwellings will have a higher density. This is represented by the blue cells, where the darker blue represents a higher density; the lighter blue the lower density.
 
 
-### Step 3: Ecosystem services in the Arc
+[h3 className: "stepHeader"]
+Step 3: Ecosystem services in the Arc
+[/h3]
 
-Scale: [Select value: selectedZoom
+[h4 className:"selectLabel"]Change Scale[/h4]
+[div className: "labeledSelect"]
+[Select value: selectedZoom
   options:`[
     {value: "ngb", label: "Neighbourhood"},
     {value: "cty", label: "City"},
     {value: "arc", label: "Arc"}
   ]`
+  className: "customSelect"
 /]
+[/div]
 
 [img src: `"./static/images/natcap_" + selectedZoom + ".png"` /]
 
-Aspects of natural capital in the Arc include parks, grasslands, woodlands,
-verges, and any other aspect of green space, land uses, and habitats. The
-darker green represents higher quality ecosystem services.
+Aspects of natural capital in the Arc include parks, grasslands, woodlands, verges, and any other aspect of green space, land uses, and habitats. The darker green represents higher quality ecosystem services.
 
-### Step 4: Identify constraints
+[h3 className: "stepHeader"]
+Step 4: Identify constraints
+[/h3]
 
 [var name:"selectedConstraints" value:"battlefields" /]
-Constraint: [Select value: selectedConstraints
+[div className: "labeledSelect"]
+[h4 className:"selectLabel"]Select Constraint[/h4]
+[Select value: selectedConstraints
   options:`[
     {value: "naturereserves", label: "Nature Recovery Networks"},
     {value: "naturereserves", label: "National Nature Reserves"},
@@ -340,49 +262,58 @@ Constraint: [Select value: selectedConstraints
     {value: "developedareas", label: "Currently developed areas"},
     {value: "waterbodies", label: "Water bodies	"}
   ]`
+  className: "customSelect"
 /]
+[/div]
 
-Scale: [Select value: selectedZoom
+[h4 className:"selectLabel"]Change Scale[/h4]
+[div className: "labeledSelect"]
+[Select value: selectedZoom
   options:`[
     {value: "ngb", label: "Neighbourhood"},
     {value: "cty", label: "City"},
     {value: "arc", label: "Arc"}
   ]`
+  className: "customSelect"
 /]
+[/div]
 
 [img src: `"./static/images/Step4/constraint_" + selectedZoom + "_" + selectedConstraints + ".png"` /]
 
-We introduce constraints to protect nature, wildlife, historical landmarks, and
-areas which are not feasible to develop. We "block off" these areas from
-development.
+We introduce constraints to protect nature, wildlife, historical landmarks, and areas which are not feasible to develop. We "block off" these areas from development.
 
 
-### Step 5: Identifying future built environment features
+[h3 className: "stepHeader"]
+Step 5: Identifying future built environment features
+[/h3]
 
 [var name:"selectedFutureTransport" value:"allFutureTransport" /]
-Transport: [Select value:selectedFutureTransport
+[div className: "labeledSelect"]
+[h4 className:"selectLabel"]Select Future Transport[/h4]
+[Select value:selectedFutureTransport
   options:`[
     {label: "All New Transport", value:"allFutureTransport"},
     {label: "New or Expanded Roads", value:"futureRoads"},
     {label: "New Stations", value:"futureStations"},
     {label: "New Settlements", value:"futureSettlements"}
   ]`
+  className: "customSelect"
 /]
+[/div]
 
 [ArcFuture selectedFutureTransport:selectedFutureTransport /]
 
-Improvements to the transport links between Oxford and Cambridge are a key
-aspect of the future vision for the Arc. Future plans include a new expressway
-and East West Rail (EWR) will link Oxford and Cambridge. While the baseline
-scenario would not see any changes, the other scenarios would have rail
-stations and road nodes. New settlements would also include new settlement
-centres.
+Improvements to the transport links between Oxford and Cambridge are a key aspect of the future vision for the Arc. Future plans include a new expressway and East West Rail (EWR) will link Oxford and Cambridge. While the baseline scenario would not see any changes, the other scenarios would have rail stations and road nodes. New settlements would also include new settlement centres.
 
 
-### Step 6. Calculate attractiveness scores
+[h3 className: "stepHeader"]
+Step 6. Calculate attractiveness scores
+[/h3]
 
 [var name:"selectedAttractors" value:"transportnodes" /]
-Attractor: [Select value:selectedAttractors
+[div className: "labeledSelect"]
+[h4 className:"selectLabel"]Select Attractor[/h4]
+[Select value:selectedAttractors
   options:`[
     {value: "transportnodes", label: "Proximity to existing transport nodes"},
     {value: "roads", label: "Proximity to existing roads"},
@@ -390,117 +321,159 @@ Attractor: [Select value:selectedAttractors
     {value: "employment", label: "Accessibility to employment"},
     {value: "developedland", label: "Previously developed land"}
   ]`
+  className: "customSelect"
 /]
+[/div]
 
-Scale: [Select value: selectedZoom
+[h4 className:"selectLabel"]Change Scale[/h4]
+[div className: "labeledSelect"]
+[Select value: selectedZoom
   options:`[
     {value: "ngb", label: "Neighbourhood"},
     {value: "cty", label: "City"},
     {value: "arc", label: "Arc"}
   ]`
+  className: "customSelect"
 /]
+[/div]
 
 [img src: `"./static/images/Step6/attractiveness_" + selectedZoom + "_" + selectedAttractors + ".png"` /]
 
-Attractors are things that will drive more people in to the Arc. Such
-attractors could include information on the performance of local schools, local
-accessibility (distance) to shops, services or transport hubs.
+Attractors are things that will drive more people in to the Arc. Such attractors could include information on the performance of local schools, local accessibility (distance) to shops, services or transport hubs.
 
-### Step 7. Suitability of land for development
+[h3 className: "stepHeader"]
+Step 7. Suitability of land for development
+[/h3]
 
-Policy Scenario: [Select value:polScenario
+[h4 className:"selectLabel"]Select Policy Scenario[/h4]
+[div className: "labeledSelect"]
+[Select value:polScenario
   options:`[
     {value: "grey", label: "Grey"},
     {value: "green", label: "Green"}
   ]`
+  className: "customSelect"
 /]
+[/div]
 
-Dwellings Scenario: [Select value:dwlScenario
+[h4 className:"selectLabel"]Select Dwelling Scenario[/h4]
+[div className: "labeledSelect"]
+[Select value:dwlScenario
   options:`[
     {value: "exp", label: "Existing Expansion"},
     {value: "set", label: "New Settlements"}
   ]`
+  className: "customSelect"
 /]
+[/div]
 
-Scale: [Select value:selectedZoom
+[h4 className:"selectLabel"]Change Scale[/h4]
+[div className: "labeledSelect"]
+[Select value:selectedZoom
   options:`[
     {value: "ngb", label: "Neighbourhood"},
     {value: "cty", label: "City"},
     {value: "arc", label: "Arc"}
   ]`
+  className: "customSelect"
 /]
+[/div]
 
 [img src: `"./static/images/suitability_" + polScenario + "_" + dwlScenario + "_" + selectedZoom + ".png"`  /]
 
-Based on the weighing of both the attractors and contraints, the output of the
-UDM is a combined set of development suitability scores based on selected
-spatial scenarios and the combination of attractors and constraints defined.
-Each set of scores can then be represented as colours and displayed on a map to
-show the changing patterns of land from a birds-eye-view lens.
+Based on the weighing of both the attractors and contraints, the output of the UDM is a combined set of development suitability scores based on selected spatial scenarios and the combination of attractors and constraints defined. Each set of scores can then be represented as colours and displayed on a map to show the changing patterns of land from a birds-eye-view lens.
 
-### Step 8. Future dwelling density
+[h3 className: "stepHeader"]
+Step 8. Future dwelling density
+[/h3]
 
-Policy Scenario: [Select value:polScenario
+[h4 className:"selectLabel"]Select Policy Scenario[/h4]
+[div className: "labeledSelect"]
+[Select value:polScenario
   options:`[
     {value: "grey", label: "Grey"},
     {value: "green", label: "Green"}
   ]`
+  className: "customSelect"
 /]
+[/div]
 
-Dwellings Scenario: [Select value:dwlScenario
+[h4 className:"selectLabel"]Select Dwelling Scenario[/h4]
+[div className: "labeledSelect"]
+[Select value:dwlScenario
   options:`[
     {value: "exp", label: "Existing Expansion"},
     {value: "set", label: "New Settlements"}
   ]`
+  className: "customSelect"
 /]
+[/div]
 
-Scale: [Select value:selectedZoom
+[h4 className:"selectLabel"]Change Scale[/h4]
+[div className: "labeledSelect"]
+[Select value:selectedZoom
   options:`[
     {value: "ngb", label: "Neighbourhood"},
     {value: "cty", label: "City"},
     {value: "arc", label: "Arc"}
   ]`
+  className: "customSelect"
 /]
+[/div]
 
 [img src: `"./static/images/density_" + polScenario + "_" + dwlScenario + "_" + selectedZoom + ".png"`  /]
 
-What's the required population density for new development? (in people per
-hectare) This assessment determines the levels of population migration to and
-within the Arc, given the relative attractiveness of different locations. We
-will focus on one planning scenario. Then step 9, we just look at the small bit
-of suitable area. Follow same pattern as attractors and constraints. Might just
-be two scenarios. Maybe a different colour.
+What's the required population density for new development? (in people per hectare) This assessment determines the levels of population migration to and within the Arc, given the relative attractiveness of different locations. We will focus on one planning scenario. Then step 9, we just look at the small bit
+of suitable area. Follow same pattern as attractors and constraints. Might just be two scenarios. Maybe a different colour.
 
-### Step 9. Future development
+[h3 className: "stepHeader"]
+Step 9. Future development
+[/h3]
 
-Policy Scenario: [Select value:polScenario
+[h4 className:"selectLabel"]Select Policy Scenario[/h4]
+[div className: "labeledSelect"]
+[Select value:polScenario
   options:`[
     {value: "grey", label: "Grey"},
     {value: "green", label: "Green"}
   ]`
+  className: "customSelect"
 /]
+[/div]
 
-Dwellings Scenario: [Select value:dwlScenario
+[h4 className:"selectLabel"]Select Dwelling Scenario[/h4]
+[div className: "labeledSelect"]
+[Select value:dwlScenario
   options:`[
     {value: "exp", label: "Existing Expansion"},
     {value: "set", label: "New Settlements"}
   ]`
+  className: "customSelect"
 /]
+[/div]
 
-Building Rate Scenario: [Select value:bldScenario
+[h4 className:"selectLabel"]Select Building Rate Scenario[/h4]
+[div className: "labeledSelect"]
+[Select value:bldScenario
   options:`[
     {value: "23k", label: "23,000 per year"},
     {value: "30k", label: "30,000 per year"}
   ]`
+  className: "customSelect"
 /]
+[/div]
 
-Scale: [Select value:selectedZoom
+[h4 className:"selectLabel"]Change Scale[/h4]
+[div className: "labeledSelect"]
+[Select value:selectedZoom
   options:`[
     {value: "ngb", label: "Neighbourhood"},
     {value: "cty", label: "City"},
     {value: "arc", label: "Arc"}
   ]`
+  className: "customSelect"
 /]
+[/div]
 
 [img src: `"./static/images/development_" + polScenario + "_" + dwlScenario + "_" + bldScenario + "_" + selectedZoom + ".png"`  /]
 
@@ -508,22 +481,15 @@ Scale: [Select value:selectedZoom
 [img src: `"./static/images/dwellings_" + polScenario + "_" + dwlScenario + "_" + bldScenario + "_" + selectedZoom + ".png"`  /]
 
 
-What's the required population density for new development? (in people per
-hectare) This assessment determines the levels of population migration to and
-within the Arc, given the relative attractiveness of different locations.
+What's the required population density for new development? (in people per hectare) This assessment determines the levels of population migration to and within the Arc, given the relative attractiveness of different locations.
 
-### Step 10. Land use metrics
+[h3 className: "stepHeader"]
+Step 10. Land use metrics
+[/h3]
 
-The final map shows the summary level selects (as opposed to grid level). Data
-based on the boundaries people care about like LAD. Here you can get some
-numbers about 9.
-
-Include bar charts to compare/contrast between scenarios.
+The final map shows the summary level selects (as opposed to grid level). Data based on the boundaries people care about like LAD. Here you can get some numbers about 9.
 
 
 ## Conclusion
 
-This work has been carried out by researchers at the University of Oxford and
-Newcastle University in the UK, funded by the Alan Turing Institute (ATI), to
-inform the analysis, planning and design of resilient national, regional and
-local infrastructure across the world.
+This work has been carried out by researchers at the University of Oxford and Newcastle University in the UK, funded by the Alan Turing Institute (ATI), to inform the analysis, planning and design of resilient national, regional and local infrastructure across the world.
