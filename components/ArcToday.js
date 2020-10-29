@@ -111,7 +111,7 @@ let county = {
 
 let lad = {
   "data": {
-    "url": "static/data/arcLad.json",
+    "url": "static/data/arcLadCentroids.json",
     "format": {
       "type": "topojson",
       "feature": "ArcLad"
@@ -122,6 +122,35 @@ let lad = {
     "fill": "none",
     "stroke": "grey"
   }
+  // "layer": [
+  //   {
+  //     "mark": "text",
+  //     "encoding": {
+  //       "text": {
+  //         "field": "properties.label",
+  //         "type": "nominal"
+  //       },
+  //       "tooltip": {
+  //         "field": "properties.label",
+  //         "type": "nominal", "format": ".1%"
+  //       },
+  //       "longitude": {
+  //         "field": "coordinates.0",
+  //         "type": "quantitative"
+  //       },
+  //       "latitude": {
+  //         "field": "coordinates.1",
+  //         "type": "quantitative"
+  //       },
+  //       "size": {
+  //         "value": 12
+  //       },
+  //       "color": {
+  //         "value": "black"
+  //       }
+  //     }
+  //   }
+  // ]
 }
 
 let msoa = {

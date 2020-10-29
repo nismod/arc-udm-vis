@@ -77,7 +77,7 @@ A report published in 2018 by the National Infrastructure Commission outlined su
 4. New Settlements (Green Policy)
 
 
-Select one of the scenarios to learn more.
+Select a scenario to learn more.
 
 [var name:"dwlPolScenario" value:"baseline" /]
 
@@ -87,9 +87,9 @@ Select one of the scenarios to learn more.
   options:`[
     {value: "baseline", label: "Baseline"},
     {value: "grey_exp", label: "Existing Expansion (Grey Policy)"},
-    {value: "grey_exp", label: "Existing Expansion (Green Policy)"},
+    {value: "green_exp", label: "Existing Expansion (Green Policy)"},
     {value: "grey_set", label: "New Settlements (Grey Policy)"},
-    {value: "green_exp", label: "New Settlements (Green Policy)"}
+    {value: "green_set", label: "New Settlements (Green Policy)"}
   ]`
   className: "customSelect"
 /]
@@ -99,23 +99,24 @@ Select one of the scenarios to learn more.
 
 [h3 className:"imageCaption"]
   [Conditional if:`dwlPolScenario === "baseline"`]
-    The baseline assumes that population will be based on recent growth rates and housing on recent average dwelling completion rates. There will be no new expressway or East West Rail.
+    The baseline assumes that population will be based on recent growth rates and housing on recent average dwelling completion rates. There will be no intra-city transport system built.
   [/Conditional]
 
   [Conditional if:`dwlPolScenario === "grey_exp"`]
-    The expansion grey scenario envisions that existing cities will expand due to inward migration. Good intra-city transport systems will be built with both the Express Way and the East West rail link developed.
-  [/Conditional]
-
-  [Conditional if:`dwlPolScenario === "grey_set"`]
-    The new settlments scenario envisions new cities emerging. However, housing will be concentrated around existing cities with major growth in five new urban conurbations (clusters of smaller cities). Both the Express Way and the East West rail link will be developed.
+    The expansion grey scenario assumes that existing cities will expand due to inward migration and good intra-city transport systems will be built. The grey policy puts less constraints on development in favour of higher density.
   [/Conditional]
 
   [Conditional if:`dwlPolScenario === "green_exp"`]
-    In the expansion scenario, existing cities will expand with high levels of population growth expected due to inward migration. Major growth will happen around existing urban centres with new dwellings divided among the major conurbations. Extensive new developments will occur on brown and greenbelt land, along with ongoing renovation/redevelopment of existing building stock. Good intra-city transport systems will be built with both the Express Way and the East West rail link developed. Despite development, there will be lower air pollution compared to the unplanned scenario due to adoption of EVs, public transport and decrease in private transport use, but high congestion.
+    The expansion grey scenario assumes that existing cities will expand due to inward migration and good intra-city transport systems will be built. The green policy puts more constraints on development to preserve natural capital.
   [/Conditional]
 
+  [Conditional if:`dwlPolScenario === "grey_set"`]
+    The new settlements scenario assumes that new cities will emerge with major growth in five new urban conurbations (clusters of smaller cities) and good intra-city transport systems will be built. The grey policy puts less constraints on development in favour of higher density.
+  [/Conditional]
+
+
   [Conditional if:`dwlPolScenario === "green_set"`]
-    In the new settlments scenario, new cities will emerge. As a result, population will increase due to inward migration. Housing will be concentrated around existing cities with major growth in five new urban conurbations (clusters of smaller cities). Smaller, more efficient homes, optimal density. Both the Express Way and the East West rail link will be developed but compared to the unplanned scenario there will be lower air pollution due to decrease in private transport use, less congestion, and increase in active transport.
+    The new settlements scenario assumes that new cities will emerge with major growth in five new urban conurbations (clusters of smaller cities) and good intra-city transport systems will be built. The green policy puts more constraints on development to preserve natural capital.
   [/Conditional]
 
 [/h3]
