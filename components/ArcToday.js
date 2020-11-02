@@ -19,7 +19,7 @@ let population = {
         "url": "static/data/Density.csv"
       },
       "key": "msoa",
-      "fields": ["PopDensityPerkm2"]
+      "fields": ["msoa11hclnm","PopDensityPerkm2"]
     }
   }],
   "mark": {
@@ -30,8 +30,21 @@ let population = {
       "field": "PopDensityPerkm2",
       "type": "quantitative",
       "scale": {"scheme": "Purples"},
-      "legend": {"title": "Density per km2", "format": "r"}
-    }
+      "legend": {"title": "Population Density per km2", "format": "r"}
+    },
+    "tooltip": [
+      {
+      "field": "msoa11hclnm",
+      "type": "nominal",
+      "title": "MSOA"
+      },
+      {
+      "field": "PopDensityPerkm2",
+      "type": "quantitative",
+      "title": "Population Density"
+    },
+  ],
+
   }
 }
 
@@ -75,6 +88,7 @@ let county = {
     {
       "mark": {
         "type": "geoshape",
+        "tooltip": true,
         "fill": "none",
         "stroke": "grey"
       }
@@ -85,10 +99,6 @@ let county = {
         "text": {
           "field": "properties.ctyua19nm",
           "type": "nominal"
-        },
-        "tooltip": {
-          "field": "properties.ctyua19nm",
-          "type": "nominal", "format": ".1%"
         },
         "longitude": {
           "field": "properties.long",
@@ -122,35 +132,6 @@ let lad = {
     "fill": "none",
     "stroke": "grey"
   }
-  // "layer": [
-  //   {
-  //     "mark": "text",
-  //     "encoding": {
-  //       "text": {
-  //         "field": "properties.label",
-  //         "type": "nominal"
-  //       },
-  //       "tooltip": {
-  //         "field": "properties.label",
-  //         "type": "nominal", "format": ".1%"
-  //       },
-  //       "longitude": {
-  //         "field": "coordinates.0",
-  //         "type": "quantitative"
-  //       },
-  //       "latitude": {
-  //         "field": "coordinates.1",
-  //         "type": "quantitative"
-  //       },
-  //       "size": {
-  //         "value": 12
-  //       },
-  //       "color": {
-  //         "value": "black"
-  //       }
-  //     }
-  //   }
-  // ]
 }
 
 let msoa = {
@@ -166,11 +147,6 @@ let msoa = {
     "fill": "none",
     "stroke": "grey"
   },
-  "encoding": {
-    "tooltip": [
-      {"field": "properties.msoa11nm", "type": "nominal", "title": "Area" }
-    ]
-  }
 };
 
 let rail = {

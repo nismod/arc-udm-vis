@@ -79,43 +79,43 @@ A report published in 2018 by the National Infrastructure Commission outlined su
 
 Select a scenario to learn more.
 
-[var name:"dwlPolScenario" value:"baseline" /]
+[var name:"scenarioImg" value:"baseline" /]
 
 [h4 className:"selectLabel"]Select Scenario[/h4]
 [div className: "labeledSelect"]
-[Select value: dwlPolScenario
+[Select value: scenarioImg
   options:`[
     {value: "baseline", label: "Baseline"},
-    {value: "grey_exp", label: "Existing Expansion (Grey Policy)"},
-    {value: "green_exp", label: "Existing Expansion (Green Policy)"},
-    {value: "grey_set", label: "New Settlements (Grey Policy)"},
-    {value: "green_set", label: "New Settlements (Green Policy)"}
+    {value: "grey_exp", label: "Existing Expansion Grey"},
+    {value: "green_exp", label: "Existing Expansion Green"},
+    {value: "grey_set", label: "New Settlements Green"},
+    {value: "green_set", label: "New Settlements Grey"}
   ]`
   className: "customSelect"
 /]
 [/div]
 
-[img src: `"static/images/" + "scenario" + "_" + dwlPolScenario + ".png"`/]
+[img src: `"static/images/" + "scenario" + "_" + scenarioImg + ".png"`/]
 
 [h3 className:"imageCaption"]
-  [Conditional if:`dwlPolScenario === "baseline"`]
+  [Conditional if:`scenarioImg === "baseline"`]
     The baseline assumes that population will be based on recent growth rates and housing on recent average dwelling completion rates. There will be no intra-city transport system built.
   [/Conditional]
 
-  [Conditional if:`dwlPolScenario === "grey_exp"`]
+  [Conditional if:`scenarioImg === "grey_exp"`]
     The expansion grey scenario assumes that existing cities will expand due to inward migration and good intra-city transport systems will be built. The grey policy puts less constraints on development in favour of higher density.
   [/Conditional]
 
-  [Conditional if:`dwlPolScenario === "green_exp"`]
+  [Conditional if:`scenarioImg === "green_exp"`]
     The expansion grey scenario assumes that existing cities will expand due to inward migration and good intra-city transport systems will be built. The green policy puts more constraints on development to preserve natural capital.
   [/Conditional]
 
-  [Conditional if:`dwlPolScenario === "grey_set"`]
+  [Conditional if:`scenarioImg === "grey_set"`]
     The new settlements scenario assumes that new cities will emerge with major growth in five new urban conurbations (clusters of smaller cities) and good intra-city transport systems will be built. The grey policy puts less constraints on development in favour of higher density.
   [/Conditional]
 
 
-  [Conditional if:`dwlPolScenario === "green_set"`]
+  [Conditional if:`scenarioImg === "green_set"`]
     The new settlements scenario assumes that new cities will emerge with major growth in five new urban conurbations (clusters of smaller cities) and good intra-city transport systems will be built. The green policy puts more constraints on development to preserve natural capital.
   [/Conditional]
 
@@ -211,10 +211,14 @@ Scroll through each step to learn more about the UDM.
 Now that we have an understanding of the urban modelling process, let's look at how it was applied to the Arc. We will go through the process one step at a
 time. For each step we will compare results at three different scales (Arc, city, neighbourhood) in order to compare both the bigger picture and details.
 
+[var name:"scenario" value: "grey_exp" /]
 [var name:"selectedZoom" value: "arc" /]
 [var name:"polScenario" value: "green" /]
 [var name:"dwlScenario" value: "set" /]
 [var name:"bldScenario" value: "23k" /]
+
+
+
 
 
 ### Step 1: Current built and natural environment
@@ -346,23 +350,14 @@ Attractors are things that will drive more people in to the Arc. Such attractors
 Step 7. Suitability of land for development
 [/h3]
 
-[h4 className:"selectLabel"]Select Policy Scenario[/h4]
+[h4 className:"selectLabel"]Select Scenario[/h4]
 [div className: "labeledSelect"]
-[Select value:polScenario
+[Select value: scenario
   options:`[
-    {value: "grey", label: "Grey"},
-    {value: "green", label: "Green"}
-  ]`
-  className: "customSelect"
-/]
-[/div]
-
-[h4 className:"selectLabel"]Select Dwelling Scenario[/h4]
-[div className: "labeledSelect"]
-[Select value:dwlScenario
-  options:`[
-    {value: "exp", label: "Existing Expansion"},
-    {value: "set", label: "New Settlements"}
+    {value: "grey_exp", label: "Existing Expansion Grey"},
+    {value: "green_exp", label: "Existing Expansion Green"},
+    {value: "grey_set", label: "New Settlements Green"},
+    {value: "green_set", label: "New Settlements Grey"}
   ]`
   className: "customSelect"
 /]
@@ -380,7 +375,8 @@ Step 7. Suitability of land for development
 /]
 [/div]
 
-[img src: `"./static/images/suitability_" + polScenario + "_" + dwlScenario + "_" + selectedZoom + ".png"`  /]
+[img src: `"./static/images/suitability_" + scenario + "_" + selectedZoom + ".png"`  /]
+
 
 Based on the weighing of both the attractors and contraints, the output of the UDM is a combined set of development suitability scores based on selected spatial scenarios and the combination of attractors and constraints defined. Each set of scores can then be represented as colours and displayed on a map to show the changing patterns of land from a birds-eye-view lens.
 
@@ -388,27 +384,19 @@ Based on the weighing of both the attractors and contraints, the output of the U
 Step 8. Future dwelling density
 [/h3]
 
-[h4 className:"selectLabel"]Select Policy Scenario[/h4]
+[h4 className:"selectLabel"]Select Scenario[/h4]
 [div className: "labeledSelect"]
-[Select value:polScenario
+[Select value: scenario
   options:`[
-    {value: "grey", label: "Grey"},
-    {value: "green", label: "Green"}
+    {value: "grey_exp", label: "Existing Expansion Grey"},
+    {value: "green_exp", label: "Existing Expansion Green"},
+    {value: "grey_set", label: "New Settlements Green"},
+    {value: "green_set", label: "New Settlements Grey"}
   ]`
   className: "customSelect"
 /]
 [/div]
 
-[h4 className:"selectLabel"]Select Dwelling Scenario[/h4]
-[div className: "labeledSelect"]
-[Select value:dwlScenario
-  options:`[
-    {value: "exp", label: "Existing Expansion"},
-    {value: "set", label: "New Settlements"}
-  ]`
-  className: "customSelect"
-/]
-[/div]
 
 [h4 className:"selectLabel"]Change Scale[/h4]
 [div className: "labeledSelect"]
@@ -422,7 +410,7 @@ Step 8. Future dwelling density
 /]
 [/div]
 
-[img src: `"./static/images/density_" + polScenario + "_" + dwlScenario + "_" + selectedZoom + ".png"`  /]
+[img src: `"./static/images/density_" + scenario + "_" + selectedZoom + ".png"`  /]
 
 What's the required population density for new development? (in people per hectare) This assessment determines the levels of population migration to and within the Arc, given the relative attractiveness of different locations. We will focus on one planning scenario. Then step 9, we just look at the small bit
 of suitable area. Follow same pattern as attractors and constraints. Might just be two scenarios. Maybe a different colour.
@@ -431,23 +419,14 @@ of suitable area. Follow same pattern as attractors and constraints. Might just 
 Step 9. Future development
 [/h3]
 
-[h4 className:"selectLabel"]Select Policy Scenario[/h4]
+[h4 className:"selectLabel"]Select Scenario[/h4]
 [div className: "labeledSelect"]
-[Select value:polScenario
+[Select value: scenario
   options:`[
-    {value: "grey", label: "Grey"},
-    {value: "green", label: "Green"}
-  ]`
-  className: "customSelect"
-/]
-[/div]
-
-[h4 className:"selectLabel"]Select Dwelling Scenario[/h4]
-[div className: "labeledSelect"]
-[Select value:dwlScenario
-  options:`[
-    {value: "exp", label: "Existing Expansion"},
-    {value: "set", label: "New Settlements"}
+    {value: "grey_exp", label: "Existing Expansion Grey"},
+    {value: "green_exp", label: "Existing Expansion Green"},
+    {value: "grey_set", label: "New Settlements Green"},
+    {value: "green_set", label: "New Settlements Grey"}
   ]`
   className: "customSelect"
 /]
@@ -476,10 +455,10 @@ Step 9. Future development
 /]
 [/div]
 
-[img src: `"./static/images/development_" + polScenario + "_" + dwlScenario + "_" + bldScenario + "_" + selectedZoom + ".png"`  /]
+[img src: `"./static/images/development_" + scenario + "_" + bldScenario + "_" + selectedZoom + ".png"`  /]
 
 
-[img src: `"./static/images/dwellings_" + polScenario + "_" + dwlScenario + "_" + bldScenario + "_" + selectedZoom + ".png"`  /]
+[img src: `"./static/images/dwellings_" + scenario + "_" + bldScenario + "_" + selectedZoom + ".png"`  /]
 
 
 What's the required population density for new development? (in people per hectare) This assessment determines the levels of population migration to and within the Arc, given the relative attractiveness of different locations.
