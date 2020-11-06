@@ -5,3 +5,5 @@ test
 notebooks/*.png
 notebooks/config.json
 notebooks/.ipynb_checkpoints
+*.zip
+*.docx
