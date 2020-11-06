@@ -17,44 +17,48 @@
 
 The Oxford Cambridge Arc in a region in south central England that runs between Oxford and Cambridge via Milton Keynes and four major settlements including Cambridgeshire, Bedfordshire, Buckinghamshire and Oxfordshire. It is home to 3.7 million people, generating over 2 million jobs and contributing over £110 billion of annual Gross Value Added (GVA) to the UK economy per year. The area also contains some of the fastest growing and most productive towns and cities in the UK.
 
-Select different options on the map below to compare the boundaries, transportation, and density in the Arc area.
-
-[var name:"selectedBoundaries" value:"county" /]
-[div className: "labeledSelect"]
-[h4 className:"selectLabel"]Select Boundary[/h4]
-[Select value:selectedBoundaries
-  options:`[
-    {value: "county", label: "County Councils and Unitary Authorities"},
-    {value: "lad", label: "Local Authority Districts (LAD)"},
-    {value: "msoa", label: "Middle Layer Super Output Area (MSOA)"}
-  ]`
-  className: "customSelect"
-/]
-[/div]
-
-[var name:"selectedTransport" value:"rail" /]
-[div className: "labeledSelect"]
-[h4 className:"selectLabel"]Select Transport[/h4]
-[Select value:selectedTransport
-  options:`[
-    {value: "rail", label:"Rails and Stations"},
-    {value: "roads", label:"Roads"},
-    {value: "all", label:"All"}
-  ]`
-  className: "customSelect"
-/]
-[/div]
-
-[var name:"selectedDensity" value:"population" /]
-[div className: "labeledSelect"]
-[h4 className:"selectLabel"]Select Density[/h4]
-[Select value:selectedDensity
-  options:`[
-    {value: "population", label:"Population"},
-    {value: "employment", label:"Employment"}
-  ]`
-  className: "customSelect"
-/]
+[div]
+  [Inline]
+    [var name:"selectedDensity" value:"population" /]
+    [div className: "inputComponent"]
+    [h4 className:"inputLabel"]Density[/h4]
+    [Select value:selectedDensity
+      options:`[
+        {value: "population", label:"Population"},
+        {value: "employment", label:"Employment"}
+      ]`
+      className: "customSelect"
+    /]
+    [/div]
+  [/Inline]
+  [Inline]
+    [var name:"selectedTransport" value:"rail" /]
+    [div className: "inputComponent"]
+    [h4 className:"inputLabel"]Transport[/h4]
+    [Select value:selectedTransport
+      options:`[
+        {value: "rail", label:"Rails and Stations"},
+        {value: "roads", label:"Roads"},
+        {value: "all", label:"All"}
+      ]`
+      className: "customSelect"
+    /]
+    [/div]
+  [/Inline]
+  [Inline]
+  [var name:"selectedBoundaries" value:"county" /]
+    [div className: "inputComponent"]
+    [h4 className:"inputLabel"]Boundary[/h4]
+    [Select value:selectedBoundaries
+      options:`[
+        {value: "county", label: "County Councils and Unitary Authorities"},
+        {value: "lad", label: "Local Authority Districts (LAD)"},
+        {value: "msoa", label: "Middle Layer Super Output Area (MSOA)"}
+      ]`
+      className: "customSelect"
+    /]
+    [/div]
+  [/Inline]
 [/div]
 
 [div]
@@ -81,8 +85,8 @@ Select a scenario to learn more.
 
 [var name:"scenarioImg" value:"baseline" /]
 
-[h4 className:"selectLabel"]Select Scenario[/h4]
-[div className: "labeledSelect"]
+[h4 className:"inputLabel"]Select Scenario[/h4]
+[div className: "inputComponent"]
 [Select value: scenarioImg
   options:`[
     {value: "baseline", label: "Baseline"},
@@ -206,6 +210,8 @@ Scroll through each step to learn more about the UDM.
 
 [/h3]
 
+
+
 ## Applying Urban Modelling to the Arc Scenarios
 
 Now that we have an understanding of the urban modelling process, let's look at how it was applied to the Arc. We will go through the process one step at a
@@ -221,12 +227,12 @@ time. For each step we will compare results at three different scales (Arc, city
 
 
 
-### Step 1: Current built and natural environment
+### Step 1: Identify elements of the environment
 
 Existing urban land features (in blue) and non-urban land features (in green).
 
 
-### Step 2: Current dwelling densities
+### Step 2: Calculate current dwelling densities
 
 Areas with more dwellings will have a higher density. This is represented by the blue cells, where the darker blue represents a higher density; the lighter blue the lower density.
 
@@ -235,8 +241,8 @@ Areas with more dwellings will have a higher density. This is represented by the
 Step 3: Ecosystem services in the Arc
 [/h3]
 
-[h4 className:"selectLabel"]Change Scale[/h4]
-[div className: "labeledSelect"]
+[h4 className:"inputLabel"]Change Scale[/h4]
+[div className: "inputComponent"]
 [Select value: selectedZoom
   options:`[
     {value: "ngb", label: "Neighbourhood"},
@@ -249,55 +255,63 @@ Step 3: Ecosystem services in the Arc
 
 [img src: `"./static/images/natcap_" + selectedZoom + ".png"` /]
 
-Aspects of natural capital in the Arc include parks, grasslands, woodlands, verges, and any other aspect of green space, land uses, and habitats. The darker green represents higher quality ecosystem services.
+Insert legend image
 
-[h3 className: "stepHeader"]
-Step 4: Identify constraints
+[h3 className:"imageCaption"]
+Aspects of natural capital in the Arc include parks, grasslands, woodlands, verges, and any other aspect of green space, land uses, and habitats. The darker green represents higher quality ecosystem services.
 [/h3]
 
-[var name:"selectedConstraints" value:"battlefields" /]
-[div className: "labeledSelect"]
-[h4 className:"selectLabel"]Select Constraint[/h4]
-[Select value: selectedConstraints
-  options:`[
-    {value: "naturereserves", label: "Nature Recovery Networks"},
-    {value: "naturereserves", label: "National Nature Reserves"},
-    {value: "scientificinterest", label: "SSSI"},
-    {value: "heritagesites", label: "World Heritage Sites"},
-    {value: "developedareas", label: "Currently developed areas"},
-    {value: "waterbodies", label: "Water bodies	"}
-  ]`
-  className: "customSelect"
-/]
-[/div]
+[h3 className: "stepHeader"] Step 4: Identify constraints [/h3]
 
-[h4 className:"selectLabel"]Change Scale[/h4]
-[div className: "labeledSelect"]
-[Select value: selectedZoom
-  options:`[
-    {value: "ngb", label: "Neighbourhood"},
-    {value: "cty", label: "City"},
-    {value: "arc", label: "Arc"}
-  ]`
-  className: "customSelect"
-/]
+[div]
+  [Inline]
+    [h4 className:"inputLabel"]Scale[/h4]
+    [div className: "inputComponent"]
+    [Select value: selectedZoom
+      options:`[
+        {value: "ngb", label: "Neighbourhood"},
+        {value: "cty", label: "City"},
+        {value: "arc", label: "Arc"}
+      ]`
+      className: "customSelect"
+    /]
+    [/div]
+  [/Inline]
+  [Inline]
+    [var name:"selectedConstraints" value:"battlefields" /]
+    [div className: "inputComponent"]
+    [h4 className:"inputLabel"]Constraint[/h4]
+    [Select value: selectedConstraints
+      options:`[
+        {value: "naturereserves", label: "Nature Recovery Networks"},
+        {value: "naturereserves", label: "National Nature Reserves"},
+        {value: "scientificinterest", label: "SSSI"},
+        {value: "heritagesites", label: "World Heritage Sites"},
+        {value: "developedareas", label: "Currently developed areas"},
+        {value: "waterbodies", label: "Water bodies	"}
+      ]`
+      className: "customSelect"
+    /]
+    [/div]
+  [/Inline]
 [/div]
 
 [img src: `"./static/images/Step4/constraint_" + selectedZoom + "_" + selectedConstraints + ".png"` /]
 
+Insert legend image
+
+[h3 className:"imageCaption"]
 We introduce constraints to protect nature, wildlife, historical landmarks, and areas which are not feasible to develop. We "block off" these areas from development.
-
-
-[h3 className: "stepHeader"]
-Step 5: Identifying future built environment features
 [/h3]
 
+[h3 className: "stepHeader"] Step 5: Identifying future built environment features [/h3]
+
 [var name:"selectedFutureTransport" value:"allFutureTransport" /]
-[div className: "labeledSelect"]
-[h4 className:"selectLabel"]Select Future Transport[/h4]
+[div className: "inputComponent"]
+[h4 className:"inputLabel"]Future Transport[/h4]
 [Select value:selectedFutureTransport
   options:`[
-    {label: "All New Transport", value:"allFutureTransport"},
+    {label: "All", value:"allFutureTransport"},
     {label: "New or Expanded Roads", value:"futureRoads"},
     {label: "New Stations", value:"futureStations"},
     {label: "New Settlements", value:"futureSettlements"}
@@ -308,167 +322,203 @@ Step 5: Identifying future built environment features
 
 [ArcFuture selectedFutureTransport:selectedFutureTransport /]
 
+[h3 className:"imageCaption"]
 Improvements to the transport links between Oxford and Cambridge are a key aspect of the future vision for the Arc. Future plans include a new expressway and East West Rail (EWR) will link Oxford and Cambridge. While the baseline scenario would not see any changes, the other scenarios would have rail stations and road nodes. New settlements would also include new settlement centres.
-
-
-[h3 className: "stepHeader"]
-Step 6. Calculate attractiveness scores
 [/h3]
 
-[var name:"selectedAttractors" value:"transportnodes" /]
-[div className: "labeledSelect"]
-[h4 className:"selectLabel"]Select Attractor[/h4]
-[Select value:selectedAttractors
-  options:`[
-    {value: "transportnodes", label: "Proximity to existing transport nodes"},
-    {value: "roads", label: "Proximity to existing roads"},
-    {value: "currentdevelopment", label: "Proximity to current development"},
-    {value: "employment", label: "Accessibility to employment"},
-    {value: "developedland", label: "Previously developed land"}
-  ]`
-  className: "customSelect"
-/]
-[/div]
+[h3 className: "stepHeader"] Step 6. Calculate attractiveness scores [/h3]
 
-[h4 className:"selectLabel"]Change Scale[/h4]
-[div className: "labeledSelect"]
-[Select value: selectedZoom
-  options:`[
-    {value: "ngb", label: "Neighbourhood"},
-    {value: "cty", label: "City"},
-    {value: "arc", label: "Arc"}
-  ]`
-  className: "customSelect"
-/]
+[div]
+  [Inline]
+    [h4 className:"inputLabel"]Scale[/h4]
+    [div className: "inputComponent"]
+    [Select value: selectedZoom
+      options:`[
+        {value: "ngb", label: "Neighbourhood"},
+        {value: "cty", label: "City"},
+        {value: "arc", label: "Arc"}
+      ]`
+      className: "customSelect"
+    /]
+    [/div]
+  [/Inline]
+  [Inline]
+    [var name:"selectedAttractors" value:"transportnodes" /]
+    [div className: "inputComponent"]
+    [h4 className:"inputLabel"]Attractor[/h4]
+    [Select value:selectedAttractors
+      options:`[
+        {value: "transportnodes", label: "Proximity to existing transport nodes"},
+        {value: "roads", label: "Proximity to existing roads"},
+        {value: "currentdevelopment", label: "Proximity to current development"},
+        {value: "employment", label: "Accessibility to employment"},
+        {value: "developedland", label: "Previously developed land"}
+      ]`
+      className: "customSelect"
+    /]
+    [/div]
+  [/Inline]
 [/div]
 
 [img src: `"./static/images/Step6/attractiveness_" + selectedZoom + "_" + selectedAttractors + ".png"` /]
 
-Attractors are things that will drive more people in to the Arc. Such attractors could include information on the performance of local schools, local accessibility (distance) to shops, services or transport hubs.
+Insert legend image
 
-[h3 className: "stepHeader"]
-Step 7. Suitability of land for development
+[h3 className:"imageCaption"]
+Attractors are things that will drive more people in to the Arc. Such attractors could include information on the performance of local schools, local accessibility (distance) to shops, services or transport hubs.
 [/h3]
 
-[h4 className:"selectLabel"]Select Scenario[/h4]
-[div className: "labeledSelect"]
-[Select value: scenario
-  options:`[
-    {value: "grey_exp", label: "Existing Expansion Grey"},
-    {value: "green_exp", label: "Existing Expansion Green"},
-    {value: "grey_set", label: "New Settlements Green"},
-    {value: "green_set", label: "New Settlements Grey"}
-  ]`
-  className: "customSelect"
-/]
-[/div]
+[h3 className: "stepHeader"] Step 7. Suitability of land for development [/h3]
 
-[h4 className:"selectLabel"]Change Scale[/h4]
-[div className: "labeledSelect"]
-[Select value:selectedZoom
-  options:`[
-    {value: "ngb", label: "Neighbourhood"},
-    {value: "cty", label: "City"},
-    {value: "arc", label: "Arc"}
-  ]`
-  className: "customSelect"
-/]
+[div]
+  [Inline]
+  [h4 className:"inputLabel"]Scale[/h4]
+    [div className: "inputComponent"]
+    [Select value:selectedZoom
+      options:`[
+        {value: "ngb", label: "Neighbourhood"},
+        {value: "cty", label: "City"},
+        {value: "arc", label: "Arc"}
+      ]`
+      className: "customSelect"
+    /]
+  [/div]
+  [/Inline]
+  [Inline]
+    [h4 className:"inputLabel"]Scenario[/h4]
+    [div className: "inputComponent"]
+    [Select value: scenario
+      options:`[
+        {value: "grey_exp", label: "Existing Expansion Grey"},
+        {value: "green_exp", label: "Existing Expansion Green"},
+        {value: "grey_set", label: "New Settlements Green"},
+        {value: "green_set", label: "New Settlements Grey"}
+      ]`
+      className: "customSelect"
+    /]
+    [/div]
+  [/Inline]
 [/div]
 
 [img src: `"./static/images/suitability_" + scenario + "_" + selectedZoom + ".png"`  /]
 
+Insert legend image
 
+[h3 className:"imageCaption"]
 Based on the weighing of both the attractors and contraints, the output of the UDM is a combined set of development suitability scores based on selected spatial scenarios and the combination of attractors and constraints defined. Each set of scores can then be represented as colours and displayed on a map to show the changing patterns of land from a birds-eye-view lens.
-
-[h3 className: "stepHeader"]
-Step 8. Future dwelling density
 [/h3]
 
-[h4 className:"selectLabel"]Select Scenario[/h4]
-[div className: "labeledSelect"]
-[Select value: scenario
-  options:`[
-    {value: "grey_exp", label: "Existing Expansion Grey"},
-    {value: "green_exp", label: "Existing Expansion Green"},
-    {value: "grey_set", label: "New Settlements Green"},
-    {value: "green_set", label: "New Settlements Grey"}
-  ]`
-  className: "customSelect"
-/]
-[/div]
+[h3 className: "stepHeader"] Step 8. Future dwelling density [/h3]
 
-
-[h4 className:"selectLabel"]Change Scale[/h4]
-[div className: "labeledSelect"]
-[Select value:selectedZoom
-  options:`[
-    {value: "ngb", label: "Neighbourhood"},
-    {value: "cty", label: "City"},
-    {value: "arc", label: "Arc"}
-  ]`
-  className: "customSelect"
-/]
+[div]
+  [Inline]
+    [h4 className:"inputLabel"]Scale[/h4]
+    [div className: "inputComponent"]
+    [Select value:selectedZoom
+      options:`[
+        {value: "ngb", label: "Neighbourhood"},
+        {value: "cty", label: "City"},
+        {value: "arc", label: "Arc"}
+      ]`
+      className: "customSelect"
+    /]
+    [/div]
+  [/Inline]
+  [Inline]
+  [h4 className:"inputLabel"]Scenario[/h4]
+    [div className: "inputComponent"]
+    [Select value: scenario
+      options:`[
+        {value: "grey_exp", label: "Existing Expansion Grey"},
+        {value: "green_exp", label: "Existing Expansion Green"},
+        {value: "grey_set", label: "New Settlements Green"},
+        {value: "green_set", label: "New Settlements Grey"}
+      ]`
+      className: "customSelect"
+    /]
+    [/div]
+  [/Inline]
 [/div]
 
 [img src: `"./static/images/density_" + scenario + "_" + selectedZoom + ".png"`  /]
 
-What's the required population density for new development? (in people per hectare) This assessment determines the levels of population migration to and within the Arc, given the relative attractiveness of different locations. We will focus on one planning scenario. Then step 9, we just look at the small bit
-of suitable area. Follow same pattern as attractors and constraints. Might just be two scenarios. Maybe a different colour.
+Insert legend image
 
-[h3 className: "stepHeader"]
-Step 9. Future development
+[h3 className:"imageCaption"] What's the required population density for new development? (in people per hectare) This assessment determines the levels of population migration to and within the Arc, given the relative attractiveness of different locations. [/h3]
+
+[h3 className: "stepHeader"] Step 9. Future development [/h3]
+
+[div]
+  [Inline]
+    [h4 className:"inputLabel"]Scale[/h4]
+    [div className: "inputComponent"]
+    [Select value:selectedZoom
+      options:`[
+        {value: "ngb", label: "Neighbourhood"},
+        {value: "cty", label: "City"},
+        {value: "arc", label: "Arc"}
+      ]`
+      className: "customSelect"
+    /]
+    [/div]
+  [/Inline]
+  [Inline]
+    [var name:"view" value: "development" /]
+    [h4 className:"inputLabel"]View[/h4]
+    [div className: "inputComponent"]
+    [Select value:view
+      options:`[
+        {value: "development", label: "Development"},
+        {value: "dwellings", label: "Dwellings"}
+      ]`
+      className: "customSelect"
+    /]
+    [/div]
+  [/Inline]
+  [Inline]
+  [h4 className:"inputLabel"]Scenario[/h4]
+    [div className: "inputComponent"]
+    [Select value:scenario
+      options:`[
+        {value: "grey_exp", label: "Existing Expansion Grey"},
+        {value: "green_exp", label: "Existing Expansion Green"},
+        {value: "grey_set", label: "New Settlements Green"},
+        {value: "green_set", label: "New Settlements Grey"}
+      ]`
+      className: "customSelect"
+    /]
+    [/div]
+  [/Inline]
+  [Inline]
+  [h4 className:"inputLabel"]Rate[/h4]
+    [div className: "inputComponent"]
+    [Select value:bldScenario
+      options:`[
+        {value: "23k", label: "23,000 per year"},
+        {value: "30k", label: "30,000 per year"}
+      ]`
+      className: "customSelect"
+    /]
+    [/div]
+  [/Inline]
+[/div]
+
+
+[img src: `"./static/images/" + view + "_" + scenario + "_" + bldScenario + "_" + selectedZoom + ".png"`  /]
+
+Insert legend image
+
+[h3 className:"imageCaption"]
+Description for results of step 9
 [/h3]
-
-[h4 className:"selectLabel"]Select Scenario[/h4]
-[div className: "labeledSelect"]
-[Select value: scenario
-  options:`[
-    {value: "grey_exp", label: "Existing Expansion Grey"},
-    {value: "green_exp", label: "Existing Expansion Green"},
-    {value: "grey_set", label: "New Settlements Green"},
-    {value: "green_set", label: "New Settlements Grey"}
-  ]`
-  className: "customSelect"
-/]
-[/div]
-
-[h4 className:"selectLabel"]Select Building Rate Scenario[/h4]
-[div className: "labeledSelect"]
-[Select value:bldScenario
-  options:`[
-    {value: "23k", label: "23,000 per year"},
-    {value: "30k", label: "30,000 per year"}
-  ]`
-  className: "customSelect"
-/]
-[/div]
-
-[h4 className:"selectLabel"]Change Scale[/h4]
-[div className: "labeledSelect"]
-[Select value:selectedZoom
-  options:`[
-    {value: "ngb", label: "Neighbourhood"},
-    {value: "cty", label: "City"},
-    {value: "arc", label: "Arc"}
-  ]`
-  className: "customSelect"
-/]
-[/div]
-
-[img src: `"./static/images/development_" + scenario + "_" + bldScenario + "_" + selectedZoom + ".png"`  /]
-
-
-[img src: `"./static/images/dwellings_" + scenario + "_" + bldScenario + "_" + selectedZoom + ".png"`  /]
-
-
-What's the required population density for new development? (in people per hectare) This assessment determines the levels of population migration to and within the Arc, given the relative attractiveness of different locations.
 
 [h3 className: "stepHeader"]
 Step 10. Land use metrics
 [/h3]
 
+[h3 className:"imageCaption"]
 The final map shows the summary level selects (as opposed to grid level). Data based on the boundaries people care about like LAD. Here you can get some numbers about 9.
-
+[/h3]
 
 ## Conclusion
 

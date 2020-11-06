@@ -19,16 +19,17 @@ body {
 
 .customSelect {
   padding: 4px;
+  margin-right: 8px;
   background-color: #f0f9fa;
   outline-color: #006f74;
   color: #006f74;
 }
 
-.selectLabel {
+.inputLabel {
   margin: 0px;
 }
 
-.labeledSelect {
+.inputComponent {
   margin-bottom: 16px;
 }
 
