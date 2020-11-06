@@ -75,6 +75,7 @@ The Oxford Cambridge Arc in a region in south central England that runs between 
 A report published in 2018 by the National Infrastructure Commission outlined substantial plans to increase access and connectivity to the Arc area by 2050. This vision includes one million new homes across the Arc, an east-west Expressway road, and major improvements to rail routes. However, in order to learn more about how this vision would actually impact urban development, the [link text:"Infrastructure Transitions Research Consortium (ITRC)" url:"https://www.itrc.org.uk/" /] team simulated possible futures of the Arc through computer modelling. This article will outline the steps of the analysis in more detail. To get started, the team first defined four high-level future scenarios based on the vision by making assumptions about the number of new homes and transport that will need to be build, where they will be built, and constraints on how much development can take place. The four scenarios are compared to a baseline representing the preesent day.
 
 ### Overview of Scenarios
+
 1. Existing Expansion (Grey Policy)
 2. Existing Expansion (Green Policy)
 3. New Settlements (Grey Policy)
@@ -86,6 +87,7 @@ Select a scenario to learn more.
 [var name:"scenarioImg" value:"baseline" /]
 
 [h4 className:"inputLabel"]Select Scenario[/h4]
+
 [div className: "inputComponent"]
 [Select value: scenarioImg
   options:`[
@@ -102,6 +104,7 @@ Select a scenario to learn more.
 [img src: `"static/images/" + "scenario" + "_" + scenarioImg + ".png"`/]
 
 [h3 className:"imageCaption"]
+
   [Conditional if:`scenarioImg === "baseline"`]
     The baseline assumes that population will be based on recent growth rates and housing on recent average dwelling completion rates. There will be no intra-city transport system built.
   [/Conditional]
@@ -153,14 +156,23 @@ Scroll through each step to learn more about the UDM.
   [/Graphic]
 
   [Step]Step 1. Identify elements of the environment[/Step]
+
   [Step]Step 2. Calculate current dwelling densities[/Step]
+
   [Step]Step 3. Calculate ecosystem services[/Step]
+
   [Step]Step 4. Identify constraints[/Step]
+
   [Step]Step 5. Introduce future built environment features[/Step]
+
   [Step]Step 6. Calculate attractiveness scores[/Step]
+
   [Step]Step 7. Identify development suitability[/Step]
+
   [Step]Step 8. Identify future dwelling density[/Step]
+
   [Step]Step 9. Allocate future development[/Step]
+
   [Step]Step 10. Calculate land use metrics[/Step]
 
   [StepperControl /]
@@ -211,7 +223,6 @@ Scroll through each step to learn more about the UDM.
 [/h3]
 
 
-
 ## Applying Urban Modelling to the Arc Scenarios
 
 Now that we have an understanding of the urban modelling process, let's look at how it was applied to the Arc. We will go through the process one step at a
@@ -224,9 +235,6 @@ time. For each step we will compare results at three different scales (Arc, city
 [var name:"bldScenario" value: "23k" /]
 
 
-
-
-
 ### Step 1: Identify elements of the environment
 
 Existing urban land features (in blue) and non-urban land features (in green).
@@ -237,9 +245,7 @@ Existing urban land features (in blue) and non-urban land features (in green).
 Areas with more dwellings will have a higher density. This is represented by the blue cells, where the darker blue represents a higher density; the lighter blue the lower density.
 
 
-[h3 className: "stepHeader"]
-Step 3: Ecosystem services in the Arc
-[/h3]
+### Step 3: Ecosystem services in the Arc
 
 [h4 className:"inputLabel"]Change Scale[/h4]
 [div className: "inputComponent"]
@@ -261,7 +267,7 @@ Insert legend image
 Aspects of natural capital in the Arc include parks, grasslands, woodlands, verges, and any other aspect of green space, land uses, and habitats. The darker green represents higher quality ecosystem services.
 [/h3]
 
-[h3 className: "stepHeader"] Step 4: Identify constraints [/h3]
+### Step 4: Identify constraints
 
 [div]
   [Inline]
@@ -304,7 +310,7 @@ Insert legend image
 We introduce constraints to protect nature, wildlife, historical landmarks, and areas which are not feasible to develop. We "block off" these areas from development.
 [/h3]
 
-[h3 className: "stepHeader"] Step 5: Identifying future built environment features [/h3]
+### Step 5: Identifying future built environment features
 
 [var name:"selectedFutureTransport" value:"allFutureTransport" /]
 [div className: "inputComponent"]
@@ -326,7 +332,7 @@ We introduce constraints to protect nature, wildlife, historical landmarks, and 
 Improvements to the transport links between Oxford and Cambridge are a key aspect of the future vision for the Arc. Future plans include a new expressway and East West Rail (EWR) will link Oxford and Cambridge. While the baseline scenario would not see any changes, the other scenarios would have rail stations and road nodes. New settlements would also include new settlement centres.
 [/h3]
 
-[h3 className: "stepHeader"] Step 6. Calculate attractiveness scores [/h3]
+### Step 6. Calculate attractiveness scores
 
 [div]
   [Inline]
@@ -368,7 +374,7 @@ Insert legend image
 Attractors are things that will drive more people in to the Arc. Such attractors could include information on the performance of local schools, local accessibility (distance) to shops, services or transport hubs.
 [/h3]
 
-[h3 className: "stepHeader"] Step 7. Suitability of land for development [/h3]
+### Step 7. Suitability of land for development
 
 [div]
   [Inline]
@@ -408,7 +414,7 @@ Insert legend image
 Based on the weighing of both the attractors and contraints, the output of the UDM is a combined set of development suitability scores based on selected spatial scenarios and the combination of attractors and constraints defined. Each set of scores can then be represented as colours and displayed on a map to show the changing patterns of land from a birds-eye-view lens.
 [/h3]
 
-[h3 className: "stepHeader"] Step 8. Future dwelling density [/h3]
+### Step 8. Future dwelling density
 
 [div]
   [Inline]
@@ -446,7 +452,7 @@ Insert legend image
 
 [h3 className:"imageCaption"] What's the required population density for new development? (in people per hectare) This assessment determines the levels of population migration to and within the Arc, given the relative attractiveness of different locations. [/h3]
 
-[h3 className: "stepHeader"] Step 9. Future development [/h3]
+### Step 9. Future development
 
 [div]
   [Inline]
@@ -512,14 +518,12 @@ Insert legend image
 Description for results of step 9
 [/h3]
 
-[h3 className: "stepHeader"]
-Step 10. Land use metrics
-[/h3]
+### Step 10. Land use metrics
 
 [h3 className:"imageCaption"]
 The final map shows the summary level selects (as opposed to grid level). Data based on the boundaries people care about like LAD. Here you can get some numbers about 9.
 [/h3]
 
-## Conclusion
+## Acknowledgements
 
 This work has been carried out by researchers at the University of Oxford and Newcastle University in the UK, funded by the Alan Turing Institute (ATI), to inform the analysis, planning and design of resilient national, regional and local infrastructure across the world.
