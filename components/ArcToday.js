@@ -19,32 +19,17 @@ let population = {
         "url": "static/data/Density.csv"
       },
       "key": "msoa",
-      "fields": ["msoa11hclnm","PopDensityPerkm2"]
+      "fields": ["PopDensityPerkm2"]
     }
   }],
-  "mark": {
-    "type": "geoshape"
-  },
+  "mark": "geoshape",
   "encoding": {
     "color": {
       "field": "PopDensityPerkm2",
       "type": "quantitative",
-      "scale": {"scheme": "Purples"},
-      "legend": {"title": "Population Density per km2", "format": "r"}
+      "scale": {"scheme": "purpleblue"},
+      "legend": {"title": "Density per km2"}
     },
-    "tooltip": [
-      {
-      "field": "msoa11hclnm",
-      "type": "nominal",
-      "title": "MSOA"
-      },
-      {
-      "field": "PopDensityPerkm2",
-      "type": "quantitative",
-      "title": "Population Density"
-    },
-  ],
-
   }
 }
 
@@ -63,15 +48,13 @@ let employment = {
       "fields": ["EmpDensityPerkm2"]
     }
   }],
-  "mark": {
-    "type": "geoshape"
-  },
+  "mark": "geoshape",
   "encoding": {
     "color": {
       "field": "EmpDensityPerkm2",
       "type": "quantitative",
-      "scale": {"scheme": "Blues"},
-      "legend": {"title": "Density per km2", "format": "r"}
+      "scale": {"scheme": "purpleblue"},
+      "legend": {"title": "Density per km2"}
     }
   }
 }
@@ -88,9 +71,7 @@ let county = {
     {
       "mark": {
         "type": "geoshape",
-        "tooltip": true,
-        "fill": "none",
-        "stroke": "grey"
+        "stroke": "lightgrey"
       }
     },
     {
@@ -121,7 +102,7 @@ let county = {
 
 let lad = {
   "data": {
-    "url": "static/data/arcLadCentroids.json",
+    "url": "static/data/arcLad.json",
     "format": {
       "type": "topojson",
       "feature": "ArcLad"
@@ -130,7 +111,7 @@ let lad = {
   "mark": {
     "type": "geoshape",
     "fill": "none",
-    "stroke": "grey"
+    "stroke": "lightgrey"
   }
 }
 
@@ -145,7 +126,7 @@ let msoa = {
   "mark": {
     "type": "geoshape",
     "fill": "none",
-    "stroke": "grey"
+    "stroke": "lightgrey"
   },
 };
 
@@ -161,8 +142,7 @@ let rail = {
     },
       "mark": {
         "type": "geoshape",
-        "fill": "black",
-        "stroke": "black"
+        "stroke": "grey"
       }
     },
     {
@@ -175,8 +155,8 @@ let rail = {
       },
       "mark": {
         "type": "geoshape",
-        "fill": "black",
-        "stroke": "white"
+        "stroke": "grey",
+        //"fill": "orange"
       }
     }
   ]
@@ -194,56 +174,11 @@ let roads = {
   "mark": {
     "type": "geoshape",
     "fill": "transparent",
-    "stroke": "teal"
+    "stroke": "grey"
   }
 };
 
-let all = {
-  "layer": [
-    {
-      "data": {
-        "url": "static/data/arcRail.json",
-        "format": {
-          "type": "topojson",
-          "feature": "railnetwork"
-          }
-    },
-      "mark": {
-        "type": "geoshape",
-        "fill": "black",
-        "stroke": "black"
-      }
-    },
-    {
-      "data": {
-        "url": "static/data/arcStations.json",
-        "format": {
-          "type": "topojson",
-          "feature": "ExistingStations"
-          }
-      },
-      "mark": {
-        "type": "geoshape",
-        "fill": "black",
-        "stroke": "white"
-      }
-    },
-    {
-      "data": {
-        "url": "static/data/arcRoads.json",
-        "format": {
-          "type": "topojson",
-          "feature": "road"
-          }
-      },
-      "mark": {
-        "type": "geoshape",
-        "fill": "transparent",
-        "stroke": "teal"
-      }
-    }
-  ]
-};
+
 
 let spec = {
   "$schema": "https://vega.github.io/schema/vega-lite/v4.json",
@@ -254,7 +189,7 @@ let spec = {
 
 let density = {population: population, employment: employment};
 let boundary = {county: county, lad: lad, msoa: msoa};
-let transport = {rail: rail, roads: roads, all:all};
+let transport = {rail: rail, roads: roads};
 
 function buildView(element, props) {
   //Depending on selection, use one of the defined layers

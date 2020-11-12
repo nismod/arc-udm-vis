@@ -4,79 +4,113 @@ const vega = require('vega'); //you need vega to compile vega-lite
 const vegalite = require('vega-lite');
 
 
-
-//boundary
-let lad = {
+//background layer using counties and UA boundary
+let county = {
   "data": {
-    "url": "static/data/arcLad.json",
+    "url": "static/data/arcCountiesUnitaryAuthorities.json",
     "format": {
       "type": "topojson",
-      "feature": "ArcLad"
+      "feature": "countiesUnitaryAuthorities"
       }
   },
-  "mark": {
-    "type": "geoshape",
-    "fill": "none",
-    "stroke": "grey"
-  }
+  "layer": [
+    {
+      "mark": {
+        "type": "geoshape",
+        "stroke": "lightgrey"
+      }
+    },
+    {
+      "mark": "text",
+      "encoding": {
+        "text": {
+          "field": "properties.ctyua19nm",
+          "type": "nominal"
+        },
+        "longitude": {
+          "field": "properties.long",
+          "type": "quantitative"
+        },
+        "latitude": {
+          "field": "properties.lat",
+          "type": "quantitative"
+        },
+        "size": {
+          "value": 12
+        },
+        "color": {
+          "value": "black"
+        }
+      }
+    }
+  ]
 }
 
-
-
-//Layer for future new or expanded roads
-let futureRoads = {
-  "data": {
-    "url": "static/data/newArcRoads.json",
-    "format": {
-      "type": "topojson",
-      "feature": "networkNew"
-      }
-  },
-  "mark": {
-    "type": "geoshape",
-    "fill": "transparent",
-    "stroke": "teal",
-    "strokeWidth": "5"
-  }
-};
-
-//Layer for future new stations
 let futureStations = {
-  "data": {
-    "url": "static/data/NewArcStations.json",
-    "format": {
-      "type": "topojson",
-      "feature": "NewArcStations"
-      }
-  },
-  "mark": {
-    "type": "geoshape",
-    "fill": "orange",
-    "stroke": "orange",
-    "strokeWidth": "5"
-  }
-};
-
-//Layer for future new settlements
-let futureSettlements = {
-  "data": {
-    "url": "static/data/newArcSettlements.json",
-    "format": {
-      "type": "topojson",
-      "feature": "settlements"
-      }
-  },
-  "mark": {
-    "type": "geoshape",
-    "fill": "lightblue",
-    "stroke": "lightblue",
-    "strokeWidth": "5"
-  }
-};
-
-//All future transport as layerslet today
-let allFutureTransport = {
   "layer": [
+    {
+      "data": {
+        "url": "static/data/arcStations.json",
+        "format": {
+          "type": "topojson",
+          "feature": "ExistingStations"
+          }
+      },
+      "mark": {
+        "type": "geoshape",
+        "fill": "teal",
+        "fillOpacity": "0.3"
+      }
+    },
+    {
+    "data": {
+      "url": "static/data/arcRail.json",
+      "format": {
+        "type": "topojson",
+        "feature": "railnetwork"
+        }
+      },
+      "mark": {
+        "type": "geoshape",
+        "stroke": "teal",
+        "strokeWidth": "0.5"
+      }
+    },
+    {
+      "data": {
+        "url": "static/data/newArcStations.json",
+        "format": {
+          "type": "topojson",
+          "feature": "NewArcStations"
+          }
+      },
+      "mark": {
+        "type": "geoshape",
+        "fill": "teal",
+        "stroke": "teal",
+        "strokeWidth": "5"
+      }
+    }
+  ]
+};
+
+
+let futureRoads = {
+  "layer": [
+    {
+      "data": {
+        "url": "static/data/arcRoads.json",
+        "format": {
+          "type": "topojson",
+          "feature": "road"
+          }
+      },
+      "mark": {
+        "type": "geoshape",
+        "stroke": "teal",
+        "strokeWidth": "0.3"
+      }
+    },
     {
       "data": {
         "url": "static/data/newArcRoads.json",
@@ -91,103 +125,43 @@ let allFutureTransport = {
         "stroke": "teal",
         "strokeWidth": "5"
       }
-    },
-    {
-      "data": {
-        "url": "static/data/NewArcStations.json",
-        "format": {
-          "type": "topojson",
-          "feature": "NewArcStations"
-          }
-      },
-      "mark": {
-        "type": "geoshape",
-        "fill": "orange",
-        "stroke": "orange",
-        "strokeWidth": "5"
-      }
-    },
-    {
-      "data": {
-        "url": "static/data/newArcSettlements.json",
-        "format": {
-          "type": "topojson",
-          "feature": "settlements"
-          }
-      },
-      "mark": {
-        "type": "geoshape",
-        "fill": "lightblue",
-        "stroke": "lightblue",
-        "strokeWidth": "5"
-      }
     }
   ]
 };
 
-//All current transport as layer
-let today = {
-  "layer": [
-    {
-      "data": {
-        "url": "static/data/arcRail.json",
-        "format": {
-          "type": "topojson",
-          "feature": "railnetwork"
-          }
-    },
-      "mark": {
-        "type": "geoshape",
-        "fill": "lightgrey",
-        "stroke": "white"
+
+let futureSettlements = {
+  "data": {
+    "url": "static/data/newArcSettlements.json",
+    "format": {
+      "type": "topojson",
+      "feature": "settlements"
       }
-    },
-    {
-      "data": {
-        "url": "static/data/arcStations.json",
-        "format": {
-          "type": "topojson",
-          "feature": "ExistingStations"
-          }
-      },
-      "mark": {
-        "type": "geoshape",
-        "fill": "lightgrey",
-        "stroke": "white"
-      }
-    },
-    {
-      "data": {
-        "url": "static/data/arcRoads.json",
-        "format": {
-          "type": "topojson",
-          "feature": "road"
-          }
-      },
-      "mark": {
-        "type": "geoshape",
-        "fill": "transparent",
-        "stroke": "lightgrey"
-      }
-    }
-  ]
+  },
+  "mark": {
+    "type": "geoshape",
+    "fill": "teal",
+    "stroke": "teal",
+    "strokeWidth": "30",
+    "strokeOpacity": "0.2"
+  }
 };
+
+
 
 let spec = {
   "$schema": "https://vega.github.io/schema/vega-lite/v4.json",
-  "description": "A map of the Arc in the UK",
+  "description": "A future map of the Arc in the UK",
   "width": 550,
   "height": 550,
 };
 
 
-//let boundary = {lad: lad};
-let future = {allFutureTransport: allFutureTransport, futureRoads: futureRoads, futureStations: futureStations, futureSettlements: futureSettlements};
-//let transport = {rail: rail, roads: roads, today:today};
+let future = {futureStations: futureStations, futureRoads: futureRoads, futureSettlements: futureSettlements};
 
 function buildView(element, props) {
   //Depending on selection, use one of the defined layers
-  spec.layer = [lad, today, future[props.selectedFutureTransport],];
+  spec.layer = [county, future[props.selectedFutureTransport],];
   //Build a Vega view in the DOM element passed
   return new vega.View(vega.parse(vegalite.compile(spec).spec))
     .renderer('svg')
