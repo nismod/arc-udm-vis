@@ -53,7 +53,7 @@ let employment = {
     "color": {
       "field": "EmpDensityPerkm2",
       "type": "quantitative",
-      "scale": {"scheme": "purpleblue"},
+      "scale": {"scheme": "purplebluegreen"},
       "legend": {"title": "Density per km2"}
     }
   }
