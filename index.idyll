@@ -69,61 +69,56 @@ The Oxford Cambridge Arc in a region in south central England that runs between 
 
 ## Future Development Scenarios
 
-A report published in 2018 by the National Infrastructure Commission outlined substantial plans to increase access and connectivity to the Arc area by 2050. This vision includes one million new homes across the Arc, an east-west Expressway road, and major improvements to rail routes. However, in order to learn more about how this vision would actually impact urban development, the [link text:"Infrastructure Transitions Research Consortium (ITRC)" url:"https://www.itrc.org.uk/" /] team simulated possible futures of the Arc through computer modelling. This article will outline the steps of the analysis in more detail. To get started, the team first defined four high-level future scenarios based on the vision by making assumptions about the number of new homes and transport that will need to be build, where they will be built, and constraints on how much development can take place. The four scenarios are compared to a baseline representing the preesent day.
+A report published in 2018 by the National Infrastructure Commission outlined
+substantial plans to increase access and connectivity to the Arc area by 2050.
+This vision includes one million new homes across the Arc and major improvements
+to rail routes. However, in order to learn more about how this vision would
+actually impact urban development, the
+[link text:"Infrastructure Transitions Research Consortium (ITRC)" url:"https://www.itrc.org.uk/" /]
+team simulated possible futures of the Arc through computer modelling.
+
+This article will outline the steps of the analysis in more detail. To get
+started, the team first defined four high-level future scenarios based on the
+vision by making assumptions about the number of new homes and transport that
+will need to be built, where they will be built, and constraints on how much
+development can take place. The four scenarios are compared to a baseline
+representing the present day.
 
 ### Overview of Scenarios
 
-1. Existing Expansion (Grey Policy)
-2. Existing Expansion (Green Policy)
-3. New Settlements (Grey Policy)
-4. New Settlements (Green Policy)
+We looked at two scenarios which could guide the broad location of new
+development.
 
+#### Existing Expansion
 
-Select a scenario to learn more.
+- Location of development near existing development, with good access to existing employment by road or rail
+- Allow some building on green belt land to allow for expansion
 
-[var name:"scenarioImg" value:"baseline" /]
+#### New Settlements
 
-[h4 className:"inputLabel"]Select Scenario[/h4]
+- Focussed on new centres, around future rail stations
 
-[div className: "inputComponent"]
-[Select value: scenarioImg
-  options:`[
-    {value: "baseline", label: "Baseline"},
-    {value: "grey_exp", label: "Existing Expansion Grey"},
-    {value: "green_exp", label: "Existing Expansion Green"},
-    {value: "grey_set", label: "New Settlements Green"},
-    {value: "green_set", label: "New Settlements Grey"}
-  ]`
-  className: "customSelect"
-/]
-[/div]
+We also considered two scenarios which vary attractiveness and constraints that
+may have environmental benefits.
 
-[img src: `"static/images/" + "scenario" + "_" + scenarioImg + ".png"`/]
+#### Grey
 
-[h3 className:"imageCaption"]
+- Relatively more weight given to proximity to roads, access to employment by road
+- Relatively less weight given to avoid losing natural capital
+- Core constraints not to build on ancient woodland, flood plains, areas of very high natural capital
 
-  [Conditional if:`scenarioImg === "baseline"`]
-    The baseline assumes that population will be based on recent growth rates and housing on recent average dwelling completion rates. There will be no intra-city transport system built.
-  [/Conditional]
+#### Green
 
-  [Conditional if:`scenarioImg === "grey_exp"`]
-    The expansion grey scenario assumes that existing cities will expand due to inward migration and good intra-city transport systems will be built. The grey policy puts less constraints on development in favour of higher density.
-  [/Conditional]
+- Relatively more weight given to proximity to stations, access to employment by rail
+- Relatively more weight given to avoid losing natural capital
+- Additional constraints not to build on nature recovery networks
 
-  [Conditional if:`scenarioImg === "green_exp"`]
-    The expansion grey scenario assumes that existing cities will expand due to inward migration and good intra-city transport systems will be built. The green policy puts more constraints on development to preserve natural capital.
-  [/Conditional]
+In combination, this gives four extremes to explore:
 
-  [Conditional if:`scenarioImg === "grey_set"`]
-    The new settlements scenario assumes that new cities will emerge with major growth in five new urban conurbations (clusters of smaller cities) and good intra-city transport systems will be built. The grey policy puts less constraints on development in favour of higher density.
-  [/Conditional]
-
-
-  [Conditional if:`scenarioImg === "green_set"`]
-    The new settlements scenario assumes that new cities will emerge with major growth in five new urban conurbations (clusters of smaller cities) and good intra-city transport systems will be built. The green policy puts more constraints on development to preserve natural capital.
-  [/Conditional]
-
-[/h3]
+1. Existing Expansion, Grey
+2. Existing Expansion, Green
+3. New Settlements, Grey
+4. New Settlements, Green
 
 
 ## The Urban Modelling Process
