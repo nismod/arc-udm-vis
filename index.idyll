@@ -128,20 +128,23 @@ Select a scenario to learn more.
 
 ## The Urban Modelling Process
 
-Using the future scenarios as a starting point, we can start to test out the theories and assumptions made through computer-based simulations. While we can't fully capture every nuance about the future built environment, analyzing and visualising the trade-offs can help planners and policy-makers make informed decisions. One of the modals used to assess the Arc is called the Urban Development Model (UDM). We will take a brief moment to explain the general process of the UDM before showing the results applied to the Arc.
+Using the future scenarios as a starting point, we can start to test out the
+theories and assumptions made through computer-based simulations. While we can't
+fully capture every nuance about the future built environment, analyzing and
+visualising the trade-offs can help planners and policy-makers make informed
+decisions. One of the modals used to assess the Arc is called the Urban
+Development Model (UDM). We will take a brief moment to explain the general
+process of the UDM before showing the results applied to the Arc.
 
 ### Overview of UDM Process Steps
 
-1. Identify elements of the environment
-2. Calculate current dwelling densities
-3. Calculate ecosystem services
+1. Identify elements of the built and natural environment at a 100m grid scale
+2. Develop scenarios of major features that will influence the nature of new development
+3. Calculate attractiveness scores for new development
 4. Identify constraints
-5. Introduce future built environment features
-6. Calculate attractiveness scores
-7. Identify development suitability
-8. Identify future dwelling density
-9. Allocate future development
-10. Calculate land use metrics
+5. Explore different target densities for different categories of building development
+6. Allocate future development, subject to attractors, constraints and density
+7. Calculate metrics to evaluate the new development scenarios
 
 
 Scroll through each step to learn more about the UDM.
@@ -149,28 +152,22 @@ Scroll through each step to learn more about the UDM.
 [var name:"processStep" value:0 /]
 [Stepper currentStep:processStep]
   [Graphic]
-    [img src:`"static/images/Stepper/" + processStep + ".png"` /]
+    [img src:`"static/images/Stepper/" + (processStep + 1) + ".png"` /]
   [/Graphic]
 
-  [Step]Step 1. Identify elements of the environment[/Step]
+  [Step]Step 1. Identify elements of the built and natural environment[/Step]
 
-  [Step]Step 2. Calculate current dwelling densities[/Step]
+  [Step]Step 2. Develop scenarios that may influence new development[/Step]
 
-  [Step]Step 3. Calculate ecosystem services[/Step]
+  [Step]Step 3. Calculate attractiveness scores[/Step]
 
   [Step]Step 4. Identify constraints[/Step]
 
-  [Step]Step 5. Introduce future built environment features[/Step]
+  [Step]Step 5. Explore different target densities[/Step]
 
-  [Step]Step 6. Calculate attractiveness scores[/Step]
+  [Step]Step 6. Allocate future development[/Step]
 
-  [Step]Step 7. Identify development suitability[/Step]
-
-  [Step]Step 8. Identify future dwelling density[/Step]
-
-  [Step]Step 9. Allocate future development[/Step]
-
-  [Step]Step 10. Calculate land use metrics[/Step]
+  [Step]Step 7. Calculate metrics to evaluate the new development scenarios[/Step]
 
   [StepperControl /]
 [/Stepper]
@@ -178,43 +175,65 @@ Scroll through each step to learn more about the UDM.
 [h3 className:"imageCaption"]
 
   [Conditional if:`processStep === 0`]
-    Define existing urban land features (e.g. residential buildings) and non-urban land features (e.g. green space).
+
+    Define existing urban land features (e.g. residential buildings) and
+    non-urban land features (e.g. green space).
+
+    Calculate the urban land features based on density per grid cell. Areas with
+    more dwellings will have a higher density.
+
+    Calculate the value of non-urban land features based on the ecosystem
+    services needed to help maintain it. A verge by a road has value for flood
+    protection, air quality, and recreation.
+
   [/Conditional]
 
   [Conditional if:`processStep === 1`]
-    Calculate the urban land features based on density per grid cell. Areas with more dwellings will have a higher density.
+
+    Layer on plans for new development where there is a location in place to
+    test assumptions (i.e., new rail stations, road nodes, settlement centres).
+    Exclude individual homes because we do not yet know where they will be
+    distributed.
+
   [/Conditional]
 
   [Conditional if:`processStep === 2`]
-    Calculate the value of non-urban land features based on the ecosystem services needed to help maintain it. A verge by a road has value for flood protection, air quality, and recreation.
+
+    Identify the areas best suitable for living by defining factors that will
+    attract people to move to the Arc (i.e. proximity to employment or green
+    space) and assigning each a 'weight'.
+
   [/Conditional]
 
   [Conditional if:`processStep === 3`]
-    Define areas where development should be restricted, such as historical sites or the protection of nature and wildlife.
+
+    Define areas where development should be restricted, such as historical
+    sites or the protection of nature and wildlife.
+
   [/Conditional]
 
   [Conditional if:`processStep === 4`]
-    Layer on plans for new development where there is a location in place to test assumptions (i.e., new rail stations, road nodes, settlement centres). Exclude individual homes because we do not yet know where they will be distributed.
+
+    Figure out how much development can actually take place by assigning options
+    based on how many people can "fit" into undeveloped land based on proximity
+    to urban centers or public transport. This often results in hotspots around
+    town centers and business districts with high density.
+
   [/Conditional]
 
   [Conditional if:`processStep === 5`]
-    Identify the areas best suitable for living by defining factors that will attract people to move to the Arc (i.e. proximity to employment or green space) and assigning each a 'weight'.
+
+    Apply the urban development model to allocate future development at the
+    identified densities (the most suitable areas first) to get a prediction of
+    where development will actually take place.
+
   [/Conditional]
 
   [Conditional if:`processStep === 6`]
-    Combine the attractors and constraints to assess whether a an area of land is suitable for development, and which to prioritize. This measure of suitability considers the weight of each attractor in step 6, and blocks off cells with constraints in step 4.
-  [/Conditional]
 
-  [Conditional if:`processStep === 7`]
-    Figure out how much development can actually take place by assigning options based on how many people can "fit" into undeveloped land based on proximity to urban centers or public transport. This often results in hotspots around town centers and business districts with high density.
-  [/Conditional]
+    Summarize results in a way that helps government authorities and planners
+    make decisions.
 
-  [Conditional if:`processStep === 8`]
-    Apply the urban development model to allocate future development at the identified densities (the most suitable areas first) to get a prediction of where development will actually take place.
-  [/Conditional]
-
-  [Conditional if:`processStep === 9`]
-    Summarize results in a way that helps government authorities and planners make decisions by replacing the cell grids with administrative boundaries that map to different policy areas.
   [/Conditional]
 
 [/h3]
@@ -222,8 +241,10 @@ Scroll through each step to learn more about the UDM.
 
 ## Applying Urban Modelling to the Arc Scenarios
 
-Now that we have an understanding of the urban modelling process, let's look at how it was applied to the Arc. We will go through the process one step at a
-time. For each step we will compare results at three different scales (Arc, city, neighbourhood) in order to compare both the bigger picture and details.
+Now that we have an understanding of the urban modelling process, let's look at
+how it was applied to the Arc. We will go through the process one step at a
+time. For each step we will compare results at three different scales (Arc,
+city, neighbourhood) in order to compare both the bigger picture and details.
 
 [var name:"scenario" value: "grey_exp" /]
 [var name:"selectedZoom" value: "arc" /]
