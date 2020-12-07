@@ -35,7 +35,7 @@ let population = {
 
 let employment = {
   "data": {
-    "url": "static/data/arcmsoa.json",
+    "url": "static/data/arcMsoa.json",
     "format": {
       "type": "topojson",
       "feature": "arcmsoa"
@@ -117,7 +117,7 @@ let lad = {
 
 let msoa = {
   "data": {
-    "url": "static/data/arcmsoa.json",
+    "url": "static/data/arcMsoa.json",
     "format": {
       "type": "topojson",
       "feature": "arcmsoa"
