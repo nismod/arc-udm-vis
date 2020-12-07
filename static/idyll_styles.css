@@ -593,7 +593,7 @@ body {
   background-color: white;
 }
 
-.stepHeader {
+.stepTitle {
   margin-bottom: 16px;
 }
 
@@ -634,6 +634,11 @@ body {
 
 .idyll-step-content{
   background: none;
-  /*rgba(0,0,0,0.02);*/
   color: black;
+}
+.imageCaption p:first-child {
+  margin-top: 0;
+}
+.imageCaption p:last-child {
+  margin-bottom: 0;
 }
