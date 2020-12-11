@@ -72,49 +72,32 @@ The Oxford Cambridge Arc in a region in south central England that runs between 
 A report published in 2018 by the National Infrastructure Commission outlined
 substantial plans to increase access and connectivity to the Arc area by 2050.
 This vision includes one million new homes across the Arc and major improvements
-to rail routes. However, in order to learn more about how this vision would
-actually impact urban development, the
-[link text:"Infrastructure Transitions Research Consortium (ITRC)" url:"https://www.itrc.org.uk/" /]
-team simulated possible futures of the Arc through computer modelling.
+to rail routes. Through computer-based simulations, researchers at the University of Oxford and Newcastle University explored possible futures of the Arc in order to learn more about how this vision would impact urban development. Two scenarios were identified to guide the broad location of new development.
 
-This article will outline the steps of the analysis in more detail. To get
-started, the team first defined four high-level future scenarios based on the
-vision by making assumptions about the number of new homes and transport that
-will need to be built, where they will be built, and constraints on how much
-development can take place. The four scenarios are compared to a baseline
-representing the present day.
-
-### Overview of Scenarios
-
-We looked at two scenarios which could guide the broad location of new
-development.
-
+[h3 className:"imageCaption"]
 #### Existing Expansion
-
 - Location of development near existing development, with good access to existing employment by road or rail
 - Allow some building on green belt land to allow for expansion
 
 #### New Settlements
-
 - Focussed on new centres, around future rail stations
+[/h3]
 
-We also considered two scenarios which vary attractiveness and constraints that
-may have environmental benefits.
+Two additional scenarios were explored to vary the attractiveness and constraints that may have environmental benefits.
 
+[h3 className:"imageCaption"]
 #### Grey
-
 - Relatively more weight given to proximity to roads, access to employment by road
 - Relatively less weight given to avoid losing natural capital
 - Core constraints not to build on ancient woodland, flood plains, areas of very high natural capital
 
 #### Green
-
 - Relatively more weight given to proximity to stations, access to employment by rail
 - Relatively more weight given to avoid losing natural capital
 - Additional constraints not to build on nature recovery networks
+[/h3]
 
 In combination, this gives four extremes to explore:
-
 1. Existing Expansion, Grey
 2. Existing Expansion, Green
 3. New Settlements, Grey
@@ -123,15 +106,7 @@ In combination, this gives four extremes to explore:
 
 ## The Urban Modelling Process
 
-Using the future scenarios as a starting point, we can start to test out the
-theories and assumptions made through computer-based simulations. While we can't
-fully capture every nuance about the future built environment, analyzing and
-visualising the trade-offs can help planners and policy-makers make informed
-decisions. One of the modals used to assess the Arc is called the Urban
-Development Model (UDM). We will take a brief moment to explain the general
-process of the UDM before showing the results applied to the Arc.
-
-### Overview of UDM Process Steps
+Based on the theories and assumptions made in each of the four scenarios, the researchers went through a series of steps to simulate the outcomes that each scenario would have on the built and natural environment. There are seven general steps as follows:
 
 1. Identify elements of the built and natural environment at a 100m grid scale
 2. Develop scenarios of major features that will influence the nature of new development
@@ -141,8 +116,6 @@ process of the UDM before showing the results applied to the Arc.
 6. Allocate future development, subject to attractors, constraints and density
 7. Calculate metrics to evaluate the new development scenarios
 
-
-Scroll through each step to learn more about the UDM.
 
 [var name:"processStep" value:0 /]
 [Stepper currentStep:processStep]
@@ -162,7 +135,7 @@ Scroll through each step to learn more about the UDM.
 
   [Step]Step 6. Allocate future development[/Step]
 
-  [Step]Step 7. Calculate metrics to evaluate the new development scenarios[/Step]
+  [Step]Step 7. Calculate metrics to evaluate new development scenarios[/Step]
 
   [StepperControl /]
 [/Stepper]
@@ -171,56 +144,39 @@ Scroll through each step to learn more about the UDM.
 
   [Conditional if:`processStep === 0`]
 
-    Define existing urban land features (e.g. residential buildings) and
-    non-urban land features (e.g. green space).
-
-    Calculate the urban land features based on density per grid cell. Areas with
-    more dwellings will have a higher density.
-
-    Calculate the value of non-urban land features based on the ecosystem
-    services needed to help maintain it. A verge by a road has value for flood
-    protection, air quality, and recreation.
+    The blue grid cells represent the density of existing urban land features (e.g. residential buildings). Areas with more dwellings will have a higher density. The green grids cells represent the value of non-urban land features based on the ecosystem services needed to help maintain it. A verge by a road has value for flood protection, air quality, and recreation.
 
   [/Conditional]
 
   [Conditional if:`processStep === 1`]
 
-    Layer on plans for new development where there is a location in place to
-    test assumptions (i.e., new rail stations, road nodes, settlement centres).
-    Exclude individual homes because we do not yet know where they will be
+    The red represents new development where there is a location in place to test assumptions (i.e., new rail stations, road nodes, settlement centres). At this stage, individual homes are excluded because we do not yet know where they will be
     distributed.
 
   [/Conditional]
 
   [Conditional if:`processStep === 2`]
 
-    Identify the areas best suitable for living by defining factors that will
-    attract people to move to the Arc (i.e. proximity to employment or green
-    space) and assigning each a 'weight'.
+    The yellow grid cells represent the areas that are best suitable for living based on how attractive it is for people to move to that location (i.e. proximity to employment or green
+    space). The more attractive areas are given a higher weight.
 
   [/Conditional]
 
   [Conditional if:`processStep === 3`]
 
-    Define areas where development should be restricted, such as historical
-    sites or the protection of nature and wildlife.
+    The grey grid cells represent the areas where development should be restricted, such as historical sites or the protection of nature and wildlife.
 
   [/Conditional]
 
   [Conditional if:`processStep === 4`]
 
-    Figure out how much development can actually take place by assigning options
-    based on how many people can "fit" into undeveloped land based on proximity
-    to urban centers or public transport. This often results in hotspots around
-    town centers and business districts with high density.
+    The red grid cells represent the density of development that can actually take place on undeveloped land based on proximity to urban centers or public transport. This often results in hotspots around town centers and business districts with high density.
 
   [/Conditional]
 
   [Conditional if:`processStep === 5`]
 
-    Apply the urban development model to allocate future development at the
-    identified densities (the most suitable areas first) to get a prediction of
-    where development will actually take place.
+    The red represents the final predicted development that will take place. The higher density areas that are most suitable for development are allocated first.
 
   [/Conditional]
 
@@ -503,7 +459,10 @@ city, neighbourhood) in order to compare both the bigger picture and details.
 
 [img src: `"./static/images/" + view + "_" + scenario + "_" + bldScenario + "_" + selectedZoom + ".png"`  /]
 
-[h3 className:"imageCaption"] Description for results of step 7[/h3]
+[h3 className:"imageCaption"]  While we can't
+fully capture every nuance about the future built environment, analyzing and
+visualising the trade-offs can help planners and policy-makers make informed
+decisions. [/h3]
 
 
 
