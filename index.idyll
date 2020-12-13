@@ -35,7 +35,7 @@ The Oxford Cambridge Arc in a region in south central England that runs between 
     [h4 className:"inputLabel"]Transport[/h4]
     [Select value:selectedTransport
       options:`[
-        {value: "rail", label:"Rails"},
+        {value: "rail", label:"Rails and Stations"},
         {value: "roads", label:"Roads"}
       ]`
       className: "customSelect"
@@ -205,7 +205,7 @@ city, neighbourhood) in order to compare both the bigger picture and details.
 
 
 
-[h3 className:"stepTitle"]Step 1: Identify elements of the build and natural environment[/h3]
+[h3 className:"stepTitle"]Step 1: Identify elements of the built and natural environment at a 100m grid scale[/h3]
 
 [h4 className:"inputLabel"]Change Scale[/h4]
 [div className: "inputComponent"]
@@ -225,7 +225,7 @@ city, neighbourhood) in order to compare both the bigger picture and details.
 
 
 
-[h3 className:"stepTitle"]Step 2: Develop scenarios of future built environment features[/h3]
+[h3 className:"stepTitle"]Step 2: Develop scenarios of major features that will influence the nature of new development[/h3]
 
 [var name:"selectedFutureTransport" value:"futureStations" /]
 [div className: "inputComponent"]
@@ -246,7 +246,7 @@ city, neighbourhood) in order to compare both the bigger picture and details.
 
 
 
-[h3 className:"stepTitle"]Step 3. Calculate attractiveness scores[/h3]
+[h3 className:"stepTitle"]Step 3. Calculate attractiveness scores for new development[/h3]
 
 [div]
   [Inline]
@@ -280,44 +280,11 @@ city, neighbourhood) in order to compare both the bigger picture and details.
   [/Inline]
 [/div]
 
-[img src: `"./static/images/Step6/attractiveness_" + selectedZoom + "_" + selectedAttractors + ".png"` /]
 
-[h3 className:"imageCaption"]Attractors are things that will drive more people in to the Arc. Such attractors could include information on the performance of local schools, local accessibility (distance) to shops, services or transport hubs.[/h3]
-
-[div]
-  [Inline]
-  [h4 className:"inputLabel"]Scale[/h4]
-    [div className: "inputComponent"]
-    [Select value:selectedZoom
-      options:`[
-        {value: "ngb", label: "Neighbourhood"},
-        {value: "cty", label: "City"},
-        {value: "arc", label: "Arc"}
-      ]`
-      className: "customSelect"
-    /]
-  [/div]
-  [/Inline]
-  [Inline]
-    [h4 className:"inputLabel"]Scenario[/h4]
-    [div className: "inputComponent"]
-    [Select value: scenario
-      options:`[
-        {value: "grey_exp", label: "Existing Expansion Grey"},
-        {value: "green_exp", label: "Existing Expansion Green"},
-        {value: "grey_set", label: "New Settlements Green"},
-        {value: "green_set", label: "New Settlements Grey"}
-      ]`
-      className: "customSelect"
-    /]
-    [/div]
-  [/Inline]
-[/div]
 
 [img src: `"./static/images/suitability_" + scenario + "_" + selectedZoom + ".png"`  /]
 
-[h3 className:"imageCaption"] Based on the weighing of both the attractors and contraints, the output of the UDM is a combined set of development suitability scores based on selected spatial scenarios and the combination of attractors and constraints defined. Each set of scores can then be represented as colours and displayed on a map to show the changing patterns of land from a birds-eye-view lens. [/h3]
-
+[h3 className:"imageCaption"]Attractors are things that will drive more people in to the Arc. Such attractors could include information on the performance of local schools, local accessibility (distance) to shops, services or transport hubs.[/h3]
 
 
 [h3 className:"stepTitle"]Step 4: Identify constraints[/h3]
@@ -355,13 +322,13 @@ city, neighbourhood) in order to compare both the bigger picture and details.
   [/Inline]
 [/div]
 
-[img src: `"./static/images/Step4/constraint_" + selectedZoom + "_" + selectedConstraints + ".png"` /]
+[img src: `"./static/images/suitability_green_exp_arc.png"` /]
 
 [h3 className:"imageCaption"] We introduce constraints to protect nature, wildlife, historical landmarks, and areas which are not feasible to develop. We "block off" these areas from development. [/h3]
 
 
 
-[h3 className:"stepTitle"] Step 5. Future dwelling density [/h3]
+[h3 className:"stepTitle"] Step 5. Explore different target densities for different categories of building development[/h3]
 
 [div]
   [Inline]
@@ -399,7 +366,7 @@ city, neighbourhood) in order to compare both the bigger picture and details.
 
 
 
-[h3 className:"stepTitle"]Step 6. Future development[/h3]
+[h3 className:"stepTitle"]Step 6. Allocate future development, subject to attractors, constraints and density[/h3]
 
 [div]
   [Inline]
@@ -466,7 +433,10 @@ decisions. [/h3]
 
 
 
-[h3 className:"stepTitle"] Step 7. Evaluate outputs [/h3]
+[h3 className:"stepTitle"] Step 7. Calculate metrics to evaluate the new development scenarios[/h3]
+[img src: `"./static/images/evaluation_land_take.jpg"`  /]
+[img src: `"./static/images/evaluation_ES_scores.jpg"`  /]
+
 
 [h3 className:"imageCaption"]The final graphs shows the summary level selects (as opposed to grid level). Here you can get some numbers about 9. [/h3]
 

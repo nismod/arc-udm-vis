@@ -27,7 +27,7 @@ let population = {
     "color": {
       "field": "PopDensityPerkm2",
       "type": "quantitative",
-      "scale": {"scheme": "purpleblue"},
+      "scale": {"scheme": "lightmulti"},
       "legend": {"title": "Density per km2"}
     },
   }
@@ -53,7 +53,7 @@ let employment = {
     "color": {
       "field": "EmpDensityPerkm2",
       "type": "quantitative",
-      "scale": {"scheme": "purplebluegreen"},
+      "scale": {"scheme": "lightmulti"},
       "legend": {"title": "Density per km2"}
     }
   }
@@ -71,7 +71,7 @@ let county = {
     {
       "mark": {
         "type": "geoshape",
-        "stroke": "lightgrey"
+        "stroke": "grey"
       }
     },
     {
@@ -111,7 +111,7 @@ let lad = {
   "mark": {
     "type": "geoshape",
     "fill": "none",
-    "stroke": "lightgrey"
+    "stroke": "grey"
   }
 }
 
@@ -125,8 +125,7 @@ let msoa = {
   },
   "mark": {
     "type": "geoshape",
-    "fill": "none",
-    "stroke": "lightgrey"
+    "stroke": "grey"
   },
 };
 
@@ -142,7 +141,9 @@ let rail = {
     },
       "mark": {
         "type": "geoshape",
-        "stroke": "grey"
+        "stroke": "Brown",
+        "strokeWidth": 1,
+        "strokeDash": 4
       }
     },
     {
@@ -155,8 +156,8 @@ let rail = {
       },
       "mark": {
         "type": "geoshape",
-        "stroke": "grey",
-        //"fill": "orange"
+        "fill": "Brown",
+        "opacity": 0.3
       }
     }
   ]
@@ -174,7 +175,9 @@ let roads = {
   "mark": {
     "type": "geoshape",
     "fill": "transparent",
-    "stroke": "grey"
+    "stroke": "Brown",
+    "opacity": "0.3",
+    "strokeWidth": 1
   }
 };
 

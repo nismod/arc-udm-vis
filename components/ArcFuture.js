@@ -17,7 +17,8 @@ let county = {
     {
       "mark": {
         "type": "geoshape",
-        "stroke": "lightgrey"
+        "fill":"#f0f9fa",
+        "stroke": "grey"
       }
     },
     {
@@ -72,8 +73,9 @@ let futureStations = {
       },
       "mark": {
         "type": "geoshape",
-        "stroke": "teal",
-        "strokeWidth": "0.5"
+        "stroke": "red",
+        "strokeWidth": 1,
+        "strokeDash": 4
       }
     },
     {
@@ -86,9 +88,8 @@ let futureStations = {
       },
       "mark": {
         "type": "geoshape",
-        "fill": "teal",
-        "stroke": "teal",
-        "strokeWidth": "5"
+        "fill": "red",
+        "stroke": "red"
       }
     }
   ]
@@ -122,8 +123,8 @@ let futureRoads = {
       "mark": {
         "type": "geoshape",
         "fill": "transparent",
-        "stroke": "teal",
-        "strokeWidth": "5"
+        "stroke": "red",
+        "strokeWidth": "1"
       }
     }
   ]
@@ -140,8 +141,8 @@ let futureSettlements = {
   },
   "mark": {
     "type": "geoshape",
-    "fill": "teal",
-    "stroke": "teal",
+    "fill": "red",
+    "stroke": "red",
     "strokeWidth": "30",
     "strokeOpacity": "0.2"
   }
