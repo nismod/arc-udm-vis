@@ -1,0 +1,33 @@
+Scenario,Service,Impact per Hectare (Scale 0-10)
+Expansion (green),Food production,1.9
+Expansion (grey),Food production,2.1
+New settlements (green),Food production,2.9
+New settlements (grey),Food production,3.4
+Expansion (green),Water supply,4.9
+Expansion (grey),Water supply,5.1
+New settlements (green),Water supply,6.4
+New settlements (grey),Water supply,6.4
+Expansion (green),Flood protection,2.3
+Expansion (grey),Flood protection,2.6
+New settlements (green),Flood protection,2.4
+New settlements (grey),Flood protection,2.5
+Expansion (green),Carbon storage,2.3
+Expansion (grey),Carbon storage,2.5
+New settlements (green),Carbon storage,2.3
+New settlements (grey),Carbon storage,2.5
+Expansion (green),Pollination,2.0
+Expansion (grey),Pollination,2.1
+New settlements (green),Pollination,2.0
+New settlements (grey),Pollination,2.2
+Expansion (green),Recreation,1.8
+Expansion (grey),Recreation,2.2
+New settlements (green),Recreation,1.2
+New settlements (grey),Recreation,1.6
+Expansion (green),Aesthetic value,2.6
+Expansion (grey),Aesthetic value,2.9
+New settlements (green),Aesthetic value,2.6
+New settlements (grey),Aesthetic value,2.8
+Expansion (green),Biodiversity,2.0
+Expansion (grey),Biodiversity,2.2
+New settlements (green),Biodiversity,2.0
+New settlements (grey),Biodiversity,2.2

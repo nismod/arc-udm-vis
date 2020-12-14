@@ -106,16 +106,7 @@ In combination, this gives four extremes to explore:
 
 ## The Urban Modelling Process
 
-Based on the theories and assumptions made in each of the four scenarios, the researchers went through a series of steps to simulate the outcomes that each scenario would have on the built and natural environment. There are seven general steps as follows:
-
-1. Identify elements of the built and natural environment at a 100m grid scale
-2. Develop scenarios of major features that will influence the nature of new development
-3. Calculate attractiveness scores for new development
-4. Identify constraints
-5. Explore different target densities for different categories of building development
-6. Allocate future development, subject to attractors, constraints and density
-7. Calculate metrics to evaluate the new development scenarios
-
+Based on the theories and assumptions made in each of the four scenarios, the researchers went through a series of steps to simulate the outcomes that each scenario would have on the built and natural environment.
 
 [var name:"processStep" value:0 /]
 [Stepper currentStep:processStep]
@@ -124,78 +115,61 @@ Based on the theories and assumptions made in each of the four scenarios, the re
   [/Graphic]
 
   [Step]Step 1. Identify elements of the built and natural environment[/Step]
-
   [Step]Step 2. Develop scenarios that may influence new development[/Step]
-
   [Step]Step 3. Calculate attractiveness scores[/Step]
-
   [Step]Step 4. Identify constraints[/Step]
-
   [Step]Step 5. Explore different target densities[/Step]
-
   [Step]Step 6. Allocate future development[/Step]
-
   [Step]Step 7. Calculate metrics to evaluate new development scenarios[/Step]
 
   [StepperControl /]
 [/Stepper]
 
+[p]
+[Conditional if:`processStep === 0`]
+  The **blue grid cells** represent the density of existing urban land features (e.g. residential buildings). Areas with more dwellings will have a higher density. The **green grids cells** represent the value of non-urban land features based on the ecosystem services needed to help maintain it. A verge by a road has value for flood protection, air quality, and recreation.
+[/Conditional]
+
+[Conditional if:`processStep === 1`]
+  The **red** represents new development where there is a location in place to test assumptions (i.e., new rail stations, road nodes, settlement centres). At this stage, individual homes are excluded because we do not yet know where they will be
+  distributed.
+[/Conditional]
+
+[Conditional if:`processStep === 2`]
+  The **yellow grid cells** represent the areas that are best suitable for living based on how attractive it is for people to move to that location (i.e. proximity to employment or green space). The more attractive areas are given a higher weight.
+[/Conditional]
+
+[Conditional if:`processStep === 3`]
+  The **grey grid cells** represent the areas where development should be restricted, such as historical sites or the protection of nature and wildlife.
+[/Conditional]
+
+[Conditional if:`processStep === 4`]
+  The **red grid cells** represent the density of development that can actually take place on undeveloped land based on proximity to urban centers or public transport. This often results in hotspots around town centers and business districts with high density.
+[/Conditional]
+
+[Conditional if:`processStep === 5`]
+  The **red** represents the final predicted development that will take place. The higher density areas that are most suitable for development are allocated first.
+[/Conditional]
+
+[Conditional if:`processStep === 6`]
+  Summarize results in a way that helps government authorities and planners
+  make decisions.
+[/Conditional]
+[/p]
+
 [h3 className:"imageCaption"]
-
-  [Conditional if:`processStep === 0`]
-
-    The blue grid cells represent the density of existing urban land features (e.g. residential buildings). Areas with more dwellings will have a higher density. The green grids cells represent the value of non-urban land features based on the ecosystem services needed to help maintain it. A verge by a road has value for flood protection, air quality, and recreation.
-
-  [/Conditional]
-
-  [Conditional if:`processStep === 1`]
-
-    The red represents new development where there is a location in place to test assumptions (i.e., new rail stations, road nodes, settlement centres). At this stage, individual homes are excluded because we do not yet know where they will be
-    distributed.
-
-  [/Conditional]
-
-  [Conditional if:`processStep === 2`]
-
-    The yellow grid cells represent the areas that are best suitable for living based on how attractive it is for people to move to that location (i.e. proximity to employment or green
-    space). The more attractive areas are given a higher weight.
-
-  [/Conditional]
-
-  [Conditional if:`processStep === 3`]
-
-    The grey grid cells represent the areas where development should be restricted, such as historical sites or the protection of nature and wildlife.
-
-  [/Conditional]
-
-  [Conditional if:`processStep === 4`]
-
-    The red grid cells represent the density of development that can actually take place on undeveloped land based on proximity to urban centers or public transport. This often results in hotspots around town centers and business districts with high density.
-
-  [/Conditional]
-
-  [Conditional if:`processStep === 5`]
-
-    The red represents the final predicted development that will take place. The higher density areas that are most suitable for development are allocated first.
-
-  [/Conditional]
-
-  [Conditional if:`processStep === 6`]
-
-    Summarize results in a way that helps government authorities and planners
-    make decisions.
-
-  [/Conditional]
-
+**Summary of steps:**
+1. Identify elements of the built and natural environment at a 100m grid scale
+2. Develop scenarios of major features that will influence the nature of new development
+3. Calculate attractiveness scores for new development
+4. Identify constraints
+5. Explore different target densities for different categories of building development
+6. Allocate future development, subject to attractors, constraints and density
+7. Calculate metrics to evaluate the new development scenarios
 [/h3]
 
 
-## Applying Urban Modelling to the Arc Scenarios
-
-Now that we have an understanding of the urban modelling process, let's look at
-how it was applied to the Arc. We will go through the process one step at a
-time. For each step we will compare results at three different scales (Arc,
-city, neighbourhood) in order to compare both the bigger picture and details.
+Each of the steps was applied to the future Arc scenarios and the highlights are shown below. For each step, the compare results at three different scales (Arc, city, neighbourhood) in order to compare both the bigger picture and details.
 
 [var name:"scenario" value: "grey_exp" /]
 [var name:"selectedZoom" value: "arc" /]
@@ -205,10 +179,10 @@ city, neighbourhood) in order to compare both the bigger picture and details.
 
 
 
-[h3 className:"stepTitle"]Step 1: Identify elements of the built and natural environment at a 100m grid scale[/h3]
+[h2 className:"stepTitle"]**Step 1:** Identify elements of the built and natural environment at a 100m grid scale[/h2]
 
-[h4 className:"inputLabel"]Change Scale[/h4]
 [div className: "inputComponent"]
+[h4 className:"inputLabel"]Change Scale[/h4]
   [Select value: selectedZoom
     options:`[
       {value: "ngb", label: "Neighbourhood"},
@@ -221,11 +195,11 @@ city, neighbourhood) in order to compare both the bigger picture and details.
 
 [img src: `"./static/images/natcap_" + selectedZoom + ".png"` /]
 
-[h3 className:"imageCaption"]Aspects of natural capital in the Arc include parks, grasslands, woodlands, verges, and any other aspect of green space, land uses, and habitats. The darker green represents higher quality ecosystem services.[/h3]
+[h3 className:"imageCaption"]This map shows the density of **existing urban land features** (i.e., residential buildings) and **non-urban land features** (i.e., parks, grasslands, woodlands, verges, habitats) based on the ecosystem services needed to help maintain it. [/h3]
 
 
 
-[h3 className:"stepTitle"]Step 2: Develop scenarios of major features that will influence the nature of new development[/h3]
+[h2 className:"stepTitle"]**Step 2:** Develop scenarios of major features that will influence the nature of new development[/h2]
 
 [var name:"selectedFutureTransport" value:"futureStations" /]
 [div className: "inputComponent"]
@@ -242,11 +216,11 @@ city, neighbourhood) in order to compare both the bigger picture and details.
 
 [ArcFuture selectedFutureTransport:selectedFutureTransport /]
 
-[h3 className:"imageCaption"]Improvements to the transport links between Oxford and Cambridge are a key aspect of the future vision for the Arc. Future plans include a new expressway and East West Rail (EWR) will link Oxford and Cambridge. While the baseline scenario would not see any changes, the other scenarios would have rail stations and road nodes. New settlements would also include new settlement centres.[/h3]
+[h3 className:"imageCaption"]Major features of future development include new rail and stations, roads, and settlements. Proposed new developments include a **new expressway** and **East West Rail (EWR)** that will link Oxford and Cambridge. In the New Settlements scenario, **five new settlement centres** will emerge.[/h3]
 
 
 
-[h3 className:"stepTitle"]Step 3. Calculate attractiveness scores for new development[/h3]
+[h2 className:"stepTitle"]**Step 3.** Calculate attractiveness scores for new development[/h2]
 
 [div]
   [Inline]
@@ -284,10 +258,10 @@ city, neighbourhood) in order to compare both the bigger picture and details.
 
 [img src: `"./static/images/suitability_" + scenario + "_" + selectedZoom + ".png"`  /]
 
-[h3 className:"imageCaption"]Attractors are things that will drive more people in to the Arc. Such attractors could include information on the performance of local schools, local accessibility (distance) to shops, services or transport hubs.[/h3]
+[h3 className:"imageCaption"]The map shows the **level of attractivenes** of location in the Arc. Attractors are things that will **drive people to move** to the Arc (i.e., performance of local schools, local accessibility (distance) to shops, services or transport hubs).[/h3]
 
 
-[h3 className:"stepTitle"]Step 4: Identify constraints[/h3]
+[h2 className:"stepTitle"]**Step 4:** Identify constraints[/h3]
 
 [div]
   [Inline]
@@ -324,11 +298,11 @@ city, neighbourhood) in order to compare both the bigger picture and details.
 
 [img src: `"./static/images/suitability_green_exp_arc.png"` /]
 
-[h3 className:"imageCaption"] We introduce constraints to protect nature, wildlife, historical landmarks, and areas which are not feasible to develop. We "block off" these areas from development. [/h3]
+[h3 className:"imageCaption"]This map shows areas **where development should be restricted**. These constraints are included to protect nature, wildlife, historical landmarks, and areas which are not feasible to develop.[/h3]
 
 
 
-[h3 className:"stepTitle"] Step 5. Explore different target densities for different categories of building development[/h3]
+[h2 className:"stepTitle"]**Step 5.** Explore different target densities for different categories of building development[/h2]
 
 [div]
   [Inline]
@@ -362,11 +336,10 @@ city, neighbourhood) in order to compare both the bigger picture and details.
 
 [img src: `"./static/images/density_" + scenario + "_" + selectedZoom + ".png"`  /]
 
-[h3 className:"imageCaption"] What's the required population density for new development? (in people per hectare) This assessment determines the levels of population migration to and within the Arc, given the relative attractiveness of different locations. [/h3]
+[h3 className:"imageCaption"]This map shows the **level of population migration** to and within the Arc, given the relative attractiveness of different locations. This often results in **hotspots around town centers and business districts** with high density.[/h3]
 
 
-
-[h3 className:"stepTitle"]Step 6. Allocate future development, subject to attractors, constraints and density[/h3]
+[h2 className:"stepTitle"]**Step 6.** Allocate future development, subject to attractors, constraints and density[/h2]
 
 [div]
   [Inline]
@@ -426,19 +399,88 @@ city, neighbourhood) in order to compare both the bigger picture and details.
 
 [img src: `"./static/images/" + view + "_" + scenario + "_" + bldScenario + "_" + selectedZoom + ".png"`  /]
 
-[h3 className:"imageCaption"]  While we can't
-fully capture every nuance about the future built environment, analyzing and
-visualising the trade-offs can help planners and policy-makers make informed
-decisions. [/h3]
+[h3 className:"imageCaption"]This map shows the **final predicted development** that will take place in the Arc. Higher density areas tend to be most suitable for development and therefore developed first.[/h3]
 
 
 
-[h3 className:"stepTitle"] Step 7. Calculate metrics to evaluate the new development scenarios[/h3]
-[img src: `"./static/images/evaluation_land_take.jpg"`  /]
-[img src: `"./static/images/evaluation_ES_scores.jpg"`  /]
+[h2 className:"stepTitle"]**Step 7.** Calculate metrics to evaluate the new development scenarios[/h2]
+
+While simulations cannot capture every nuance about the future built environment, analyzing and visualising the trade-offs can help planners and policy-makers make informed decisions. The following graphs show the summary of results for both land development and ecosystem services that will be impacted for each of the four scenarios explored.
+
+[h3 className:"stepTitle"]Land taken for development[/h3]
+
+[data name:'metricsLand' source:'metricsLand.csv' /]
+[IdyllVegaLite data:metricsLand spec:`{
+  mark: "bar",
+  width: 500,
+  encoding: {
+    x: {
+      field: "Scenario",
+      type: "nominal",
+      axis: {
+        title: "",
+        labels: false,
+        ticks: false
+      }
+    },
+    y: {
+      field: "Land take (hectares)",
+      type: "quantitative"
+    },
+    color: {
+      field: "Scenario"
+    }
+  },
+}` /]
+
+[h3 className:"imageCaption"]Summary for land development
+
+- Green vs. grey: green assumes higher density and so it takes less land
+- Expansion vs. new settlements: Not as much difference but new settlements allow building at the highest density (at the centre of the settlements) whereas in exansion they are only in existing ecosystem.
+[/h3]
 
 
-[h3 className:"imageCaption"]The final graphs shows the summary level selects (as opposed to grid level). Here you can get some numbers about 9. [/h3]
+[h3 className:"stepTitle"]Ecosystem service impact per hectare[/h3]
+
+[data name:'metricsEco' source:'metricsEcosystem.csv' /]
+[IdyllVegaLite data:metricsEco spec:`{
+  mark: "bar",
+  width: 50,
+  encoding: {
+    column: {
+      field: "Service",
+      type: "nominal",
+      title: "Ecosystem Service",
+      spacing: 1
+    },
+    x: {
+      field: "Scenario",
+      type: "nominal",
+      axis: {
+        title: "",
+        labels: false,
+        ticks: false
+      }
+    },
+    y: {
+      field: "Impact per Hectare (Scale 0-10)",
+      title: "Impact per Hectare (0-10)",
+      type: "quantitative",
+    },
+    color: {
+      field: "Scenario"
+    }
+  },
+}` /]
+
+[h3 className:"imageCaption"]
+This grouped bar chart represents what shouldn't be built or built with sensity given the impact to the ecosystem. If built well, it's possible to build without taking over land.
+
+- Water supplies are more significantly affected across all, but new settlements in particular
+- Should we introduce constraints based on water supply ecosystem services?
+- Water suply and food, new settlements larger than expansion due to locations- Recreation - outside of town, if you build on edge of town, you remove
+- Final - green better than grey
+[/h3]
 
 ## Acknowledgements
 
