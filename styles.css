@@ -58,9 +58,9 @@ body {
   background: none;
   color: black;
 }
-.imageCaption p:first-child {
+/* .imageCaption p:first-child {
   margin-top: 0;
 }
 .imageCaption p:last-child {
   margin-bottom: 0;
-}
+} */

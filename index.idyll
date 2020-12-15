@@ -172,7 +172,6 @@ Based on the theories and assumptions for each scenario, a series of urban model
 
 
 
-
 When applying each step to the Arc scenarios, a series of maps were produced to help visualise the outputs along the way. To highlight the level of detail of outputs produced at a 100m grid scale, each step below will compare images for three scales zooming in from the Arc, to city, and neighbourhood level.
 
 [var name:"scenario" value: "grey_exp" /]
@@ -180,7 +179,6 @@ When applying each step to the Arc scenarios, a series of maps were produced to 
 [var name:"polScenario" value: "green" /]
 [var name:"dwlScenario" value: "set" /]
 [var name:"bldScenario" value: "23k" /]
-
 
 
 [h2 className:"stepTitle"]Step 1: Identify elements of the built and natural environment at a 100m grid scale[/h2]
@@ -217,6 +215,7 @@ This map shows the density of **existing urban land features** (i.e., residentia
 [/div]
 
 [ArcFuture selectedFutureTransport:selectedFutureTransport /]
+
 
 Major features of future development include new rail and stations, roads, and settlements. Proposed new developments include a **new expressway** and **East West Rail (EWR)** that will link Oxford and Cambridge. In the New Settlements scenario, **five new settlement centres** will emerge.
 
@@ -256,6 +255,7 @@ Major features of future development include new rail and stations, roads, and s
 [/div]
 
 [img src: `"./static/images/suitability_" + scenario + "_" + selectedZoom + ".png"`  /]
+
 
 The map shows the **level of attractivenes** of location in the Arc. Attractors are things that will **drive people to move** to the Arc (i.e., performance of local schools, local accessibility (distance) to shops, services or transport hubs).
 
@@ -297,6 +297,7 @@ The map shows the **level of attractivenes** of location in the Arc. Attractors 
 
 [img src: `"./static/images/suitability_green_exp_arc.png"` /]
 
+
 This map shows areas **where development should be restricted**. These constraints are included to protect nature, wildlife, historical landmarks, and areas which are not feasible to develop.
 
 
@@ -335,7 +336,6 @@ This map shows areas **where development should be restricted**. These constrain
 [img src: `"./static/images/density_" + scenario + "_" + selectedZoom + ".png"`  /]
 
 This map shows the **level of population migration** to and within the Arc, given the relative attractiveness of different locations. This often results in **hotspots around town centers and business districts** with high density.
-
 
 [h2 className:"stepTitle"]Step 6. Allocate future development, subject to attractors, constraints and density[/h2]
 
@@ -404,7 +404,9 @@ This map shows the **final predicted development** that will take place in the A
 
 While simulations cannot capture every nuance about the future built environment, analyzing and visualising the trade-offs can help planners and policy-makers make informed decisions. The following graphs show the summary of results for both land development and ecosystem services that will be impacted for each of the four scenarios explored.
 
-[h3 className:"stepTitle"]Land taken for development[/h3]
+
+
+[h3 className:"stepTitle"]**Land taken for development**[/h3]
 
 [data name:'metricsLand' source:'metricsLand.csv' /]
 [IdyllVegaLite data:metricsLand spec:`{
@@ -439,7 +441,7 @@ While simulations cannot capture every nuance about the future built environment
 [/h3]
 
 
-[h3 className:"stepTitle"]Ecosystem service impact per hectare[/h3]
+[h3 className:"stepTitle"]**Ecosystem service impact per hectare**[/h3]
 This grouped bar chart represents what shouldn't be built or built with sensity given the impact to the ecosystem.
 
 [data name:'metricsEco' source:'metricsEcosystem.csv' /]
