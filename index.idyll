@@ -111,6 +111,19 @@ In combination, this gives four extremes to explore:
 
 Based on the theories and assumptions for each scenario, a series of urban modelling steps were applied to simulate the outcomes each scenario would have on the Arc's built and natural environment.
 
+[h3 className:"imageCaption"]
+**Seven Urban Modelling Steps:**
+
+1. Identify elements of the built and natural environment at a 100m grid scale
+2. Develop scenarios of major features that will influence the nature of new development
+3. Calculate attractiveness scores for new development
+4. Identify constraints
+5. Explore different target densities for different categories of building development
+6. Allocate future development, subject to attractors, constraints and density
+7. Calculate metrics to evaluate the new development scenarios
+[/h3]
+
+
 [var name:"processStep" value:0 /]
 [Stepper currentStep:processStep]
   [Graphic]
@@ -128,7 +141,7 @@ Based on the theories and assumptions for each scenario, a series of urban model
   [StepperControl /]
 [/Stepper]
 
-[p]
+[h3 className:"imageCaption"]
 [Conditional if:`processStep === 0`]
   The **blue grid cells** represent the density of existing urban land features (e.g. residential buildings). Areas with more dwellings will have a higher density. The **green grids cells** represent the value of non-urban land features based on the ecosystem services needed to help maintain it. A verge by a road has value for flood protection, air quality, and recreation.
 [/Conditional]
@@ -157,18 +170,8 @@ Based on the theories and assumptions for each scenario, a series of urban model
 [Conditional if:`processStep === 6`]
   The coloured graphs represent the conclusions presented to government authorities and planners who can then make informed decisions about urban development.
 [/Conditional]
-[/p]
-
-[h3 className:"imageCaption"]
-**Seven Urban Modelling Steps:**
-1. Identify elements of the built and natural environment at a 100m grid scale
-2. Develop scenarios of major features that will influence the nature of new development
-3. Calculate attractiveness scores for new development
-4. Identify constraints
-5. Explore different target densities for different categories of building development
-6. Allocate future development, subject to attractors, constraints and density
-7. Calculate metrics to evaluate the new development scenarios
 [/h3]
+
 
 
 
@@ -433,8 +436,7 @@ While simulations cannot capture every nuance about the future built environment
   },
 }` /]
 
-[h3 className:"imageCaption"]
-**Summary for land development**
+[h3 className:"imageCaption"]**Summary for land development**
 
 - When comparing the **Grey vs. Green scenarios**, the green scenario takes less land because it assumes a higher density
 - When comparing **Expansion vs. New Settlements**, there is not a major difference. In the expansion scenario, land developments sprawl out of existing areas, whereas in new settlements there are more high density areas at the centre of the new settlements.
@@ -442,6 +444,7 @@ While simulations cannot capture every nuance about the future built environment
 
 
 [h3 className:"stepTitle"]**Ecosystem service impact per hectare**[/h3]
+
 This grouped bar chart represents what shouldn't be built or built with sensity given the impact to the ecosystem.
 
 [data name:'metricsEco' source:'metricsEcosystem.csv' /]
@@ -475,8 +478,10 @@ This grouped bar chart represents what shouldn't be built or built with sensity 
   },
 }` /]
 
-[h3 className:"imageCaption"]
-**Summary for ecosystem services**
+
+
+
+[h3 className:"imageCaption"]**Summary for ecosystem services**
 
 - Water supplies are more significantly affected across all scenarios, but in new settlements in particular. Would it be beneficial to introduce more constraints based on water supply ecosystem services?
 - For water supplies and food production, new settlements shows a relatively larger gap compared to the other services due to the additional locations
@@ -484,6 +489,7 @@ This grouped bar chart represents what shouldn't be built or built with sensity 
 - Green has less impact on the ecosystem overall than grey
 - If built well, it is possible to build without taking over land
 [/h3]
+
 
 ## Acknowledgements
 
