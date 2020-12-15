@@ -72,9 +72,9 @@ The Oxford Cambridge Arc in a region in south central England that runs between 
 A report published in 2018 by the National Infrastructure Commission outlined
 substantial plans to increase access and connectivity to the Arc area by 2050.
 This vision includes one million new homes across the Arc and major improvements
-to rail routes. Through computer-based simulations, researchers at the University of Oxford and Newcastle University explored possible futures of the Arc in order to learn more about how this vision would impact urban development.
+to rail routes. Through computer-based simulations, researchers at the University of Oxford and Newcastle University explored possible futures of the Arc in order to learn more about how this vision would impact the built and natural environment.
 
-Two scenarios were identified to guide the broad location of new development.
+Two scenarios were identified to guide the broad location of new land    development.
 
 
 ### Existing Expansion
@@ -109,7 +109,7 @@ In combination, this gives four extremes to explore:
 
 ## The Urban Modelling Process
 
-Based on the theories and assumptions for each scenario, a series of urban modelling steps were applied to simulate the outcomes each scenario would have on the Arc's built and natural environment.
+Based on the theories and assumptions identified for each scenario, a series of urban modelling steps were applied to simulate the outcomes each would have on future development.
 
 [h3 className:"imageCaption"]
 **Seven Urban Modelling Steps:**
@@ -143,16 +143,16 @@ Based on the theories and assumptions for each scenario, a series of urban model
 
 [h3 className:"imageCaption"]
 [Conditional if:`processStep === 0`]
-  The **blue grid cells** represent the density of existing urban land features (e.g. residential buildings). Areas with more dwellings will have a higher density. The **green grids cells** represent the value of non-urban land features based on the ecosystem services needed to help maintain it. A verge by a road has value for flood protection, air quality, and recreation.
+  The **blue grid cells** represent the density of existing urban land features (e.g. residential buildings). Areas with more dwellings will have a higher density. The **green grids cells** represent the value of non-urban land features based on the ecosystem services needed to help maintain it. For example, a verge by a road has value for flood protection, air quality, and recreation.
 [/Conditional]
 
 [Conditional if:`processStep === 1`]
-  The **red** represents new development where there is a location in place to test assumptions (i.e., new rail stations, road nodes, settlement centres). At this stage, individual homes are excluded because we do not yet know where they will be
+  The **red features** represents new development where there is a location in place to test assumptions (i.e., new rail stations, road nodes, settlement centres). At this stage, individual homes are excluded because we do not yet know where they will be
   distributed.
 [/Conditional]
 
 [Conditional if:`processStep === 2`]
-  The **yellow grid cells** represent the areas that are best suitable for living based on how attractive it is for people to move to that location (i.e. proximity to employment or green space). The more attractive areas are given a higher weight.
+  The **yellow grid cells** represent the areas that are best suitable for living based on how attractive it is for people to move to that location (e.g. proximity to employment or green space). The more attractive areas are given a higher weight.
 [/Conditional]
 
 [Conditional if:`processStep === 3`]
@@ -164,7 +164,7 @@ Based on the theories and assumptions for each scenario, a series of urban model
 [/Conditional]
 
 [Conditional if:`processStep === 5`]
-  The **red** represents the final predicted development that will take place. The higher density areas that are most suitable for development are allocated first.
+  The **red features** represents the final predicted development that will take place. The higher density areas that are most suitable for development are allocated first.
 [/Conditional]
 
 [Conditional if:`processStep === 6`]
@@ -200,7 +200,7 @@ When applying each step to the Arc scenarios, a series of maps were produced to 
 
 [img src: `"./static/images/natcap_" + selectedZoom + ".png"` /]
 
-This map shows the density of **existing urban land features** (i.e., residential buildings) and **non-urban land features** (i.e., parks, grasslands, woodlands, verges, habitats) based on the ecosystem services needed to help maintain it.
+This map shows the density of **existing urban land features** (e.g. residential buildings) and **non-urban land features** (e.g. parks, grasslands, woodlands, verges, habitats) based on the ecosystem services needed to help maintain it.
 
 [h2 className:"stepTitle"]Step 2: Develop scenarios of major features that will influence the nature of new development[/h2]
 
@@ -399,7 +399,7 @@ This map shows the **level of population migration** to and within the Arc, give
 
 [img src: `"./static/images/" + view + "_" + scenario + "_" + bldScenario + "_" + selectedZoom + ".png"`  /]
 
-This map shows the **final predicted development** that will take place in the Arc. Higher density areas tend to be most suitable for development and therefore developed first.
+The final map shows the **predicted development** that will take place in the Arc. Higher density areas tend to be most suitable for development and therefore developed first.
 
 
 
@@ -410,6 +410,8 @@ While simulations cannot capture every nuance about the future built environment
 
 
 [h3 className:"stepTitle"]**Land taken for development**[/h3]
+
+The bar chart shows the land taken for development for each scenario. If built well, it is possible to build without taking over land.
 
 [data name:'metricsLand' source:'metricsLand.csv' /]
 [IdyllVegaLite data:metricsLand spec:`{
@@ -438,14 +440,14 @@ While simulations cannot capture every nuance about the future built environment
 
 [h3 className:"imageCaption"]**Summary for land development**
 
-- When comparing the **Grey vs. Green scenarios**, the green scenario takes less land because it assumes a higher density
 - When comparing **Expansion vs. New Settlements**, there is not a major difference. In the expansion scenario, land developments sprawl out of existing areas, whereas in new settlements there are more high density areas at the centre of the new settlements.
+- When comparing the **Grey vs. Green scenarios**, the green scenario takes less land because it assumes a higher density
 [/h3]
 
 
-[h3 className:"stepTitle"]**Ecosystem service impact per hectare**[/h3]
+[h3 className:"stepTitle"]**Ecosystem service impact**[/h3]
 
-This grouped bar chart represents what shouldn't be built or built with sensity given the impact to the ecosystem.
+The grouped bar chart represents what shouldn't be built or built with sensitivity given the impact to the ecosystem.
 
 [data name:'metricsEco' source:'metricsEcosystem.csv' /]
 [IdyllVegaLite data:metricsEco spec:`{
@@ -483,11 +485,10 @@ This grouped bar chart represents what shouldn't be built or built with sensity 
 
 [h3 className:"imageCaption"]**Summary for ecosystem services**
 
-- Water supplies are more significantly affected across all scenarios, but in new settlements in particular. Would it be beneficial to introduce more constraints based on water supply ecosystem services?
-- For water supplies and food production, new settlements shows a relatively larger gap compared to the other services due to the additional locations
-- Recreation is reduced overall because recreational activities tend to happen outside of city centres, therefore if you build on edge of town, you will also remove space dedicated to recreation
-- Green has less impact on the ecosystem overall than grey
-- If built well, it is possible to build without taking over land
+- **Water supplies** are more significantly affected across all scenarios, but new settlements in particular. It could be beneficial to introduce more constraints based on water supply ecosystem services.
+- For **water supplies** and **food production**, there is a larger gap between expansion and new settlements compared to the other services due to the additional settlement locations.
+- **Recreation** is reduced overall because recreational activities tend to happen outside of city centres, therefore if you build on the edge of town, you will also reduce recreational spaces.
+- **Green has less impact** on the ecosystem overall than grey
 [/h3]
 
 
