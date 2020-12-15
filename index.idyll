@@ -72,41 +72,44 @@ The Oxford Cambridge Arc in a region in south central England that runs between 
 A report published in 2018 by the National Infrastructure Commission outlined
 substantial plans to increase access and connectivity to the Arc area by 2050.
 This vision includes one million new homes across the Arc and major improvements
-to rail routes. Through computer-based simulations, researchers at the University of Oxford and Newcastle University explored possible futures of the Arc in order to learn more about how this vision would impact urban development. Two scenarios were identified to guide the broad location of new development.
+to rail routes. Through computer-based simulations, researchers at the University of Oxford and Newcastle University explored possible futures of the Arc in order to learn more about how this vision would impact urban development.
+
+Two scenarios were identified to guide the broad location of new development.
+
+
+### Existing Expansion
+- Location of development near **existing development**, with **good access** to existing employment by road or rail
+- Allow some building on **green belt land** to allow for expansion
+
+### New Settlements
+- Focussed on **new centres**, around future **rail stations**
+
+Two additional scenarios were identified to vary the attractiveness and constraints that may have environmental benefits.
+
+### Grey
+- **Relatively more** weight given to proximity to roads, access to employment by road
+- **Relatively less** weight given to avoid losing natural capital
+- **Core constraints** not to build on ancient woodland, flood plains, areas of very high natural capital
+
+### Green
+- **Relatively more** weight given to proximity to stations, access to employment by rail
+- **Relatively more** weight given to avoid losing natural capital
+- **Additional constraints** not to build on nature recovery networks
+
 
 [h3 className:"imageCaption"]
-#### Existing Expansion
-- Location of development near existing development, with good access to existing employment by road or rail
-- Allow some building on green belt land to allow for expansion
-
-#### New Settlements
-- Focussed on new centres, around future rail stations
-[/h3]
-
-Two additional scenarios were explored to vary the attractiveness and constraints that may have environmental benefits.
-
-[h3 className:"imageCaption"]
-#### Grey
-- Relatively more weight given to proximity to roads, access to employment by road
-- Relatively less weight given to avoid losing natural capital
-- Core constraints not to build on ancient woodland, flood plains, areas of very high natural capital
-
-#### Green
-- Relatively more weight given to proximity to stations, access to employment by rail
-- Relatively more weight given to avoid losing natural capital
-- Additional constraints not to build on nature recovery networks
-[/h3]
+**Four Future Scenarios**
 
 In combination, this gives four extremes to explore:
 1. Existing Expansion, Grey
 2. Existing Expansion, Green
 3. New Settlements, Grey
 4. New Settlements, Green
-
+[/h3]
 
 ## The Urban Modelling Process
 
-Based on the theories and assumptions made in each of the four scenarios, the researchers went through a series of steps to simulate the outcomes that each scenario would have on the built and natural environment.
+Based on the theories and assumptions for each scenario, a series of urban modelling steps were applied to simulate the outcomes each scenario would have on the Arc's built and natural environment.
 
 [var name:"processStep" value:0 /]
 [Stepper currentStep:processStep]
@@ -152,13 +155,12 @@ Based on the theories and assumptions made in each of the four scenarios, the re
 [/Conditional]
 
 [Conditional if:`processStep === 6`]
-  Summarize results in a way that helps government authorities and planners
-  make decisions.
+  The coloured graphs represent the conclusions presented to government authorities and planners who can then make informed decisions about urban development.
 [/Conditional]
 [/p]
 
 [h3 className:"imageCaption"]
-**Summary of steps:**
+**Seven Urban Modelling Steps:**
 1. Identify elements of the built and natural environment at a 100m grid scale
 2. Develop scenarios of major features that will influence the nature of new development
 3. Calculate attractiveness scores for new development
@@ -169,7 +171,9 @@ Based on the theories and assumptions made in each of the four scenarios, the re
 [/h3]
 
 
-Each of the steps was applied to the future Arc scenarios and the highlights are shown below. For each step, the compare results at three different scales (Arc, city, neighbourhood) in order to compare both the bigger picture and details.
+
+
+When applying each step to the Arc scenarios, a series of maps were produced to help visualise the outputs along the way. To highlight the level of detail of outputs produced at a 100m grid scale, each step below will compare images for three scales zooming in from the Arc, to city, and neighbourhood level.
 
 [var name:"scenario" value: "grey_exp" /]
 [var name:"selectedZoom" value: "arc" /]
@@ -179,7 +183,7 @@ Each of the steps was applied to the future Arc scenarios and the highlights are
 
 
 
-[h2 className:"stepTitle"]**Step 1:** Identify elements of the built and natural environment at a 100m grid scale[/h2]
+[h2 className:"stepTitle"]Step 1: Identify elements of the built and natural environment at a 100m grid scale[/h2]
 
 [div className: "inputComponent"]
 [h4 className:"inputLabel"]Change Scale[/h4]
@@ -195,11 +199,9 @@ Each of the steps was applied to the future Arc scenarios and the highlights are
 
 [img src: `"./static/images/natcap_" + selectedZoom + ".png"` /]
 
-[h3 className:"imageCaption"]This map shows the density of **existing urban land features** (i.e., residential buildings) and **non-urban land features** (i.e., parks, grasslands, woodlands, verges, habitats) based on the ecosystem services needed to help maintain it. [/h3]
+This map shows the density of **existing urban land features** (i.e., residential buildings) and **non-urban land features** (i.e., parks, grasslands, woodlands, verges, habitats) based on the ecosystem services needed to help maintain it.
 
-
-
-[h2 className:"stepTitle"]**Step 2:** Develop scenarios of major features that will influence the nature of new development[/h2]
+[h2 className:"stepTitle"]Step 2: Develop scenarios of major features that will influence the nature of new development[/h2]
 
 [var name:"selectedFutureTransport" value:"futureStations" /]
 [div className: "inputComponent"]
@@ -216,11 +218,10 @@ Each of the steps was applied to the future Arc scenarios and the highlights are
 
 [ArcFuture selectedFutureTransport:selectedFutureTransport /]
 
-[h3 className:"imageCaption"]Major features of future development include new rail and stations, roads, and settlements. Proposed new developments include a **new expressway** and **East West Rail (EWR)** that will link Oxford and Cambridge. In the New Settlements scenario, **five new settlement centres** will emerge.[/h3]
+Major features of future development include new rail and stations, roads, and settlements. Proposed new developments include a **new expressway** and **East West Rail (EWR)** that will link Oxford and Cambridge. In the New Settlements scenario, **five new settlement centres** will emerge.
 
 
-
-[h2 className:"stepTitle"]**Step 3.** Calculate attractiveness scores for new development[/h2]
+[h2 className:"stepTitle"]Step 3.Calculate attractiveness scores for new development[/h2]
 
 [div]
   [Inline]
@@ -254,14 +255,12 @@ Each of the steps was applied to the future Arc scenarios and the highlights are
   [/Inline]
 [/div]
 
-
-
 [img src: `"./static/images/suitability_" + scenario + "_" + selectedZoom + ".png"`  /]
 
-[h3 className:"imageCaption"]The map shows the **level of attractivenes** of location in the Arc. Attractors are things that will **drive people to move** to the Arc (i.e., performance of local schools, local accessibility (distance) to shops, services or transport hubs).[/h3]
+The map shows the **level of attractivenes** of location in the Arc. Attractors are things that will **drive people to move** to the Arc (i.e., performance of local schools, local accessibility (distance) to shops, services or transport hubs).
 
 
-[h2 className:"stepTitle"]**Step 4:** Identify constraints[/h3]
+[h2 className:"stepTitle"]Step 4: Identify constraints[/h3]
 
 [div]
   [Inline]
@@ -298,11 +297,10 @@ Each of the steps was applied to the future Arc scenarios and the highlights are
 
 [img src: `"./static/images/suitability_green_exp_arc.png"` /]
 
-[h3 className:"imageCaption"]This map shows areas **where development should be restricted**. These constraints are included to protect nature, wildlife, historical landmarks, and areas which are not feasible to develop.[/h3]
+This map shows areas **where development should be restricted**. These constraints are included to protect nature, wildlife, historical landmarks, and areas which are not feasible to develop.
 
 
-
-[h2 className:"stepTitle"]**Step 5.** Explore different target densities for different categories of building development[/h2]
+[h2 className:"stepTitle"]Step 5. Explore different target densities for different categories of building development[/h2]
 
 [div]
   [Inline]
@@ -336,10 +334,10 @@ Each of the steps was applied to the future Arc scenarios and the highlights are
 
 [img src: `"./static/images/density_" + scenario + "_" + selectedZoom + ".png"`  /]
 
-[h3 className:"imageCaption"]This map shows the **level of population migration** to and within the Arc, given the relative attractiveness of different locations. This often results in **hotspots around town centers and business districts** with high density.[/h3]
+This map shows the **level of population migration** to and within the Arc, given the relative attractiveness of different locations. This often results in **hotspots around town centers and business districts** with high density.
 
 
-[h2 className:"stepTitle"]**Step 6.** Allocate future development, subject to attractors, constraints and density[/h2]
+[h2 className:"stepTitle"]Step 6. Allocate future development, subject to attractors, constraints and density[/h2]
 
 [div]
   [Inline]
@@ -396,10 +394,9 @@ Each of the steps was applied to the future Arc scenarios and the highlights are
   [/Inline]
 [/div]
 
-
 [img src: `"./static/images/" + view + "_" + scenario + "_" + bldScenario + "_" + selectedZoom + ".png"`  /]
 
-[h3 className:"imageCaption"]This map shows the **final predicted development** that will take place in the Arc. Higher density areas tend to be most suitable for development and therefore developed first.[/h3]
+This map shows the **final predicted development** that will take place in the Arc. Higher density areas tend to be most suitable for development and therefore developed first.
 
 
 
@@ -425,33 +422,35 @@ While simulations cannot capture every nuance about the future built environment
     },
     y: {
       field: "Land take (hectares)",
-      type: "quantitative"
+      type: "quantitative",
     },
     color: {
-      field: "Scenario"
+      field: "Scenario",
+      scale: {range: ["LightGreen", "Silver","DarkGreen","grey"]}
     }
   },
 }` /]
 
-[h3 className:"imageCaption"]Summary for land development
+[h3 className:"imageCaption"]
+**Summary for land development**
 
-- Green vs. grey: green assumes higher density and so it takes less land
-- Expansion vs. new settlements: Not as much difference but new settlements allow building at the highest density (at the centre of the settlements) whereas in exansion they are only in existing ecosystem.
+- When comparing the **Grey vs. Green scenarios**, the green scenario takes less land because it assumes a higher density
+- When comparing **Expansion vs. New Settlements**, there is not a major difference. In the expansion scenario, land developments sprawl out of existing areas, whereas in new settlements there are more high density areas at the centre of the new settlements.
 [/h3]
 
 
 [h3 className:"stepTitle"]Ecosystem service impact per hectare[/h3]
+This grouped bar chart represents what shouldn't be built or built with sensity given the impact to the ecosystem.
 
 [data name:'metricsEco' source:'metricsEcosystem.csv' /]
 [IdyllVegaLite data:metricsEco spec:`{
   mark: "bar",
-  width: 50,
+  width: 55,
   encoding: {
     column: {
       field: "Service",
-      type: "nominal",
-      title: "Ecosystem Service",
-      spacing: 1
+      type: "ordinal",
+      title: "Ecosystem Service"
     },
     x: {
       field: "Scenario",
@@ -468,18 +467,20 @@ While simulations cannot capture every nuance about the future built environment
       type: "quantitative",
     },
     color: {
-      field: "Scenario"
+      field: "Scenario",
+      scale: {range: ["LightGreen", "Silver","DarkGreen","grey"]}
     }
   },
 }` /]
 
 [h3 className:"imageCaption"]
-This grouped bar chart represents what shouldn't be built or built with sensity given the impact to the ecosystem. If built well, it's possible to build without taking over land.
+**Summary for ecosystem services**
 
-- Water supplies are more significantly affected across all, but new settlements in particular
-- Should we introduce constraints based on water supply ecosystem services?
-- Water suply and food, new settlements larger than expansion due to locations- Recreation - outside of town, if you build on edge of town, you remove
-- Final - green better than grey
+- Water supplies are more significantly affected across all scenarios, but in new settlements in particular. Would it be beneficial to introduce more constraints based on water supply ecosystem services?
+- For water supplies and food production, new settlements shows a relatively larger gap compared to the other services due to the additional locations
+- Recreation is reduced overall because recreational activities tend to happen outside of city centres, therefore if you build on edge of town, you will also remove space dedicated to recreation
+- Green has less impact on the ecosystem overall than grey
+- If built well, it is possible to build without taking over land
 [/h3]
 
 ## Acknowledgements

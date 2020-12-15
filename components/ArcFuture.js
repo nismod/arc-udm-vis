@@ -154,7 +154,7 @@ let spec = {
   "$schema": "https://vega.github.io/schema/vega-lite/v4.json",
   "description": "A future map of the Arc in the UK",
   "width": 550,
-  "height": 550,
+  "height": 550
 };
 
 
