@@ -615,11 +615,13 @@ body {
 
 .imageCaption  {
   background: #f0f9fa;
-  outline: #006f74;
-  margin-top: 0px;
+  border: 2px;
+  border-style: solid;
+  border-color: #006f74;
   padding: 16px;
-  font-family: et-book, Palatino, "Palatino Linotype", "Palatino LT STD", "Book Antiqua", Georgia, serif;
+  font-family: palatino, "Palatino Linotype", "Palatino LT STD", "Book Antiqua", Georgia, serif;
   font-size: 1.4rem;
+  line-height: 1.4;
 }
 
 .idyll-stepper {
@@ -636,9 +638,9 @@ body {
   background: none;
   color: black;
 }
-.imageCaption p:first-child {
+/* .imageCaption p:first-child {
   margin-top: 0;
 }
 .imageCaption p:last-child {
   margin-bottom: 0;
-}
+} */
