@@ -516,9 +516,9 @@ This work has been carried out by researchers at the University of Oxford and Ne
 
 The [a href:"https://github.com/geospatialncl/OpenUDM/"]Urban Development Model[/a] (UDM) was used to produce the results presented here. The [a href:"https://github.com/nismod/natural-capital-mapping"]Natural Capital Mapping[/a] toolkit was used to assess ecosystem services.
 
-- Heidi Mok
-- Tom Russell
-- James Virgo
-- Alison Smith
-- Jim Hall
-- Alistair Ford
+- Heidi Mok, Visualisation design and development
+- Tom Russell, Maps and visualisation
+- James Virgo, Urban development modelling
+- Alison Smith, Ecosystem services assessment
+- Jim Hall, Discussion and feedback
+- Alistair Ford, Discussion and feedback
