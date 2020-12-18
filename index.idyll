@@ -247,8 +247,7 @@ This map shows some of the different kinds of value as **ecosystem services** th
 
 [ArcFuture selectedFutureTransport:selectedFutureTransport /]
 
-
-Major features of future development include new rail and stations, roads, and settlements. Proposed new developments include a **new expressway** and **East West Rail (EWR)** that will link Oxford and Cambridge. In the New Settlements scenario, **five new settlement centres** will emerge.
+Major features of future development include new rail and stations, roads, and settlements. Proposed new developments include new stations and rail links as part of **East West Rail (EWR)** that will link Oxford and Cambridge. In the New Settlements scenario, **five new settlement centres** are picked to be centred on potential station locations.
 
 
 [h2 className:"stepTitle"]Step 3.Calculate attractiveness scores for new development[/h2]
@@ -288,6 +287,7 @@ Major features of future development include new rail and stations, roads, and s
 
 [img src: `"./static/images/attractors/attractor_" + selectedAttractors + "_" + selectedZoom + ".png"`  /]
 
+The map shows the **level of attractiveness** of location in the Arc. Attractors are things that may make somewhere relatively more attractive, as a place to live or as a place to build housing (e.g. proximity (distance) or accessibility to transport hubs and jobs, or with relatively lower ecosystem services that may be lost if an area is developed).
 
 
 [h2 className:"stepTitle"]Step 4: Identify constraints[/h3]
@@ -324,7 +324,7 @@ Major features of future development include new rail and stations, roads, and s
 
 [img src: `"./static/images/suitability/suit_" + scenario + "_" + selectedZoom + ".png"`  /]
 
-This map shows the combined attractors and constraints.
+This map shows the combined attractiveness scores for each scenario, and masks out (in white, with attractiveness equal to zero) areas **where development should be restricted**. These constraints are included to protect nature, wildlife, historical landmarks, and areas which are not feasible to develop.
 
 
 [h2 className:"stepTitle"]Step 5. Explore different target densities for different categories of building development[/h2]
@@ -361,7 +361,7 @@ This map shows the combined attractors and constraints.
 
 [img src: `"./static/images/density/density_" + scenario + "_" + selectedZoom + ".png"`  /]
 
-This map shows the **level of population migration** to and within the Arc, given the relative attractiveness of different locations. This often results in **hotspots around town centers and business districts** with high density.
+This map shows different possible **target densities** for any new development across the Arc. For example, in **New Settlements** scenarios, there are **high density zones around new centres** and in **Green** scenarios there is a minimum density for any new development.
 
 [h2 className:"stepTitle"]Step 6. Allocate future development, subject to attractors, constraints and density[/h2]
 
@@ -422,8 +422,7 @@ This map shows the **level of population migration** to and within the Arc, give
 
 [img src: `"./static/images/dwellings/dwellings_" + scenario + "_" + bldScenario + "_" + year + "_" + selectedZoom + ".png"`  /]
 
-The final map shows the **predicted development** that will take place in the Arc. Higher density areas tend to be most suitable for development and therefore developed first.
-
+The final map shows the **scenarios of future development** that will take place in the Arc, given different assumptions about how many houses are build in the region up to 2030 or 2050, following our four scenarios which set up combinations of attractors, constraints and density.
 
 
 [h2 className:"stepTitle"]**Step 7.** Calculate metrics to evaluate the new development scenarios[/h2]
@@ -431,10 +430,9 @@ The final map shows the **predicted development** that will take place in the Ar
 While simulations cannot capture every nuance about the future built environment, analyzing and visualising the trade-offs can help planners and policy-makers make informed decisions. The following graphs show the summary of results for both land development and ecosystem services that will be impacted for each of the four scenarios explored.
 
 
-
 [h3 className:"stepTitle"]**Land taken for development**[/h3]
 
-The bar chart shows the land taken for development for each scenario. If built well, it is possible to build without taking over land.
+The bar chart shows the land taken for development in each scenario.
 
 [data name:'metricsLand' source:'metricsLand.csv' /]
 [IdyllVegaLite data:metricsLand spec:`{
@@ -463,14 +461,14 @@ The bar chart shows the land taken for development for each scenario. If built w
 
 [h3 className:"imageCaption"]**Summary for land development**
 
-- When comparing **Expansion vs. New Settlements**, there is not a major difference. In the expansion scenario, land developments sprawl out of existing areas, whereas in new settlements there are more high density areas at the centre of the new settlements.
-- When comparing the **Grey vs. Green scenarios**, the green scenario takes less land because it assumes a higher density
+- When comparing **Expansion vs. New Settlements**, there is not a major difference in total land take - though the location of development is very different. In the Expansion scenario, developments sprawl around existing urban areas, whereas in New Settlements there are new high density centres.
+- When comparing **Grey vs. Green**, the Green scenario takes less land because it assumes a higher density of all new development.
 [/h3]
 
 
 [h3 className:"stepTitle"]**Ecosystem service impact**[/h3]
 
-The grouped bar chart represents what shouldn't be built or built with sensitivity given the impact to the ecosystem.
+The grouped bar chart shows the potential impacts on the ecosystem, given the locations identified for development and the ecosystem services currently provided by those places.
 
 [data name:'metricsEco' source:'metricsEcosystem.csv' /]
 [IdyllVegaLite data:metricsEco spec:`{
@@ -503,18 +501,24 @@ The grouped bar chart represents what shouldn't be built or built with sensitivi
   },
 }` /]
 
-
-
-
 [h3 className:"imageCaption"]**Summary for ecosystem services**
 
-- **Water supplies** are more significantly affected across all scenarios, but new settlements in particular. It could be beneficial to introduce more constraints based on water supply ecosystem services.
-- For **water supplies** and **food production**, there is a larger gap between expansion and new settlements compared to the other services due to the additional settlement locations.
-- **Recreation** is reduced overall because recreational activities tend to happen outside of city centres, therefore if you build on the edge of town, you will also reduce recreational spaces.
-- **Green has less impact** on the ecosystem overall than grey
+- **Water supply** services are more significantly affected across all scenarios. It could be beneficial to introduce more constraints in new scenarios which would protect water supply ecosystem services.
+- For **water supply** and **food production**, there is a higher impact in New Settlements scenarios, which may depend on the choice of where to focus the new settlement centres.
+- **Recreation** is more affected in Expansion scenarios, possibly because recreational activities tend to happen outside of city centres, so if you build on the edge of town, you might also reduce recreational spaces.
+- **Green has less impact** on the ecosystem overall than grey, because of the additional constraints and higher density.
 [/h3]
 
 
 ## Acknowledgements
 
-This work has been carried out by researchers at the University of Oxford and Newcastle University in the UK, funded by the Alan Turing Institute (ATI), to inform the analysis, planning and design of resilient national, regional and local infrastructure across the world.
+This work has been carried out by researchers at the University of Oxford and Newcastle University in the UK, funded by the Alan Turing Institute (ATI), to inform the analysis, planning and design of resilient national, regional and local infrastructure around the world.
+
+The [a href:"https://github.com/geospatialncl/OpenUDM/"]Urban Development Model[/a] (UDM) was used to produce the results presented here. The [a href:"https://github.com/nismod/natural-capital-mapping"]Natural Capital Mapping[/a] toolkit was used to assess ecosystem services.
+
+- Heidi Mok
+- Tom Russell
+- James Virgo
+- Alison Smith
+- Jim Hall
+- Alistair Ford
