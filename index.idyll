@@ -173,34 +173,63 @@ Based on the theories and assumptions identified for each scenario, a series of 
 [/h3]
 
 
-
-
 When applying each step to the Arc scenarios, a series of maps were produced to help visualise the outputs along the way. To highlight the level of detail of outputs produced at a 100m grid scale, each step below will compare images for three scales zooming in from the Arc, to city, and neighbourhood level.
 
 [var name:"scenario" value: "grey_exp" /]
 [var name:"selectedZoom" value: "arc" /]
-[var name:"polScenario" value: "green" /]
-[var name:"dwlScenario" value: "set" /]
 [var name:"bldScenario" value: "23k" /]
+[var name:"year" value: "2030" /]
+[var name:"selectedAttractors" value:"natural_capital_min_score" /]
+[var name:"selectedNatCap" value:"combined" /]
 
 
 [h2 className:"stepTitle"]Step 1: Identify elements of the built and natural environment at a 100m grid scale[/h2]
 
-[div className: "inputComponent"]
-[h4 className:"inputLabel"]Change Scale[/h4]
+[Inline]
+  [div className: "inputComponent"]
+  [h4 className:"inputLabel"]Change Scale[/h4]
   [Select value: selectedZoom
     options:`[
-      {value: "ngb", label: "Neighbourhood"},
+      {value: "arc", label: "Arc"},
       {value: "cty", label: "City"},
-      {value: "arc", label: "Arc"}
+      {value: "ngb", label: "Neighbourhood"},
     ]`
     className: "customSelect"
   /]
-[/div]
+  [/div]
+[/Inline]
+[Inline]
+  [div className: "inputComponent"]
+  [h4 className:"inputLabel"]Ecosystem services[/h4]
+  [Select value:selectedNatCap
+    options:`[
+      {value: "combined", label: "Maximum values (food and all other)"},
+      {value: "aesthetic", label: "Aesthetic value"},
+      {value: "airquality", label: "Air quality"},
+      {value: "carbon", label: "Carbon capture and storage"},
+      {value: "cooling", label: "Cooling"},
+      {value: "education", label: "Education"},
+      {value: "erosion", label: "Erosion prevention"},
+      {value: "flood", label: "Flood protection"},
+      {value: "food", label: "Food production"},
+      {value: "habitat", label: "Habitat"},
+      {value: "noise", label: "Noise reduction"},
+      {value: "pestcontrol", label: "Pest control"},
+      {value: "pollination", label: "Pollination"},
+      {value: "recreation", label: "Recreation"},
+      // {value: "sense", label: ""},
+      {value: "waterquality", label: "Water quality"},
+      {value: "wood", label: "Wood provision"},
+    ]`
+    className: "customSelect"
+  /]
+  [/div]
+[/Inline]
 
-[img src: `"./static/images/natcap_" + selectedZoom + ".png"` /]
+[img src: `"./static/images/natcap/natcap_" + selectedNatCap + "_" + selectedZoom + ".png"` /]
 
-This map shows the density of **existing urban land features** (e.g. residential buildings) and **non-urban land features** (e.g. parks, grasslands, woodlands, verges, habitats) based on the ecosystem services needed to help maintain it.
+This map shows some of the different kinds of value as **ecosystem services** that we receive from all sorts of natural and cultivated green uses of land (e.g. parks, grasslands, roadside verges, fields or ancient woodlands).
+
 
 [h2 className:"stepTitle"]Step 2: Develop scenarios of major features that will influence the nature of new development[/h2]
 
@@ -210,7 +239,6 @@ This map shows the density of **existing urban land features** (e.g. residential
 [Select value:selectedFutureTransport
   options:`[
     {label: "New Rail Stations", value:"futureStations"},
-    {label: "New Roads", value:"futureRoads"},
     {label: "New Settlements", value:"futureSettlements"}
   ]`
   className: "customSelect"
@@ -231,25 +259,26 @@ Major features of future development include new rail and stations, roads, and s
     [div className: "inputComponent"]
     [Select value: selectedZoom
       options:`[
-        {value: "ngb", label: "Neighbourhood"},
+        {value: "arc", label: "Arc"},
         {value: "cty", label: "City"},
-        {value: "arc", label: "Arc"}
+        {value: "ngb", label: "Neighbourhood"},
       ]`
       className: "customSelect"
     /]
     [/div]
   [/Inline]
   [Inline]
-    [var name:"selectedAttractors" value:"transportnodes" /]
     [div className: "inputComponent"]
     [h4 className:"inputLabel"]Attractor[/h4]
     [Select value:selectedAttractors
       options:`[
-        {value: "transportnodes", label: "Proximity to existing transport nodes"},
-        {value: "roads", label: "Proximity to existing roads"},
-        {value: "currentdevelopment", label: "Proximity to current development"},
-        {value: "employment", label: "Accessibility to employment"},
-        {value: "developedland", label: "Previously developed land"}
+        {value: "rail_proximity", label: "Proximity to railway stations"},
+        {value: "road_proximity", label: "Proximity to roads"},
+        {value: "employment_access_by_rail", label: "Accessibility to employment by rail"},
+        {value: "employment_access_by_road", label: "Accessibility to employment by road"},
+        {value: "development_proximity", label: "Proximity to existing development"},
+        {value: "settlement_proximity", label: "Proximity to new settlement centres"},
+        {value: "natural_capital_min_score", label: "Lower ecosystem services scores"},
       ]`
       className: "customSelect"
     /]
@@ -257,10 +286,8 @@ Major features of future development include new rail and stations, roads, and s
   [/Inline]
 [/div]
 
-[img src: `"./static/images/suitability_" + scenario + "_" + selectedZoom + ".png"`  /]
+[img src: `"./static/images/attractors/attractor_" + selectedAttractors + "_" + selectedZoom + ".png"`  /]
 
-
-The map shows the **level of attractivenes** of location in the Arc. Attractors are things that will **drive people to move** to the Arc (i.e., performance of local schools, local accessibility (distance) to shops, services or transport hubs).
 
 
 [h2 className:"stepTitle"]Step 4: Identify constraints[/h3]
@@ -271,50 +298,9 @@ The map shows the **level of attractivenes** of location in the Arc. Attractors 
     [div className: "inputComponent"]
     [Select value: selectedZoom
       options:`[
-        {value: "ngb", label: "Neighbourhood"},
+        {value: "arc", label: "Arc"},
         {value: "cty", label: "City"},
-        {value: "arc", label: "Arc"}
-      ]`
-      className: "customSelect"
-    /]
-    [/div]
-  [/Inline]
-  [Inline]
-    [var name:"selectedConstraints" value:"battlefields" /]
-    [div className: "inputComponent"]
-    [h4 className:"inputLabel"]Constraint[/h4]
-    [Select value: selectedConstraints
-      options:`[
-        {value: "naturereserves", label: "Nature Recovery Networks"},
-        {value: "naturereserves", label: "National Nature Reserves"},
-        {value: "scientificinterest", label: "SSSI"},
-        {value: "heritagesites", label: "World Heritage Sites"},
-        {value: "developedareas", label: "Currently developed areas"},
-        {value: "waterbodies", label: "Water bodies	"}
-      ]`
-      className: "customSelect"
-    /]
-    [/div]
-  [/Inline]
-[/div]
-
-[img src: `"./static/images/suitability_green_exp_arc.png"` /]
-
-
-This map shows areas **where development should be restricted**. These constraints are included to protect nature, wildlife, historical landmarks, and areas which are not feasible to develop.
-
-
-[h2 className:"stepTitle"]Step 5. Explore different target densities for different categories of building development[/h2]
-
-[div]
-  [Inline]
-    [h4 className:"inputLabel"]Scale[/h4]
-    [div className: "inputComponent"]
-    [Select value:selectedZoom
-      options:`[
         {value: "ngb", label: "Neighbourhood"},
-        {value: "cty", label: "City"},
-        {value: "arc", label: "Arc"}
       ]`
       className: "customSelect"
     /]
@@ -327,8 +313,8 @@ This map shows areas **where development should be restricted**. These constrain
       options:`[
         {value: "grey_exp", label: "Existing Expansion Grey"},
         {value: "green_exp", label: "Existing Expansion Green"},
-        {value: "grey_set", label: "New Settlements Green"},
-        {value: "green_set", label: "New Settlements Grey"}
+        {value: "green_set", label: "New Settlements Green"},
+        {value: "grey_set", label: "New Settlements Grey"},
       ]`
       className: "customSelect"
     /]
@@ -336,7 +322,44 @@ This map shows areas **where development should be restricted**. These constrain
   [/Inline]
 [/div]
 
-[img src: `"./static/images/density_" + scenario + "_" + selectedZoom + ".png"`  /]
+[img src: `"./static/images/suitability/suit_" + scenario + "_" + selectedZoom + ".png"`  /]
+
+This map shows the combined attractors and constraints.
+
+
+[h2 className:"stepTitle"]Step 5. Explore different target densities for different categories of building development[/h2]
+
+[div]
+  [Inline]
+    [h4 className:"inputLabel"]Scale[/h4]
+    [div className: "inputComponent"]
+    [Select value:selectedZoom
+      options:`[
+        {value: "arc", label: "Arc"},
+        {value: "cty", label: "City"},
+        {value: "ngb", label: "Neighbourhood"},
+      ]`
+      className: "customSelect"
+    /]
+    [/div]
+  [/Inline]
+  [Inline]
+  [h4 className:"inputLabel"]Scenario[/h4]
+    [div className: "inputComponent"]
+    [Select value: scenario
+      options:`[
+        {value: "grey_exp", label: "Existing Expansion Grey"},
+        {value: "green_exp", label: "Existing Expansion Green"},
+        {value: "green_set", label: "New Settlements Green"},
+        {value: "grey_set", label: "New Settlements Grey"},
+      ]`
+      className: "customSelect"
+    /]
+    [/div]
+  [/Inline]
+[/div]
+
+[img src: `"./static/images/density/density_" + scenario + "_" + selectedZoom + ".png"`  /]
 
 This map shows the **level of population migration** to and within the Arc, given the relative attractiveness of different locations. This often results in **hotspots around town centers and business districts** with high density.
 
@@ -348,22 +371,9 @@ This map shows the **level of population migration** to and within the Arc, give
     [div className: "inputComponent"]
     [Select value:selectedZoom
       options:`[
-        {value: "ngb", label: "Neighbourhood"},
+        {value: "arc", label: "Arc"},
         {value: "cty", label: "City"},
-        {value: "arc", label: "Arc"}
-      ]`
-      className: "customSelect"
-    /]
-    [/div]
-  [/Inline]
-  [Inline]
-    [var name:"view" value: "development" /]
-    [h4 className:"inputLabel"]View[/h4]
-    [div className: "inputComponent"]
-    [Select value:view
-      options:`[
-        {value: "development", label: "Development"},
-        {value: "dwellings", label: "Dwellings"}
+        {value: "ngb", label: "Neighbourhood"},
       ]`
       className: "customSelect"
     /]
@@ -376,8 +386,8 @@ This map shows the **level of population migration** to and within the Arc, give
       options:`[
         {value: "grey_exp", label: "Existing Expansion Grey"},
         {value: "green_exp", label: "Existing Expansion Green"},
-        {value: "grey_set", label: "New Settlements Green"},
-        {value: "green_set", label: "New Settlements Grey"}
+        {value: "green_set", label: "New Settlements Green"},
+        {value: "grey_set", label: "New Settlements Grey"},
       ]`
       className: "customSelect"
     /]
@@ -395,9 +405,22 @@ This map shows the **level of population migration** to and within the Arc, give
     /]
     [/div]
   [/Inline]
+  [Inline]
+    [var name:"year" value: "2030" /]
+    [h4 className:"inputLabel"]Year[/h4]
+    [div className: "inputComponent"]
+    [Select value:year
+      options:`[
+        {value: "2030", label: "2030"},
+        {value: "2050", label: "2050"}
+      ]`
+      className: "customSelect"
+    /]
+    [/div]
+  [/Inline]
 [/div]
 
-[img src: `"./static/images/" + view + "_" + scenario + "_" + bldScenario + "_" + selectedZoom + ".png"`  /]
+[img src: `"./static/images/dwellings/dwellings_" + scenario + "_" + bldScenario + "_" + year + "_" + selectedZoom + ".png"`  /]
 
 The final map shows the **predicted development** that will take place in the Arc. Higher density areas tend to be most suitable for development and therefore developed first.
 
