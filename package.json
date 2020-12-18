@@ -4,7 +4,7 @@
   "license": "MIT",
   "scripts": {
     "start": "idyll",
-    "build": "idyll build",
+    "build": "rm -rf build && idyll build",
     "deploy": "gh-pages --dist build --repo git@github.com:nismod/arc-udm-vis.git",
     "extract": "pandoc -f markdown -t docx index.idyll -o arc-vis-text.docx"
   },
