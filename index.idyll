@@ -32,7 +32,7 @@ The Oxford Cambridge Arc is a region in south central England that runs between 
     [/div]
   [/Inline]
   [Inline]
-    [var name:"selectedTransport" value:"rail" /]
+    [var name:"selectedTransport" value:"roads" /]
     [div className: "inputComponent"]
     [h4 className:"inputLabel"]Transport[/h4]
     [Select value:selectedTransport
@@ -45,7 +45,7 @@ The Oxford Cambridge Arc is a region in south central England that runs between 
     [/div]
   [/Inline]
   [Inline]
-  [var name:"selectedBoundaries" value:"county" /]
+  [var name:"selectedBoundaries" value:"msoa" /]
     [div className: "inputComponent"]
     [h4 className:"inputLabel"]Boundary[/h4]
     [Select value:selectedBoundaries
@@ -71,7 +71,7 @@ The Oxford Cambridge Arc is a region in south central England that runs between 
 
 ## Future Development Scenarios
 
-A report published in 2018 by the National Infrastructure Commission outlined substantial plans to increase access and connectivity within the Arc area by 2050. This vision includes one million new homes across the Arc, major improvements to rail routes, and potentially an East-West Expressway road.
+A [a href:"https://nic.org.uk/studies-reports/growth-arc/"]report[/a] published in 2018 by the National Infrastructure Commission outlined substantial plans to increase access and connectivity within the Arc area by 2050. This vision includes one million new homes across the Arc, major improvements to rail routes, and potentially an East-West Expressway road.
 
 Through computer-based simulations, researchers at the University of Oxford and Newcastle University explored possible futures of the Arc in order to learn more about how this vision would impact the built and natural environment.
 
@@ -82,7 +82,7 @@ Two scenarios were identified to guide the broad location of new urban developme
 - Allow some building on **green belt land** around existing settlements
 
 ### New Settlements
-- Focussed on **new centres**, around future **rail stations**
+- Focussed on **new centres**, around future **railway stations**
 
 Two additional scenarios were identified to vary the environmental impacts of new development. These affect the attractors and constraints that govern the choice of areas selected for development by the model.
 
@@ -92,7 +92,7 @@ Two additional scenarios were identified to vary the environmental impacts of ne
 - **Core constraints** not to build on ancient woodland, flood risk zones, or areas of very high natural capital
 
 ### Green
-- **Relatively more** weight given to proximity to stations and access to employment by railas attractors for development
+- **Relatively more** weight given to proximity to stations and access to employment by rail as attractors for development
 - **Relatively more** weight given to avoiding the loss of natural capital
 - **Additional constraints** not to build within areas identified as nature recovery networks
 
@@ -114,7 +114,7 @@ Based on the assumptions identified for each scenario, a series of urban modelli
 
 [div className:"imageCaption"]
 
-### Seven Urban Modelling Steps:
+### Seven Urban Modelling Steps
 
 1. Identify elements of the built and natural environment at a 100m grid scale
 2. Develop scenarios of major factors that will influence the nature of new development
@@ -204,10 +204,10 @@ When applying each step to the Arc scenarios, a series of maps were produced at 
   [h4 className:"inputLabel"]Ecosystem services[/h4]
   [Select value:selectedNatCap
     options:`[
-      {value: "combined", label: "Maximum values (food in red, others in green)"},
+      {value: "combined", label: "Maximum values (food in yellow, others in green)"},
       {value: "aesthetic", label: "Aesthetic value"},
       {value: "airquality", label: "Air quality"},
-      {value: "carbon", label: "Carbon capture and storage"},
+      {value: "carbon", label: "Carbon storage"},
       {value: "cooling", label: "Cooling"},
       {value: "education", label: "Education"},
       {value: "erosion", label: "Erosion prevention"},
@@ -218,7 +218,6 @@ When applying each step to the Arc scenarios, a series of maps were produced at 
       {value: "pestcontrol", label: "Pest control"},
       {value: "pollination", label: "Pollination"},
       {value: "recreation", label: "Recreation"},
-      // {value: "sense", label: ""},
       {value: "waterquality", label: "Water quality"},
       {value: "wood", label: "Wood provision"},
     ]`
@@ -229,7 +228,7 @@ When applying each step to the Arc scenarios, a series of maps were produced at 
 
 [img src: `"./static/images/natcap/natcap_" + selectedNatCap + "_" + selectedZoom + ".png"` /]
 
-This map shows some of the different **ecosystem services** that we receive from all sorts of natural and cultivated land and water, including farmland, grasslands, woodlands, water bodies, urban parks, allotments and even roadside verges. For most of the maps, areas that deliver higher levels of the service are shown in darker shades of green. The 'Maximum values' map shows the best areas for food production in red and the best areas for the other ecosystem services in shades of green.
+This map shows some of the different **ecosystem services** that we receive from all sorts of natural and cultivated land and water, including farmland, grasslands, woodlands, water bodies, urban parks, allotments and even roadside verges. For most of the maps, areas that deliver higher levels of the service are shown in darker shades of green. The 'Maximum values' map shows the best areas for food production in yellow and the best areas for the other ecosystem services in shades of green.
 
 
 [h2 className:"stepTitle"]Step 2: Develop scenarios of major factors that will influence the nature of new development[/h2]
@@ -438,7 +437,7 @@ The bar chart shows the area of land taken for development in each scenario.
 [data name:'metricsLand' source:'metricsLand.csv' /]
 [IdyllVegaLite data:metricsLand spec:`{
   mark: "bar",
-  width: 500,
+  width: 535,
   encoding: {
     x: {
       field: "Scenario",
@@ -476,7 +475,7 @@ The grouped bar chart shows the potential impacts on ecosystem services, given t
 [data name:'metricsEco' source:'metricsEcosystem.csv' /]
 [IdyllVegaLite data:metricsEco spec:`{
   mark: "bar",
-  width: 55,
+  width: 51,
   encoding: {
     column: {
       field: "Service",
@@ -499,7 +498,7 @@ The grouped bar chart shows the potential impacts on ecosystem services, given t
     },
     color: {
       field: "Scenario",
-      scale: {range: ["LightGreen", "Silver","DarkGreen","grey"]}
+      scale: {range: ["LightGreen", "Silver", "DarkGreen", "grey"]}
     }
   },
 }` /]

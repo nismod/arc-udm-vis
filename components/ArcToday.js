@@ -2,6 +2,7 @@ const D3Component = require('idyll-d3-component');
 const d3 = require('d3');
 const vega = require('vega'); //you need vega to compile vega-lite
 const vegalite = require('vega-lite');
+const vegaTooltip = require('vega-tooltip');
 
 
 let population = {
@@ -19,7 +20,7 @@ let population = {
         "url": "static/data/Density.csv"
       },
       "key": "msoa",
-      "fields": ["PopDensityPerkm2"]
+      "fields": ["PopDensityPerkm2", "Name", "Population"]
     }
   }],
   "mark": "geoshape",
@@ -30,6 +31,10 @@ let population = {
       "scale": {"scheme": "lightmulti"},
       "legend": {"title": "Density per km2"}
     },
+    "tooltip": [
+      {"field": "Name", "type": "nominal", "title": "MSOA"},
+      {"field": "Population", "type": "quantitative"},
+    ]
   }
 }
 
@@ -45,7 +50,7 @@ let employment = {
     "lookup": "properties.msoa11cd",
     "from": {"data": {"url": "static/data/Density.csv"},
       "key": "msoa",
-      "fields": ["EmpDensityPerkm2"]
+      "fields": ["EmpDensityPerkm2", "Name", "Employment"]
     }
   }],
   "mark": "geoshape",
@@ -55,7 +60,11 @@ let employment = {
       "type": "quantitative",
       "scale": {"scheme": "lightmulti"},
       "legend": {"title": "Density per km2"}
-    }
+    },
+    "tooltip": [
+      {"field": "Name", "type": "nominal", "title": "MSOA"},
+      {"field": "Employment", "type": "quantitative"},
+    ]
   }
 }
 
@@ -93,8 +102,10 @@ let county = {
           "value": 12
         },
         "color": {
-          "value": "black"
-        }
+          "value": "black",
+          "type": "nominal"
+        },
+        "tooltip": null
       }
     }
   ]
@@ -137,8 +148,8 @@ let rail = {
         "format": {
           "type": "topojson",
           "feature": "railnetwork"
-          }
-    },
+        }
+      },
       "mark": {
         "type": "geoshape",
         "stroke": "Brown",
@@ -196,15 +207,26 @@ let transport = {rail: rail, roads: roads};
 
 function buildView(element, props) {
   //Depending on selection, use one of the defined layers
-  spec.layer = [
-    density[props.selectedDensity],
-    boundary[props.selectedBoundaries],
-    transport[props.selectedTransport]
-  ];
-  //Build a Vega view in the DOM element passed
-  return new vega.View(vega.parse(vegalite.compile(spec).spec))
+  if (props.selectedBoundaries === "msoa"){
+    spec.layer = [
+      density[props.selectedDensity],
+      transport[props.selectedTransport]
+    ];
+  } else {
+    spec.layer = [
+      density[props.selectedDensity],
+      boundary[props.selectedBoundaries],
+      transport[props.selectedTransport]
+    ];
+  }
+
+  var tooltip = new vegaTooltip.Handler();
+  var runtime = vega.parse(vegalite.compile(spec).spec)
+  var view = new vega.View(runtime)
     .renderer('svg')
-    .initialize(element.node());
+    .initialize(element.node())
+    .tooltip(tooltip.call);
+  return view;
 };
 
 
