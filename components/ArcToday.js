@@ -155,7 +155,10 @@ let rail = {
         "stroke": "Brown",
         "strokeWidth": 1,
         "strokeDash": 4
-      }
+      },
+      "transform": [
+        {"filter": "datum.properties.is_new != 1"}
+      ]
     },
     {
       "data": {
