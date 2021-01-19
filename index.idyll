@@ -1,5 +1,7 @@
 [meta title:"Oxford Cambridge Arc" description:"Spatial Exploration of the Oxford Cambridge Arc" /]
 
+[article]
+
 [Header
   fullWidth:true
   title:"Future of the Oxford Cambridge Arc"
@@ -13,7 +15,7 @@
 
 ## What is the Oxford Cambridge Arc?
 
-The Oxford Cambridge Arc in a region in south central England that runs between Oxford and Cambridge via Milton Keynes and four major settlements including Cambridgeshire, Bedfordshire, Buckinghamshire and Oxfordshire. It is home to 3.7 million people, generating over 2 million jobs and contributing over £110 billion of annual Gross Value Added (GVA) to the UK economy per year. The area also contains some of the fastest growing and most productive towns and cities in the UK.
+The Oxford Cambridge Arc is a region in south central England that runs between Oxford and Cambridge via Milton Keynes, covering Cambridgeshire, Peterborough, Northamptonshire, Bedfordshire, Buckinghamshire and Oxfordshire. It is home to 3.7 million people, generating over 2 million jobs and contributing over £110 billion of annual Gross Value Added (GVA) to the UK economy per year. The area also contains some of the fastest growing and most productive towns and cities in the UK.
 
 [div]
   [Inline]
@@ -35,7 +37,7 @@ The Oxford Cambridge Arc in a region in south central England that runs between 
     [h4 className:"inputLabel"]Transport[/h4]
     [Select value:selectedTransport
       options:`[
-        {value: "rail", label:"Rails and Stations"},
+        {value: "rail", label:"Railways and Stations"},
         {value: "roads", label:"Roads"}
       ]`
       className: "customSelect"
@@ -69,59 +71,59 @@ The Oxford Cambridge Arc in a region in south central England that runs between 
 
 ## Future Development Scenarios
 
-A report published in 2018 by the National Infrastructure Commission outlined
-substantial plans to increase access and connectivity to the Arc area by 2050.
-This vision includes one million new homes across the Arc and major improvements
-to rail routes. Through computer-based simulations, researchers at the University of Oxford and Newcastle University explored possible futures of the Arc in order to learn more about how this vision would impact the built and natural environment.
+A report published in 2018 by the National Infrastructure Commission outlined substantial plans to increase access and connectivity within the Arc area by 2050. This vision includes one million new homes across the Arc, major improvements to rail routes, and potentially an East-West Expressway road.
 
-Two scenarios were identified to guide the broad location of new land    development.
+Through computer-based simulations, researchers at the University of Oxford and Newcastle University explored possible futures of the Arc in order to learn more about how this vision would impact the built and natural environment.
 
+Two scenarios were identified to guide the broad location of new urban development.
 
-### Existing Expansion
-- Location of development near **existing development**, with **good access** to existing employment by road or rail
-- Allow some building on **green belt land** to allow for expansion
+### Expansion of existing settlements
+- Location of development near **existing settlements**, with **good access** to existing employment by road or rail
+- Allow some building on **green belt land** around existing settlements
 
 ### New Settlements
 - Focussed on **new centres**, around future **rail stations**
 
-Two additional scenarios were identified to vary the attractiveness and constraints that may have environmental benefits.
+Two additional scenarios were identified to vary the environmental impacts of new development. These affect the attractors and constraints that govern the choice of areas selected for development by the model.
 
 ### Grey
-- **Relatively more** weight given to proximity to roads, access to employment by road
-- **Relatively less** weight given to avoid losing natural capital
-- **Core constraints** not to build on ancient woodland, flood plains, areas of very high natural capital
+- **Relatively more** weight given to proximity to roads and access to employment by road as attractors for development
+- **Relatively less** weight given to avoiding the loss of natural capital
+- **Core constraints** not to build on ancient woodland, flood risk zones, or areas of very high natural capital
 
 ### Green
-- **Relatively more** weight given to proximity to stations, access to employment by rail
-- **Relatively more** weight given to avoid losing natural capital
-- **Additional constraints** not to build on nature recovery networks
+- **Relatively more** weight given to proximity to stations and access to employment by railas attractors for development
+- **Relatively more** weight given to avoiding the loss of natural capital
+- **Additional constraints** not to build within areas identified as nature recovery networks
 
 
-[h3 className:"imageCaption"]
-**Four Future Scenarios**
+[div className:"imageCaption"]
+
+### Four Future Scenarios
 
 In combination, this gives four extremes to explore:
-1. Existing Expansion, Grey
-2. Existing Expansion, Green
+1. Expansion of existing settlements, Grey
+2. Expansion of existing settlements, Green
 3. New Settlements, Grey
 4. New Settlements, Green
-[/h3]
+[/div]
 
 ## The Urban Modelling Process
 
-Based on the theories and assumptions identified for each scenario, a series of urban modelling steps were applied to simulate the outcomes each would have on future development.
+Based on the assumptions identified for each scenario, a series of urban modelling steps were applied to simulate the outcomes each would have on future development.
 
-[h3 className:"imageCaption"]
-**Seven Urban Modelling Steps:**
+[div className:"imageCaption"]
+
+### Seven Urban Modelling Steps:
 
 1. Identify elements of the built and natural environment at a 100m grid scale
-2. Develop scenarios of major features that will influence the nature of new development
-3. Calculate attractiveness scores for new development
-4. Identify constraints
-5. Explore different target densities for different categories of building development
-6. Allocate future development, subject to attractors, constraints and density
-7. Calculate metrics to evaluate the new development scenarios
-[/h3]
+2. Develop scenarios of major factors that will influence the nature of new development
+3. Calculate attractiveness scores for potential new development locations
+4. Identify constraints, limiting areas for new development
+5. Explore target housing densities for different categories of building development
+6. Allocate future development locations, subject to attractors, constraints and density
+7. Calculate metrics to evaluate the impact of the new development scenarios
+[/div]
 
 
 [var name:"processStep" value:0 /]
@@ -141,14 +143,13 @@ Based on the theories and assumptions identified for each scenario, a series of 
   [StepperControl /]
 [/Stepper]
 
-[h3 className:"imageCaption"]
+[div className:"imageCaption"]
 [Conditional if:`processStep === 0`]
-  The **blue grid cells** represent the density of existing urban land features (e.g. residential buildings). Areas with more dwellings will have a higher density. The **green grids cells** represent the value of non-urban land features based on the ecosystem services needed to help maintain it. For example, a verge by a road has value for flood protection, air quality, and recreation.
+  The **blue grid cells** represent the density of existing urban land features (e.g. residential buildings). Areas with more dwellings will have a higher housing density. The **green grid cells** represent the value of non-urban land and water features based on the ecosystem services that they could supply, such as flood protection, air quality, carbon storage, food production and recreation.
 [/Conditional]
 
 [Conditional if:`processStep === 1`]
-  The **red features** represents new development where there is a location in place to test assumptions (i.e., new rail stations, road nodes, settlement centres). At this stage, individual homes are excluded because we do not yet know where they will be
-  distributed.
+  The **red features** represent new development where there is a location in place to test assumptions (i.e., new rail stations, road nodes, settlement centres). At this stage, individual homes are excluded because we do not yet know where they will be distributed.
 [/Conditional]
 
 [Conditional if:`processStep === 2`]
@@ -164,16 +165,16 @@ Based on the theories and assumptions identified for each scenario, a series of 
 [/Conditional]
 
 [Conditional if:`processStep === 5`]
-  The **red features** represents the final predicted development that will take place. The higher density areas that are most suitable for development are allocated first.
+  The **red grid cells** represent the final predicted development that will take place. The areas that are most suitable for development are allocated first.
 [/Conditional]
 
 [Conditional if:`processStep === 6`]
   The coloured graphs represent the conclusions presented to government authorities and planners who can then make informed decisions about urban development.
 [/Conditional]
-[/h3]
+[/div]
 
 
-When applying each step to the Arc scenarios, a series of maps were produced to help visualise the outputs along the way. To highlight the level of detail of outputs produced at a 100m grid scale, each step below will compare images for three scales zooming in from the Arc, to city, and neighbourhood level.
+When applying each step to the Arc scenarios, a series of maps were produced at a 100m grid scale to help visualise the outputs. To highlight the level of detail, each step below will compare images for three scales zooming in from the Arc, to city, and neighbourhood level.
 
 [var name:"scenario" value: "grey_exp" /]
 [var name:"selectedZoom" value: "arc" /]
@@ -203,7 +204,7 @@ When applying each step to the Arc scenarios, a series of maps were produced to 
   [h4 className:"inputLabel"]Ecosystem services[/h4]
   [Select value:selectedNatCap
     options:`[
-      {value: "combined", label: "Maximum values (food and all other)"},
+      {value: "combined", label: "Maximum values (food in red, others in green)"},
       {value: "aesthetic", label: "Aesthetic value"},
       {value: "airquality", label: "Air quality"},
       {value: "carbon", label: "Carbon capture and storage"},
@@ -228,10 +229,10 @@ When applying each step to the Arc scenarios, a series of maps were produced to 
 
 [img src: `"./static/images/natcap/natcap_" + selectedNatCap + "_" + selectedZoom + ".png"` /]
 
-This map shows some of the different kinds of value as **ecosystem services** that we receive from all sorts of natural and cultivated green uses of land (e.g. parks, grasslands, roadside verges, fields or ancient woodlands).
+This map shows some of the different **ecosystem services** that we receive from all sorts of natural and cultivated land and water, including farmland, grasslands, woodlands, water bodies, urban parks, allotments and even roadside verges. For most of the maps, areas that deliver higher levels of the service are shown in darker shades of green. The 'Maximum values' map shows the best areas for food production in red and the best areas for the other ecosystem services in shades of green.
 
 
-[h2 className:"stepTitle"]Step 2: Develop scenarios of major features that will influence the nature of new development[/h2]
+[h2 className:"stepTitle"]Step 2: Develop scenarios of major factors that will influence the nature of new development[/h2]
 
 [var name:"selectedFutureTransport" value:"futureStations" /]
 [div className: "inputComponent"]
@@ -247,10 +248,10 @@ This map shows some of the different kinds of value as **ecosystem services** th
 
 [ArcFuture selectedFutureTransport:selectedFutureTransport /]
 
-Major features of future development include new rail and stations, roads, and settlements. Proposed new developments include new stations and rail links as part of **East West Rail (EWR)** that will link Oxford and Cambridge. In the New Settlements scenario, **five new settlement centres** are picked to be centred on potential station locations.
+Major factors affecting the location of future housing development include the locations of new railways, railway stations, roads, and existing settlements. Proposed new transport infrastructure includes new stations and rail links as part of **East West Rail (EWR)** that will link Oxford and Cambridge. In the New Settlements scenario, **five new settlement centres** are assumed to be centred on potential new railway station locations.
 
 
-[h2 className:"stepTitle"]Step 3.Calculate attractiveness scores for new development[/h2]
+[h2 className:"stepTitle"]Step 3. Calculate attractiveness scores for potential new development[/h2]
 
 [div]
   [Inline]
@@ -287,10 +288,10 @@ Major features of future development include new rail and stations, roads, and s
 
 [img src: `"./static/images/attractors/attractor_" + selectedAttractors + "_" + selectedZoom + ".png"`  /]
 
-The map shows the **level of attractiveness** of location in the Arc. Attractors are things that may make somewhere relatively more attractive, as a place to live or as a place to build housing (e.g. proximity (distance) or accessibility to transport hubs and jobs, or with relatively lower ecosystem services that may be lost if an area is developed).
+The map shows various ways of calculating the **level of attractiveness** of potential locations for new housing development in the Arc. Attractors are factors that may make somewhere relatively more attractive as a place to build housing, such as proximity (distance) or accessibility to transport hubs and jobs, or lower ecosystem service scores, meaning that fewer ecosystem services may be lost if an area is developed.
 
 
-[h2 className:"stepTitle"]Step 4: Identify constraints[/h3]
+[h2 className:"stepTitle"]Step 4: Identify constraints[/div]
 
 [div]
   [Inline]
@@ -311,8 +312,8 @@ The map shows the **level of attractiveness** of location in the Arc. Attractors
     [div className: "inputComponent"]
     [Select value: scenario
       options:`[
-        {value: "grey_exp", label: "Existing Expansion Grey"},
-        {value: "green_exp", label: "Existing Expansion Green"},
+        {value: "grey_exp", label: "Expansion Grey"},
+        {value: "green_exp", label: "Expansion Green"},
         {value: "green_set", label: "New Settlements Green"},
         {value: "grey_set", label: "New Settlements Grey"},
       ]`
@@ -327,7 +328,7 @@ The map shows the **level of attractiveness** of location in the Arc. Attractors
 This map shows the combined attractiveness scores for each scenario, and masks out (in white, with attractiveness equal to zero) areas **where development should be restricted**. These constraints are included to protect nature, wildlife, historical landmarks, and areas which are not feasible to develop.
 
 
-[h2 className:"stepTitle"]Step 5. Explore different target densities for different categories of building development[/h2]
+[h2 className:"stepTitle"]Step 5. Explore target housing densities for different categories of building development[/h2]
 
 [div]
   [Inline]
@@ -348,8 +349,8 @@ This map shows the combined attractiveness scores for each scenario, and masks o
     [div className: "inputComponent"]
     [Select value: scenario
       options:`[
-        {value: "grey_exp", label: "Existing Expansion Grey"},
-        {value: "green_exp", label: "Existing Expansion Green"},
+        {value: "grey_exp", label: "Expansion Grey"},
+        {value: "green_exp", label: "Expansion Green"},
         {value: "green_set", label: "New Settlements Green"},
         {value: "grey_set", label: "New Settlements Grey"},
       ]`
@@ -361,9 +362,9 @@ This map shows the combined attractiveness scores for each scenario, and masks o
 
 [img src: `"./static/images/density/density_" + scenario + "_" + selectedZoom + ".png"`  /]
 
-This map shows different possible **target densities** for any new development across the Arc. For example, in **New Settlements** scenarios, there are **high density zones around new centres** and in **Green** scenarios there is a minimum density for any new development.
+This map shows possible **target housing densities** for any new developmentacross the Arc. For example, in **New Settlements** scenarios, there are **high density zones around new centres** and in **Green** scenarios there is a minimum housing density for any new development, in order to reduce the amount of land needed for a given number of houses.
 
-[h2 className:"stepTitle"]Step 6. Allocate future development, subject to attractors, constraints and density[/h2]
+[h2 className:"stepTitle"]Step 6. Allocate future development locations, subject to attractors, constraints and density[/h2]
 
 [div]
   [Inline]
@@ -384,8 +385,8 @@ This map shows different possible **target densities** for any new development a
     [div className: "inputComponent"]
     [Select value:scenario
       options:`[
-        {value: "grey_exp", label: "Existing Expansion Grey"},
-        {value: "green_exp", label: "Existing Expansion Green"},
+        {value: "grey_exp", label: "Expansion Grey"},
+        {value: "green_exp", label: "Expansion Green"},
         {value: "green_set", label: "New Settlements Green"},
         {value: "grey_set", label: "New Settlements Grey"},
       ]`
@@ -422,17 +423,17 @@ This map shows different possible **target densities** for any new development a
 
 [img src: `"./static/images/dwellings/dwellings_" + scenario + "_" + bldScenario + "_" + year + "_" + selectedZoom + ".png"`  /]
 
-The final map shows the **scenarios of future development** that will take place in the Arc, given different assumptions about how many houses are build in the region up to 2030 or 2050, following our four scenarios which set up combinations of attractors, constraints and density.
+The final map shows the **scenarios of future development** that will take place in the Arc, given different assumptions about how many houses are built in the region up to 2030 or 2050, following the four scenarios which set up combinations of attractors, constraints and housing density.
 
 
 [h2 className:"stepTitle"]**Step 7.** Calculate metrics to evaluate the new development scenarios[/h2]
 
-While simulations cannot capture every nuance about the future built environment, analyzing and visualising the trade-offs can help planners and policy-makers make informed decisions. The following graphs show the summary of results for both land development and ecosystem services that will be impacted for each of the four scenarios explored.
+While simulations cannot capture every nuance about the future built environment, analysing and visualising the trade-offs can help planners and policy-makers make informed decisions. The following charts show the summary of results for both the area of land developed and the impact on ecosystem services for each of the four scenarios explored.
 
 
-[h3 className:"stepTitle"]**Land taken for development**[/h3]
+[h3 className:"stepTitle"]Land taken for development[/h3]
 
-The bar chart shows the land taken for development in each scenario.
+The bar chart shows the area of land taken for development in each scenario.
 
 [data name:'metricsLand' source:'metricsLand.csv' /]
 [IdyllVegaLite data:metricsLand spec:`{
@@ -459,16 +460,18 @@ The bar chart shows the land taken for development in each scenario.
   },
 }` /]
 
-[h3 className:"imageCaption"]**Summary for land development**
+[div className:"imageCaption"]
 
-- When comparing **Expansion vs. New Settlements**, there is not a major difference in total land take - though the location of development is very different. In the Expansion scenario, developments sprawl around existing urban areas, whereas in New Settlements there are new high density centres.
-- When comparing **Grey vs. Green**, the Green scenario takes less land because it assumes a higher density of all new development.
-[/h3]
+### Summary of land taken for development
+
+- When comparing **Expansion vs. New Settlements**, there is not a major difference in total land take - though the location of development is very different. In the Expansion scenario, developments sprawl around existing urban areas, whereas in New Settlements there are new high density centres, so a little less land is taken overall.
+- When comparing **Grey vs. Green**, the Green scenario takes less land because it assumes a higher housing density for all new development.
+[/div]
 
 
-[h3 className:"stepTitle"]**Ecosystem service impact**[/h3]
+[h3 className:"stepTitle"]Ecosystem service impact[/h3]
 
-The grouped bar chart shows the potential impacts on the ecosystem, given the locations identified for development and the ecosystem services currently provided by those places.
+The grouped bar chart shows the potential impacts on ecosystem services, given the locations identified for development and the ecosystem services currently provided by those places.
 
 [data name:'metricsEco' source:'metricsEcosystem.csv' /]
 [IdyllVegaLite data:metricsEco spec:`{
@@ -501,13 +504,15 @@ The grouped bar chart shows the potential impacts on the ecosystem, given the lo
   },
 }` /]
 
-[h3 className:"imageCaption"]**Summary for ecosystem services**
+[div className:"imageCaption"]
 
-- **Water supply** services are more significantly affected across all scenarios. It could be beneficial to introduce more constraints in new scenarios which would protect water supply ecosystem services.
-- For **water supply** and **food production**, there is a higher impact in New Settlements scenarios, which may depend on the choice of where to focus the new settlement centres.
-- **Recreation** is more affected in Expansion scenarios, possibly because recreational activities tend to happen outside of city centres, so if you build on the edge of town, you might also reduce recreational spaces.
-- **Green has less impact** on the ecosystem overall than grey, because of the additional constraints and higher density.
-[/h3]
+### Summary of impact on ecosystem services
+
+- **Water supply** services are significantly affected across all scenarios, because of the construction of a large area of sealed surfaces. This impact could be reduced by building sustainable drainage systems into new developments, for example capturing rainwater in ponds and rain gardens.
+- For **water supply** and **food production**, there is a higher impact in the New Settlements scenarios, because the new settlement centres are in higher quality farmland areas with few woodlands.
+- **Recreation** is more affected in the Expansion scenarios, because of the potential loss of recreational spaces around the outskirts of existing towns.
+- **The Green scenarios have less impact** on ecosystem services overall, because of the additional constraints and higher density. They avoid development that will damage our most valuable assets such as native woodlands, high quality farmland and the proposed nature recovery networks. The higher housing density reduces the total area lost to development.
+[/div]
 
 
 ## Acknowledgements
@@ -517,8 +522,11 @@ This work has been carried out by researchers at the University of Oxford and Ne
 The [a href:"https://github.com/geospatialncl/OpenUDM/"]Urban Development Model[/a] (UDM) was used to produce the results presented here. The [a href:"https://github.com/nismod/natural-capital-mapping"]Natural Capital Mapping[/a] toolkit was used to assess ecosystem services.
 
 - Heidi Mok, Visualisation design and development
-- Tom Russell, Maps and visualisation
+- Tom Russell, Maps and visualisation, scenario development
 - James Virgo, Urban development modelling
 - Alison Smith, Ecosystem services assessment
-- Jim Hall, Discussion and feedback
-- Alistair Ford, Discussion and feedback
+- Jim Hall, Discussion, feedback and scenario development
+- Alistair Ford, Discussion, feedback and scenario development
+
+
+[/article]
